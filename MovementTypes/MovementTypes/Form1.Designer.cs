@@ -38,7 +38,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.tooltip = new System.Windows.Forms.ToolTip(this.components);
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,12 +45,13 @@
             // 
             this.movementTypeList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.movementTypeList.FormattingEnabled = true;
+            this.movementTypeList.HorizontalScrollbar = true;
             this.movementTypeList.ItemHeight = 20;
             this.movementTypeList.Location = new System.Drawing.Point(10, 10);
             this.movementTypeList.Name = "movementTypeList";
-            this.movementTypeList.ScrollAlwaysVisible = true;
             this.movementTypeList.Size = new System.Drawing.Size(150, 404);
             this.movementTypeList.TabIndex = 0;
+            this.movementTypeList.SelectedIndexChanged += new System.EventHandler(this.movementTypeList_SelectedIndexChanged);
             // 
             // addMovementType
             // 
@@ -75,7 +75,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.checkBox1);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.validTileList);
             this.groupBox1.Controls.Add(this.label1);
@@ -124,16 +123,6 @@
             // 
             this.tooltip.ToolTipTitle = "Name";
             // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(241, 32);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(109, 17);
-            this.checkBox1.TabIndex = 6;
-            this.checkBox1.Text = "Stopped by forest";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -163,7 +152,6 @@
         private System.Windows.Forms.ToolTip tooltip;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckedListBox validTileList;
-        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
 

@@ -1,0 +1,106 @@
+Item definitions
+Name
+Type
+     ItemBase
+          Max stack
+          Sell price
+          Flavor text
+     Equippable : Base
+          Slot
+          Weapon Type (If weapon)
+          Stats (List)
+          Effects
+               Trigger
+               SkillPart (Effect that gets triggered)
+               maxTimesPerBattle
+               turnCD
+               maxActiveTurns
+     BattleItem : Base
+          usableOutOfBattle
+          Effects (SkillParts)
+
+Movement types
+Name
+List of valid tiles and whether they're limited movement
+Move speed
+
+Weapon types
+Name
+Attack ranges
+Diagonal ranges
+     distance
+     ranged (bool)
+     DamageType (magical or physical)
+     heals (bool)
+     multiplier
+
+Enemy definitions
+Name
+Stat bases (Health, atk, def, mAtk, mDef, crit)
+Move type
+Skill trees
+Stat scaling (Health, atk, def, mAtk, mDef)
+packVar
+packVar variance
+aggro
+aggro variance
+
+Player templates
+Name
+Stat bases (Health, atk, def, mAtk, mDef, crit)
+Level
+moveType
+Skill trees
+Stat scaling (Health, atk, def, mAtk, mDef)
+
+Tile effects
+Name
+Dictionary
+     MoveTrigger
+     SkillPartBase
+
+Skill parts:
+
+Base
+targetType
+chance (1-100)
+
+AddTriggerPart
+TriggeredEffects
+     Trigger
+     Effects (list)
+maxTimesPerBattle
+TurnCD
+maxActiveTurns
+
+DamagePart
+damageType
+damage
+flatDamage
+maxHPDamage (0-100)
+remainingHPDamage(0-100)
+modifiedByValue
+
+HealPart
+healing
+flatHealing
+maxHPHealing (0-100)
+modifiedByValue
+
+MovePart
+direction
+amount
+forced
+
+StatChangePart
+Stat
+flatChange
+multiplier
+duration
+
+StatusEffectPart
+status
+remove or add
+
+UniquePart
+UniqueEffect (AAAAAAHHHHHH only MoveAgain)
