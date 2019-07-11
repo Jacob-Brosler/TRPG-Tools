@@ -1,7 +1,7 @@
 Item definitions
-Name
 Type
      ItemBase
+	  Name
           Max stack
           Sell price
           Flavor text
