@@ -22,4 +22,11 @@ public class EnemyType
     public int defGrowth;
     public int mDefGrowth;
     public int healthGrowth;
+
+    public int aggroMean;
+    public float aggroDist;
+    public int packMean;
+    public float packDist;
+
+    //Add equipment and skills
 }

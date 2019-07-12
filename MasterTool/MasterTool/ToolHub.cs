@@ -67,7 +67,11 @@ namespace MasterTool
 
         private void Save_Click(object sender, EventArgs e)
         {
-            DataStorage.Save();
+            if (MessageBox.Show("Warning: Saving any changes that affect an object currently in use in a save file can corrupt the save. Please exercise caution.",
+                "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+            {
+                DataStorage.Save();
+            }
         }
     }
 }

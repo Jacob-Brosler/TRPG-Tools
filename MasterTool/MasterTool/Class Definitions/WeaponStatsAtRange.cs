@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+public enum DamageType
+{
+    Physical,
+    Magical
+}
+
 /// <summary>
 /// Some weapons have different stats or effects based on how far away the pawn being hit is
 /// </summary>
