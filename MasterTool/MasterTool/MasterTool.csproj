@@ -45,6 +45,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class Definitions\AddTriggerPart.cs" />
+    <Compile Include="Class Definitions\DamagePart.cs" />
+    <Compile Include="Class Definitions\EnemyType.cs" />
+    <Compile Include="Class Definitions\HealingPart.cs" />
+    <Compile Include="Class Definitions\ItemTypeDefinitions.cs" />
+    <Compile Include="Class Definitions\MovementType.cs" />
+    <Compile Include="Class Definitions\MovePart.cs" />
+    <Compile Include="Class Definitions\SkillPartBase.cs" />
+    <Compile Include="Class Definitions\StatChangePart.cs" />
+    <Compile Include="Class Definitions\StatusEffectDefinition.cs" />
+    <Compile Include="Class Definitions\StatusEffectPart.cs" />
+    <Compile Include="Class Definitions\TemporaryEffectData.cs" />
+    <Compile Include="Class Definitions\TileEffects.cs" />
+    <Compile Include="Class Definitions\TriggeredEffect.cs" />
+    <Compile Include="Class Definitions\UniqueEffectPart.cs" />
+    <Compile Include="Class Definitions\WeaponStatsAtRange.cs" />
+    <Compile Include="Class Definitions\WeaponType.cs" />
     <Compile Include="DataStorage.cs" />
     <Compile Include="Tools\EnemyDefinitionsTool.cs">
       <SubType>Form</SubType>
@@ -142,8 +159,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Class Definitions\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
