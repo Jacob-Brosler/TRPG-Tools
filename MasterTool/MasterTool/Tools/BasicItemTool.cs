@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MasterTool.Tools
 {
-    public partial class ItemDefinitionsTool : Form
+    public partial class BasicItemTool : Form
     {
-        public ItemDefinitionsTool()
+        public BasicItemTool()
         {
             InitializeComponent();
         }

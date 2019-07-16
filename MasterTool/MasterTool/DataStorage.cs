@@ -7,6 +7,14 @@ using System.Windows.Forms;
 
 namespace MasterTool
 {
+    public enum MoveTriggers
+    {
+        StartOfTurn,
+        PassOver,
+        StopOnTile,
+        EndOfTurn
+    }
+
     static class DataStorage
     {
         private static string savePoint;
@@ -20,7 +28,7 @@ namespace MasterTool
         //List of information on all status effects
         public static IDictionary<string, StatusEffectDefinition> StatusEffectRegistry = new Dictionary<string, StatusEffectDefinition>();
         //List of all of the default effects a tile has. First is what happens when a pawn passes over the tile, Second is what happens when they are on it at the end of the turn
-        public static IDictionary<string, TileEffects> DefaultTileEffects = new Dictionary<string, TileEffects>();
+        public static IDictionary<string, Dictionary<MoveTriggers, SkillPartBase>> DefaultTileEffects = new Dictionary<string, Dictionary<MoveTriggers, SkillPartBase>>();
 
         public static void Load()
         {

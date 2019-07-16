@@ -57,7 +57,6 @@
     <Compile Include="Class Definitions\StatusEffectDefinition.cs" />
     <Compile Include="Class Definitions\SkillParts\StatusEffectPart.cs" />
     <Compile Include="Class Definitions\TemporaryEffectData.cs" />
-    <Compile Include="Class Definitions\TileEffects.cs" />
     <Compile Include="Class Definitions\TriggeredEffect.cs" />
     <Compile Include="Class Definitions\SkillParts\UniqueEffectPart.cs" />
     <Compile Include="Class Definitions\WeaponStatsAtRange.cs" />
@@ -69,11 +68,11 @@
     <Compile Include="Tools\EnemyDefinitionsTool.Designer.cs">
       <DependentUpon>EnemyDefinitionsTool.cs</DependentUpon>
     </Compile>
-    <Compile Include="Tools\ItemDefinitionsTool.cs">
+    <Compile Include="Tools\BasicItemTool.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Tools\ItemDefinitionsTool.Designer.cs">
-      <DependentUpon>ItemDefinitionsTool.cs</DependentUpon>
+    <Compile Include="Tools\BasicItemTool.Designer.cs">
+      <DependentUpon>BasicItemTool.cs</DependentUpon>
     </Compile>
     <Compile Include="ToolHub.cs">
       <SubType>Form</SubType>
@@ -116,8 +115,8 @@
     <EmbeddedResource Include="Tools\EnemyDefinitionsTool.resx">
       <DependentUpon>EnemyDefinitionsTool.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Tools\ItemDefinitionsTool.resx">
-      <DependentUpon>ItemDefinitionsTool.cs</DependentUpon>
+    <EmbeddedResource Include="Tools\BasicItemTool.resx">
+      <DependentUpon>BasicItemTool.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ToolHub.resx">
       <DependentUpon>ToolHub.cs</DependentUpon>

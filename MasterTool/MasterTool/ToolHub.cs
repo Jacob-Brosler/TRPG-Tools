@@ -25,7 +25,7 @@ namespace MasterTool
 
         private void ItemDefinitions_Click(object sender, EventArgs e)
         {
-            ItemDefinitionsTool itemScreen = new ItemDefinitionsTool();
+            BasicItemTool itemScreen = new BasicItemTool();
 
             itemScreen.ShowDialog(this);
         }
