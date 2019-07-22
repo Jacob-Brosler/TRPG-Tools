@@ -52,7 +52,7 @@
     <Compile Include="Class Definitions\ItemTypeDefinitions.cs" />
     <Compile Include="Class Definitions\MovementType.cs" />
     <Compile Include="Class Definitions\SkillParts\MovePart.cs" />
-    <Compile Include="Class Definitions\SkillPartBase.cs" />
+    <Compile Include="Class Definitions\SkillParts\SkillPartBase.cs" />
     <Compile Include="Class Definitions\SkillParts\StatChangePart.cs" />
     <Compile Include="Class Definitions\StatusEffectDefinition.cs" />
     <Compile Include="Class Definitions\SkillParts\StatusEffectPart.cs" />
