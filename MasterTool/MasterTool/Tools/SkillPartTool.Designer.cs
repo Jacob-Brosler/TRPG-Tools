@@ -35,18 +35,18 @@
             this.chance = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.addTriggerBox = new System.Windows.Forms.GroupBox();
+            this.removeEffect = new System.Windows.Forms.Button();
+            this.addEffect = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.effectList = new System.Windows.Forms.ListBox();
             this.activeTurnCount = new System.Windows.Forms.NumericUpDown();
             this.activeTurns = new System.Windows.Forms.CheckBox();
             this.cooldownCount = new System.Windows.Forms.NumericUpDown();
             this.turnCD = new System.Windows.Forms.CheckBox();
             this.timesPerBattle = new System.Windows.Forms.CheckBox();
             this.timesPerBattleCount = new System.Windows.Forms.NumericUpDown();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.addTriggerTrigger = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.effectList = new System.Windows.Forms.ListBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.addEffect = new System.Windows.Forms.Button();
-            this.removeEffect = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.chance)).BeginInit();
             this.addTriggerBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.activeTurnCount)).BeginInit();
@@ -70,6 +70,7 @@
             this.typeSelector.Size = new System.Drawing.Size(121, 21);
             this.typeSelector.TabIndex = 0;
             this.typeSelector.Text = "Add Trigger";
+            this.typeSelector.SelectedIndexChanged += new System.EventHandler(this.typeSelector_SelectedIndexChanged);
             // 
             // targetType
             // 
@@ -144,7 +145,7 @@
             this.addTriggerBox.Controls.Add(this.turnCD);
             this.addTriggerBox.Controls.Add(this.timesPerBattle);
             this.addTriggerBox.Controls.Add(this.timesPerBattleCount);
-            this.addTriggerBox.Controls.Add(this.comboBox1);
+            this.addTriggerBox.Controls.Add(this.addTriggerTrigger);
             this.addTriggerBox.Controls.Add(this.label4);
             this.addTriggerBox.Location = new System.Drawing.Point(139, 12);
             this.addTriggerBox.Name = "addTriggerBox";
@@ -152,6 +153,41 @@
             this.addTriggerBox.TabIndex = 6;
             this.addTriggerBox.TabStop = false;
             this.addTriggerBox.Text = "Add Trigger Effect";
+            // 
+            // removeEffect
+            // 
+            this.removeEffect.Location = new System.Drawing.Point(69, 208);
+            this.removeEffect.Name = "removeEffect";
+            this.removeEffect.Size = new System.Drawing.Size(58, 23);
+            this.removeEffect.TabIndex = 16;
+            this.removeEffect.Text = "-";
+            this.removeEffect.UseVisualStyleBackColor = true;
+            // 
+            // addEffect
+            // 
+            this.addEffect.Location = new System.Drawing.Point(6, 208);
+            this.addEffect.Name = "addEffect";
+            this.addEffect.Size = new System.Drawing.Size(57, 23);
+            this.addEffect.TabIndex = 15;
+            this.addEffect.Text = "+";
+            this.addEffect.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 73);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(40, 13);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Effects";
+            // 
+            // effectList
+            // 
+            this.effectList.FormattingEnabled = true;
+            this.effectList.Location = new System.Drawing.Point(6, 88);
+            this.effectList.Name = "effectList";
+            this.effectList.Size = new System.Drawing.Size(120, 121);
+            this.effectList.TabIndex = 7;
             // 
             // activeTurnCount
             // 
@@ -224,10 +260,10 @@
             0,
             0});
             // 
-            // comboBox1
+            // addTriggerTrigger
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.addTriggerTrigger.FormattingEnabled = true;
+            this.addTriggerTrigger.Items.AddRange(new object[] {
             "Fall Below 25%",
             "Fall Below 50%",
             "Rise Above 25%",
@@ -251,10 +287,10 @@
             "Start of Turn",
             "End of Turn",
             "End of Match"});
-            this.comboBox1.Location = new System.Drawing.Point(6, 32);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 1;
+            this.addTriggerTrigger.Location = new System.Drawing.Point(6, 32);
+            this.addTriggerTrigger.Name = "addTriggerTrigger";
+            this.addTriggerTrigger.Size = new System.Drawing.Size(121, 21);
+            this.addTriggerTrigger.TabIndex = 1;
             // 
             // label4
             // 
@@ -264,41 +300,6 @@
             this.label4.Size = new System.Drawing.Size(40, 13);
             this.label4.TabIndex = 0;
             this.label4.Text = "Trigger";
-            // 
-            // effectList
-            // 
-            this.effectList.FormattingEnabled = true;
-            this.effectList.Location = new System.Drawing.Point(6, 88);
-            this.effectList.Name = "effectList";
-            this.effectList.Size = new System.Drawing.Size(120, 121);
-            this.effectList.TabIndex = 7;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 73);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(40, 13);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "Effects";
-            // 
-            // addEffect
-            // 
-            this.addEffect.Location = new System.Drawing.Point(6, 208);
-            this.addEffect.Name = "addEffect";
-            this.addEffect.Size = new System.Drawing.Size(57, 23);
-            this.addEffect.TabIndex = 15;
-            this.addEffect.Text = "+";
-            this.addEffect.UseVisualStyleBackColor = true;
-            // 
-            // removeEffect
-            // 
-            this.removeEffect.Location = new System.Drawing.Point(69, 208);
-            this.removeEffect.Name = "removeEffect";
-            this.removeEffect.Size = new System.Drawing.Size(58, 23);
-            this.removeEffect.TabIndex = 16;
-            this.removeEffect.Text = "-";
-            this.removeEffect.UseVisualStyleBackColor = true;
             // 
             // SkillPartTool
             // 
@@ -314,6 +315,7 @@
             this.Controls.Add(this.typeSelector);
             this.Name = "SkillPartTool";
             this.Text = "Skill Part";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SkillPartTool_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.chance)).EndInit();
             this.addTriggerBox.ResumeLayout(false);
             this.addTriggerBox.PerformLayout();
@@ -332,7 +334,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.NumericUpDown chance;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.GroupBox addTriggerBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.NumericUpDown activeTurnCount;
         private System.Windows.Forms.CheckBox activeTurns;
@@ -340,10 +341,11 @@
         private System.Windows.Forms.CheckBox turnCD;
         private System.Windows.Forms.CheckBox timesPerBattle;
         private System.Windows.Forms.NumericUpDown timesPerBattleCount;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox addTriggerTrigger;
         private System.Windows.Forms.Button removeEffect;
         private System.Windows.Forms.Button addEffect;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ListBox effectList;
+        private System.Windows.Forms.GroupBox addTriggerBox;
     }
 }
