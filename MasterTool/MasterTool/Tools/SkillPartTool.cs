@@ -12,7 +12,7 @@ namespace MasterTool.Tools
 {
     public partial class SkillPartTool : Form
     {
-        public SkillPartBase returnSkill;
+        public SkillPartBase returnEffect;
         private GroupBox[] panels;
 
         public SkillPartTool()
@@ -29,12 +29,16 @@ namespace MasterTool.Tools
             switch (typeSelector.SelectedItem)
             {
                 case "Add Trigger":
-                    returnSkill = new AddTriggerPart((TargettingType)targetType.SelectedIndex, 
+                    returnEffect = new AddTriggerPart((TargettingType)targetType.SelectedIndex, 
                         new TriggeredEffect((EffectTriggers)addTriggerTrigger.SelectedIndex),
                         (timesPerBattle.Checked ? (int)timesPerBattleCount.Value : -1),
                         (turnCD.Checked ? (int)cooldownCount.Value : -1),
                         (activeTurns.Checked ? (int)activeTurnCount.Value : -1),
                         (int)chance.Value);
+                    foreach(SkillPartBase effect in effectList.Items)
+                    {
+                        ((AddTriggerPart)returnEffect).effect.AddEffect(effect);
+                    }
                     break;
             }
         }
@@ -48,6 +52,32 @@ namespace MasterTool.Tools
             {
                 panels[i].Enabled = (i == typeSelector.SelectedIndex);
                 panels[i].Visible = (i == typeSelector.SelectedIndex);
+            }
+        }
+
+        ///
+        /// Add Trigger Effect
+        ///
+
+        private void effectList_DoubleClick(object sender, EventArgs e)
+        {
+            using(SkillPartTool newEffect = new SkillPartTool())
+            {
+                newEffect.Show(this);
+                effectList.Items[effectList.SelectedIndex] = newEffect.returnEffect;
+            }
+        }
+
+        private void addEffect_Click(object sender, EventArgs e)
+        {
+            effectList.Items.Add(new AddTriggerPart(TargettingType.Self, null));
+        }
+
+        private void removeEffect_Click(object sender, EventArgs e)
+        {
+            if (effectList.SelectedIndex != -1 && MessageBox.Show(this, "Are you sure you want to delete this effect? This cannot be undone.", "Warning", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                effectList.Items.RemoveAt(effectList.SelectedIndex);
             }
         }
     }

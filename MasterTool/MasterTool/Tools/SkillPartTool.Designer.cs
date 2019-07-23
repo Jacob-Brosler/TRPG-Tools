@@ -157,20 +157,24 @@
             // removeEffect
             // 
             this.removeEffect.Location = new System.Drawing.Point(69, 208);
+            this.removeEffect.Margin = new System.Windows.Forms.Padding(1);
             this.removeEffect.Name = "removeEffect";
             this.removeEffect.Size = new System.Drawing.Size(58, 23);
             this.removeEffect.TabIndex = 16;
             this.removeEffect.Text = "-";
             this.removeEffect.UseVisualStyleBackColor = true;
+            this.removeEffect.Click += new System.EventHandler(this.removeEffect_Click);
             // 
             // addEffect
             // 
             this.addEffect.Location = new System.Drawing.Point(6, 208);
+            this.addEffect.Margin = new System.Windows.Forms.Padding(1);
             this.addEffect.Name = "addEffect";
             this.addEffect.Size = new System.Drawing.Size(57, 23);
             this.addEffect.TabIndex = 15;
             this.addEffect.Text = "+";
             this.addEffect.UseVisualStyleBackColor = true;
+            this.addEffect.Click += new System.EventHandler(this.addEffect_Click);
             // 
             // label5
             // 
@@ -188,6 +192,7 @@
             this.effectList.Name = "effectList";
             this.effectList.Size = new System.Drawing.Size(120, 121);
             this.effectList.TabIndex = 7;
+            this.effectList.DoubleClick += new System.EventHandler(this.effectList_DoubleClick);
             // 
             // activeTurnCount
             // 
