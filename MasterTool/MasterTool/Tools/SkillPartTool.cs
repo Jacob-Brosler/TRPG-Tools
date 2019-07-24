@@ -18,7 +18,7 @@ namespace MasterTool.Tools
         public SkillPartTool()
         {
             InitializeComponent();
-            panels = new GroupBox[] { addTriggerBox };
+            panels = new GroupBox[] { addTriggerBox, damageEffectBox };
         }
 
         /// <summary>
@@ -39,6 +39,11 @@ namespace MasterTool.Tools
                     {
                         ((AddTriggerPart)returnEffect).effect.AddEffect(effect);
                     }
+                    break;
+                case "Damage":
+                    returnEffect = new DamagePart((TargettingType)targetType.SelectedIndex, (DamageType)damageType.SelectedIndex,
+                        (int)damageValue.Value, (int)flatDamageValue.Value, (int)maxHpPercent.Value, (int)missingHpPercent.Value, 
+                        (int)chance.Value, (int)modifiedByValue.Value);
                     break;
             }
         }

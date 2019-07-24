@@ -47,11 +47,30 @@
             this.timesPerBattleCount = new System.Windows.Forms.NumericUpDown();
             this.addTriggerTrigger = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.damageEffectBox = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.damageValue = new System.Windows.Forms.NumericUpDown();
+            this.label7 = new System.Windows.Forms.Label();
+            this.flatDamageValue = new System.Windows.Forms.NumericUpDown();
+            this.label8 = new System.Windows.Forms.Label();
+            this.maxHpPercent = new System.Windows.Forms.NumericUpDown();
+            this.label9 = new System.Windows.Forms.Label();
+            this.missingHpPercent = new System.Windows.Forms.NumericUpDown();
+            this.modifiedByValue = new System.Windows.Forms.NumericUpDown();
+            this.label10 = new System.Windows.Forms.Label();
+            this.damageType = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.chance)).BeginInit();
             this.addTriggerBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.activeTurnCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cooldownCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timesPerBattleCount)).BeginInit();
+            this.damageEffectBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.damageValue)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.flatDamageValue)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.maxHpPercent)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.missingHpPercent)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.modifiedByValue)).BeginInit();
             this.SuspendLayout();
             // 
             // typeSelector
@@ -135,6 +154,7 @@
             // 
             // addTriggerBox
             // 
+            this.addTriggerBox.Controls.Add(this.damageEffectBox);
             this.addTriggerBox.Controls.Add(this.removeEffect);
             this.addTriggerBox.Controls.Add(this.addEffect);
             this.addTriggerBox.Controls.Add(this.label5);
@@ -306,6 +326,146 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Trigger";
             // 
+            // damageEffectBox
+            // 
+            this.damageEffectBox.Controls.Add(this.label11);
+            this.damageEffectBox.Controls.Add(this.damageType);
+            this.damageEffectBox.Controls.Add(this.label10);
+            this.damageEffectBox.Controls.Add(this.modifiedByValue);
+            this.damageEffectBox.Controls.Add(this.missingHpPercent);
+            this.damageEffectBox.Controls.Add(this.label9);
+            this.damageEffectBox.Controls.Add(this.maxHpPercent);
+            this.damageEffectBox.Controls.Add(this.label8);
+            this.damageEffectBox.Controls.Add(this.flatDamageValue);
+            this.damageEffectBox.Controls.Add(this.label7);
+            this.damageEffectBox.Controls.Add(this.damageValue);
+            this.damageEffectBox.Controls.Add(this.label6);
+            this.damageEffectBox.Location = new System.Drawing.Point(0, 0);
+            this.damageEffectBox.Name = "damageEffectBox";
+            this.damageEffectBox.Size = new System.Drawing.Size(268, 237);
+            this.damageEffectBox.TabIndex = 7;
+            this.damageEffectBox.TabStop = false;
+            this.damageEffectBox.Text = "Damage Effect";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 19);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(47, 13);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "Damage";
+            // 
+            // damageValue
+            // 
+            this.damageValue.Location = new System.Drawing.Point(6, 35);
+            this.damageValue.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.damageValue.Name = "damageValue";
+            this.damageValue.Size = new System.Drawing.Size(120, 20);
+            this.damageValue.TabIndex = 8;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 65);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(67, 13);
+            this.label7.TabIndex = 9;
+            this.label7.Text = "Flat Damage";
+            // 
+            // flatDamageValue
+            // 
+            this.flatDamageValue.Location = new System.Drawing.Point(6, 81);
+            this.flatDamageValue.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.flatDamageValue.Name = "flatDamageValue";
+            this.flatDamageValue.Size = new System.Drawing.Size(120, 20);
+            this.flatDamageValue.TabIndex = 10;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(6, 118);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(85, 13);
+            this.label8.TabIndex = 11;
+            this.label8.Text = "Max HP Percent";
+            // 
+            // maxHpPercent
+            // 
+            this.maxHpPercent.DecimalPlaces = 2;
+            this.maxHpPercent.Location = new System.Drawing.Point(6, 134);
+            this.maxHpPercent.Name = "maxHpPercent";
+            this.maxHpPercent.Size = new System.Drawing.Size(120, 20);
+            this.maxHpPercent.TabIndex = 12;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(139, 19);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(100, 13);
+            this.label9.TabIndex = 13;
+            this.label9.Text = "Missing HP Percent";
+            // 
+            // missingHpPercent
+            // 
+            this.missingHpPercent.DecimalPlaces = 2;
+            this.missingHpPercent.Location = new System.Drawing.Point(142, 35);
+            this.missingHpPercent.Name = "missingHpPercent";
+            this.missingHpPercent.Size = new System.Drawing.Size(120, 20);
+            this.missingHpPercent.TabIndex = 14;
+            // 
+            // modifiedByValue
+            // 
+            this.modifiedByValue.DecimalPlaces = 2;
+            this.modifiedByValue.Location = new System.Drawing.Point(142, 81);
+            this.modifiedByValue.Maximum = new decimal(new int[] {
+            200,
+            0,
+            0,
+            0});
+            this.modifiedByValue.Name = "modifiedByValue";
+            this.modifiedByValue.Size = new System.Drawing.Size(120, 20);
+            this.modifiedByValue.TabIndex = 15;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(139, 65);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(91, 13);
+            this.label10.TabIndex = 16;
+            this.label10.Text = "Modified by Value";
+            // 
+            // damageType
+            // 
+            this.damageType.FormattingEnabled = true;
+            this.damageType.Items.AddRange(new object[] {
+            "Physical",
+            "Magical"});
+            this.damageType.Location = new System.Drawing.Point(142, 133);
+            this.damageType.Name = "damageType";
+            this.damageType.Size = new System.Drawing.Size(121, 21);
+            this.damageType.TabIndex = 17;
+            this.damageType.Text = "Physical";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(139, 114);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(74, 13);
+            this.label11.TabIndex = 18;
+            this.label11.Text = "Damage Type";
+            // 
             // SkillPartTool
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -327,6 +487,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.activeTurnCount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cooldownCount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.timesPerBattleCount)).EndInit();
+            this.damageEffectBox.ResumeLayout(false);
+            this.damageEffectBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.damageValue)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.flatDamageValue)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.maxHpPercent)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.missingHpPercent)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.modifiedByValue)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -352,5 +519,18 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ListBox effectList;
         private System.Windows.Forms.GroupBox addTriggerBox;
+        private System.Windows.Forms.GroupBox damageEffectBox;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox damageType;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.NumericUpDown modifiedByValue;
+        private System.Windows.Forms.NumericUpDown missingHpPercent;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.NumericUpDown maxHpPercent;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.NumericUpDown flatDamageValue;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.NumericUpDown damageValue;
+        private System.Windows.Forms.Label label6;
     }
 }
