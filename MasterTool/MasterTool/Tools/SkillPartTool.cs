@@ -18,7 +18,15 @@ namespace MasterTool.Tools
         public SkillPartTool()
         {
             InitializeComponent();
-            panels = new GroupBox[] { addTriggerBox, damageEffectBox };
+            panels = new GroupBox[] { addTriggerBox, damageEffectBox, healBox, movementBox, statChangeBox, statusEffectBox };
+            typeSelector.SelectedIndex = 0;
+            statusEffectType.Items.Clear();
+            statusEffectType.Items.Add("All");
+            foreach(string status in DataStorage.StatusEffectRegistry.Keys)
+            {
+                statusEffectType.Items.Add(status);
+            }
+            statusEffectType.SelectedIndex = 0;
         }
 
         /// <summary>
@@ -43,7 +51,26 @@ namespace MasterTool.Tools
                 case "Damage":
                     returnEffect = new DamagePart((TargettingType)targetType.SelectedIndex, (DamageType)damageType.SelectedIndex,
                         (int)damageValue.Value, (int)flatDamageValue.Value, (int)maxHpPercent.Value, (int)missingHpPercent.Value, 
-                        (int)chance.Value, (int)modifiedByValue.Value);
+                        (int)chance.Value, (damageModByValue.Checked ? (int)damageModifiedValue.Value : 0));
+                    break;
+                case "Healing":
+                    returnEffect = new HealingPart((TargettingType)targetType.SelectedIndex, (int)healValue.Value, (int)flatHealValue.Value,
+                        (int)flatHealValue.Value, (int)chance.Value, (healingModByValue.Checked ? (int)healingModifiedValue.Value : 0));
+                    break;
+                case "Movement":
+                    returnEffect = new MovePart((TargettingType)targetType.SelectedIndex, (MoveDirection)moveType.SelectedIndex, (int)moveDistance.Value,
+                        movementForced.Checked, (int)chance.Value);
+                    break;
+                case "Stat Change":
+                    returnEffect = new StatChangePart((TargettingType)targetType.SelectedIndex, (Stats)statToChange.SelectedIndex, (int)flatStatChange.Value,
+                        (int)statMultiplier.Value, (statDurationTracked.Checked ? (int)statDuration.Value : -1), (int)chance.Value);
+                    break;
+                case "Status Effect":
+                    returnEffect = new StatusEffectPart((TargettingType)targetType.SelectedIndex, (string)statusEffectType.SelectedItem, 
+                        removeEffectChoice.Checked, (int)chance.Value);
+                    break;
+                case "Unique Effect":
+                    returnEffect = new UniqueEffectPart((TargettingType)targetType.SelectedIndex, (UniqueEffects)uniqueEffectType.SelectedIndex, (int)chance.Value);
                     break;
             }
         }
