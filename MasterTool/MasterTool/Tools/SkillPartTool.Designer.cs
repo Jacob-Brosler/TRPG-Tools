@@ -76,22 +76,22 @@
             this.moveType = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.statChangeBox = new System.Windows.Forms.GroupBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.statToChange = new System.Windows.Forms.ComboBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.flatStatChange = new System.Windows.Forms.NumericUpDown();
-            this.label18 = new System.Windows.Forms.Label();
-            this.statMultiplier = new System.Windows.Forms.NumericUpDown();
-            this.statDurationTracked = new System.Windows.Forms.CheckBox();
             this.statDuration = new System.Windows.Forms.NumericUpDown();
+            this.statDurationTracked = new System.Windows.Forms.CheckBox();
+            this.statMultiplier = new System.Windows.Forms.NumericUpDown();
+            this.label18 = new System.Windows.Forms.Label();
+            this.flatStatChange = new System.Windows.Forms.NumericUpDown();
+            this.label17 = new System.Windows.Forms.Label();
+            this.statToChange = new System.Windows.Forms.ComboBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.statusEffectBox = new System.Windows.Forms.GroupBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.statusEffectType = new System.Windows.Forms.ComboBox();
-            this.addEffectChoice = new System.Windows.Forms.RadioButton();
             this.removeEffectChoice = new System.Windows.Forms.RadioButton();
+            this.addEffectChoice = new System.Windows.Forms.RadioButton();
+            this.statusEffectType = new System.Windows.Forms.ComboBox();
+            this.label19 = new System.Windows.Forms.Label();
             this.uniqueEffectBox = new System.Windows.Forms.GroupBox();
-            this.label20 = new System.Windows.Forms.Label();
             this.uniqueEffectType = new System.Windows.Forms.ComboBox();
+            this.label20 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.chance)).BeginInit();
             this.addTriggerBox.SuspendLayout();
             this.damageEffectBox.SuspendLayout();
@@ -111,9 +111,9 @@
             this.movementBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.moveDistance)).BeginInit();
             this.statChangeBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.flatStatChange)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.statMultiplier)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.statDuration)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.statMultiplier)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.flatStatChange)).BeginInit();
             this.statusEffectBox.SuspendLayout();
             this.uniqueEffectBox.SuspendLayout();
             this.SuspendLayout();
@@ -199,7 +199,6 @@
             // 
             // addTriggerBox
             // 
-            this.addTriggerBox.Controls.Add(this.damageEffectBox);
             this.addTriggerBox.Controls.Add(this.removeEffect);
             this.addTriggerBox.Controls.Add(this.addEffect);
             this.addTriggerBox.Controls.Add(this.label5);
@@ -221,7 +220,6 @@
             // 
             // damageEffectBox
             // 
-            this.damageEffectBox.Controls.Add(this.healBox);
             this.damageEffectBox.Controls.Add(this.damageModByValue);
             this.damageEffectBox.Controls.Add(this.label11);
             this.damageEffectBox.Controls.Add(this.damageType);
@@ -234,7 +232,7 @@
             this.damageEffectBox.Controls.Add(this.label7);
             this.damageEffectBox.Controls.Add(this.damageValue);
             this.damageEffectBox.Controls.Add(this.label6);
-            this.damageEffectBox.Location = new System.Drawing.Point(0, 0);
+            this.damageEffectBox.Location = new System.Drawing.Point(139, 12);
             this.damageEffectBox.Name = "damageEffectBox";
             this.damageEffectBox.Size = new System.Drawing.Size(268, 237);
             this.damageEffectBox.TabIndex = 7;
@@ -251,9 +249,9 @@
             this.healBox.Controls.Add(this.label13);
             this.healBox.Controls.Add(this.healValue);
             this.healBox.Controls.Add(this.label12);
-            this.healBox.Location = new System.Drawing.Point(0, 0);
+            this.healBox.Location = new System.Drawing.Point(139, 12);
             this.healBox.Name = "healBox";
-            this.healBox.Size = new System.Drawing.Size(268, 236);
+            this.healBox.Size = new System.Drawing.Size(268, 237);
             this.healBox.TabIndex = 7;
             this.healBox.TabStop = false;
             this.healBox.Text = "Heal Effect";
@@ -694,74 +692,37 @@
             this.statChangeBox.TabStop = false;
             this.statChangeBox.Text = "Stat Change Part";
             // 
-            // label16
+            // statDuration
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(6, 19);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(26, 13);
-            this.label16.TabIndex = 0;
-            this.label16.Text = "Stat";
-            // 
-            // statToChange
-            // 
-            this.statToChange.FormattingEnabled = true;
-            this.statToChange.Items.AddRange(new object[] {
-            "Max Health",
-            "Attack",
-            "Defense",
-            "Magic Attack",
-            "Magic Defense",
-            "Crit Chance",
-            "Max Move",
-            "Lifesteal",
-            "Spellsteal",
-            "Basic Attack Effectiveness",
-            "Basic Attack Receptiveness",
-            "Spell Damage Effectiveness",
-            "Spell Damage Receptiveness",
-            "Healing Effectiveness",
-            "Healing Receptiveness"});
-            this.statToChange.Location = new System.Drawing.Point(6, 35);
-            this.statToChange.Name = "statToChange";
-            this.statToChange.Size = new System.Drawing.Size(121, 21);
-            this.statToChange.TabIndex = 1;
-            this.statToChange.Text = "Max Health";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(6, 68);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(64, 13);
-            this.label17.TabIndex = 2;
-            this.label17.Text = "Flat Change";
-            // 
-            // flatStatChange
-            // 
-            this.flatStatChange.Location = new System.Drawing.Point(6, 84);
-            this.flatStatChange.Maximum = new decimal(new int[] {
-            1000,
+            this.statDuration.Location = new System.Drawing.Point(6, 189);
+            this.statDuration.Maximum = new decimal(new int[] {
+            200,
             0,
             0,
             0});
-            this.flatStatChange.Minimum = new decimal(new int[] {
-            1000,
+            this.statDuration.Minimum = new decimal(new int[] {
+            1,
             0,
             0,
-            -2147483648});
-            this.flatStatChange.Name = "flatStatChange";
-            this.flatStatChange.Size = new System.Drawing.Size(120, 20);
-            this.flatStatChange.TabIndex = 3;
+            0});
+            this.statDuration.Name = "statDuration";
+            this.statDuration.Size = new System.Drawing.Size(120, 20);
+            this.statDuration.TabIndex = 7;
+            this.statDuration.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
-            // label18
+            // statDurationTracked
             // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(6, 121);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(48, 13);
-            this.label18.TabIndex = 4;
-            this.label18.Text = "Multiplier";
+            this.statDurationTracked.AutoSize = true;
+            this.statDurationTracked.Location = new System.Drawing.Point(9, 172);
+            this.statDurationTracked.Name = "statDurationTracked";
+            this.statDurationTracked.Size = new System.Drawing.Size(66, 17);
+            this.statDurationTracked.TabIndex = 6;
+            this.statDurationTracked.Text = "Duration";
+            this.statDurationTracked.UseVisualStyleBackColor = true;
             // 
             // statMultiplier
             // 
@@ -791,37 +752,74 @@
             0,
             196608});
             // 
-            // statDurationTracked
+            // label18
             // 
-            this.statDurationTracked.AutoSize = true;
-            this.statDurationTracked.Location = new System.Drawing.Point(9, 172);
-            this.statDurationTracked.Name = "statDurationTracked";
-            this.statDurationTracked.Size = new System.Drawing.Size(66, 17);
-            this.statDurationTracked.TabIndex = 6;
-            this.statDurationTracked.Text = "Duration";
-            this.statDurationTracked.UseVisualStyleBackColor = true;
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(6, 121);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(48, 13);
+            this.label18.TabIndex = 4;
+            this.label18.Text = "Multiplier";
             // 
-            // statDuration
+            // flatStatChange
             // 
-            this.statDuration.Location = new System.Drawing.Point(6, 189);
-            this.statDuration.Maximum = new decimal(new int[] {
-            200,
+            this.flatStatChange.Location = new System.Drawing.Point(6, 84);
+            this.flatStatChange.Maximum = new decimal(new int[] {
+            1000,
             0,
             0,
             0});
-            this.statDuration.Minimum = new decimal(new int[] {
-            1,
+            this.flatStatChange.Minimum = new decimal(new int[] {
+            1000,
             0,
             0,
-            0});
-            this.statDuration.Name = "statDuration";
-            this.statDuration.Size = new System.Drawing.Size(120, 20);
-            this.statDuration.TabIndex = 7;
-            this.statDuration.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            -2147483648});
+            this.flatStatChange.Name = "flatStatChange";
+            this.flatStatChange.Size = new System.Drawing.Size(120, 20);
+            this.flatStatChange.TabIndex = 3;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(6, 68);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(64, 13);
+            this.label17.TabIndex = 2;
+            this.label17.Text = "Flat Change";
+            // 
+            // statToChange
+            // 
+            this.statToChange.FormattingEnabled = true;
+            this.statToChange.Items.AddRange(new object[] {
+            "Max Health",
+            "Attack",
+            "Defense",
+            "Magic Attack",
+            "Magic Defense",
+            "Crit Chance",
+            "Max Move",
+            "Lifesteal",
+            "Spellsteal",
+            "Basic Attack Effectiveness",
+            "Basic Attack Receptiveness",
+            "Spell Damage Effectiveness",
+            "Spell Damage Receptiveness",
+            "Healing Effectiveness",
+            "Healing Receptiveness"});
+            this.statToChange.Location = new System.Drawing.Point(6, 35);
+            this.statToChange.Name = "statToChange";
+            this.statToChange.Size = new System.Drawing.Size(121, 21);
+            this.statToChange.TabIndex = 1;
+            this.statToChange.Text = "Max Health";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(6, 19);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(26, 13);
+            this.label16.TabIndex = 0;
+            this.label16.Text = "Stat";
             // 
             // statusEffectBox
             // 
@@ -836,22 +834,15 @@
             this.statusEffectBox.TabStop = false;
             this.statusEffectBox.Text = "Status Effect";
             // 
-            // label19
+            // removeEffectChoice
             // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(6, 18);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(68, 13);
-            this.label19.TabIndex = 0;
-            this.label19.Text = "Status Effect";
-            // 
-            // statusEffectType
-            // 
-            this.statusEffectType.FormattingEnabled = true;
-            this.statusEffectType.Location = new System.Drawing.Point(6, 35);
-            this.statusEffectType.Name = "statusEffectType";
-            this.statusEffectType.Size = new System.Drawing.Size(121, 21);
-            this.statusEffectType.TabIndex = 1;
+            this.removeEffectChoice.AutoSize = true;
+            this.removeEffectChoice.Location = new System.Drawing.Point(9, 96);
+            this.removeEffectChoice.Name = "removeEffectChoice";
+            this.removeEffectChoice.Size = new System.Drawing.Size(96, 17);
+            this.removeEffectChoice.TabIndex = 3;
+            this.removeEffectChoice.Text = "Remove Effect";
+            this.removeEffectChoice.UseVisualStyleBackColor = true;
             // 
             // addEffectChoice
             // 
@@ -865,15 +856,22 @@
             this.addEffectChoice.Text = "Add Effect";
             this.addEffectChoice.UseVisualStyleBackColor = true;
             // 
-            // removeEffectChoice
+            // statusEffectType
             // 
-            this.removeEffectChoice.AutoSize = true;
-            this.removeEffectChoice.Location = new System.Drawing.Point(9, 96);
-            this.removeEffectChoice.Name = "removeEffectChoice";
-            this.removeEffectChoice.Size = new System.Drawing.Size(96, 17);
-            this.removeEffectChoice.TabIndex = 3;
-            this.removeEffectChoice.Text = "Remove Effect";
-            this.removeEffectChoice.UseVisualStyleBackColor = true;
+            this.statusEffectType.FormattingEnabled = true;
+            this.statusEffectType.Location = new System.Drawing.Point(6, 35);
+            this.statusEffectType.Name = "statusEffectType";
+            this.statusEffectType.Size = new System.Drawing.Size(121, 21);
+            this.statusEffectType.TabIndex = 1;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(6, 18);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(68, 13);
+            this.label19.TabIndex = 0;
+            this.label19.Text = "Status Effect";
             // 
             // uniqueEffectBox
             // 
@@ -886,15 +884,6 @@
             this.uniqueEffectBox.TabStop = false;
             this.uniqueEffectBox.Text = "Unique Effect";
             // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(6, 16);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(35, 13);
-            this.label20.TabIndex = 0;
-            this.label20.Text = "Effect";
-            // 
             // uniqueEffectType
             // 
             this.uniqueEffectType.FormattingEnabled = true;
@@ -906,6 +895,15 @@
             this.uniqueEffectType.TabIndex = 1;
             this.uniqueEffectType.Text = "Move Again";
             // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(6, 16);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(35, 13);
+            this.label20.TabIndex = 0;
+            this.label20.Text = "Effect";
+            // 
             // SkillPartTool
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -915,6 +913,8 @@
             this.Controls.Add(this.statusEffectBox);
             this.Controls.Add(this.statChangeBox);
             this.Controls.Add(this.movementBox);
+            this.Controls.Add(this.healBox);
+            this.Controls.Add(this.damageEffectBox);
             this.Controls.Add(this.addTriggerBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.chance);
@@ -949,9 +949,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.moveDistance)).EndInit();
             this.statChangeBox.ResumeLayout(false);
             this.statChangeBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.flatStatChange)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.statMultiplier)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.statDuration)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.statMultiplier)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.flatStatChange)).EndInit();
             this.statusEffectBox.ResumeLayout(false);
             this.statusEffectBox.PerformLayout();
             this.uniqueEffectBox.ResumeLayout(false);

@@ -15,11 +15,12 @@ namespace MasterTool.Tools
         public SkillPartBase returnEffect;
         private GroupBox[] panels;
 
-        public SkillPartTool()
+        public SkillPartTool(SkillPartBase effect = null)
         {
             InitializeComponent();
-            panels = new GroupBox[] { addTriggerBox, damageEffectBox, healBox, movementBox, statChangeBox, statusEffectBox };
-            typeSelector.SelectedIndex = 0;
+            panels = new GroupBox[] { addTriggerBox, damageEffectBox, healBox, movementBox, statChangeBox, statusEffectBox, uniqueEffectBox };
+            typeSelector.SelectedIndex = LoadEffect(effect);
+            typeSelector_SelectedIndexChanged(null, null);
             statusEffectType.Items.Clear();
             statusEffectType.Items.Add("All");
             foreach(string status in DataStorage.StatusEffectRegistry.Keys)
@@ -27,6 +28,137 @@ namespace MasterTool.Tools
                 statusEffectType.Items.Add(status);
             }
             statusEffectType.SelectedIndex = 0;
+        }
+
+        public int LoadEffect(SkillPartBase effect)
+        {
+            if (effect == null)
+                return 0;
+
+            targetType.SelectedIndex = (int)effect.targetType;
+            chance.Value = effect.chanceToProc;
+
+            if (effect is AddTriggerPart)
+            {
+                AddTriggerPart actualEffect = effect as AddTriggerPart;
+                addTriggerTrigger.SelectedIndex = (int)actualEffect.effect.trigger;
+
+                if(actualEffect.maxTimesThisBattle == -1)
+                {
+                    timesPerBattle.Checked = false;
+                }
+                else
+                {
+                    timesPerBattle.Checked = true;
+                    timesPerBattleCount.Value = actualEffect.maxTimesThisBattle;
+                }
+
+                if (actualEffect.turnCooldown == -1)
+                {
+                    turnCD.Checked = false;
+                }
+                else
+                {
+                    turnCD.Checked = true;
+                    cooldownCount.Value = actualEffect.turnCooldown;
+                }
+
+                if (actualEffect.maxActiveTurns == -1)
+                {
+                    activeTurns.Checked = false;
+                }
+                else
+                {
+                    activeTurns.Checked = true;
+                    activeTurnCount.Value = actualEffect.maxActiveTurns;
+                }
+
+                effectList.Items.Clear();
+                foreach (SkillPartBase subeffect in actualEffect.effect.effects)
+                {
+                    effectList.Items.Add(subeffect);
+                }
+                return 0;
+            }
+            else if(effect is DamagePart)
+            {
+                DamagePart actualEffect = effect as DamagePart;
+                damageType.SelectedIndex = (int)actualEffect.damageType;
+                damageValue.Value = actualEffect.damage;
+                flatDamageValue.Value = actualEffect.flatDamage;
+                maxHpPercent.Value = actualEffect.maxHpPercent;
+                missingHpPercent.Value = actualEffect.missingHpPercent;
+
+                if (actualEffect.modifiedByValue == 0)
+                {
+                    damageModByValue.Checked = false;
+                }
+                else
+                {
+                    damageModByValue.Checked = true;
+                    damageModifiedValue.Value = (decimal)actualEffect.modifiedByValue;
+                }
+                return 1;
+            }
+            else if (effect is HealingPart)
+            {
+                HealingPart actualEffect = effect as HealingPart;
+                healValue.Value = actualEffect.healing;
+                flatHealValue.Value = actualEffect.flatHealing;
+                maxHPHeal.Value = actualEffect.maxHpPercent;
+
+                if (actualEffect.modifiedByValue == 0)
+                {
+                    healingModByValue.Checked = false;
+                }
+                else
+                {
+                    healingModByValue.Checked = true;
+                    healingModifiedValue.Value = (decimal)actualEffect.modifiedByValue;
+                }
+                return 2;
+            }
+            else if (effect is MovePart)
+            {
+                MovePart actualEffect = effect as MovePart;
+                moveType.SelectedIndex = (int)actualEffect.direction;
+                moveDistance.Value = actualEffect.amount;
+                movementForced.Checked = actualEffect.forced;
+                return 3;
+            }
+            else if (effect is StatChangePart)
+            {
+                StatChangePart actualEffect = effect as StatChangePart;
+                statToChange.SelectedIndex = (int)actualEffect.affectedStat;
+                flatStatChange.Value = actualEffect.flatChange;
+                statMultiplier.Value = (decimal)actualEffect.multiplier;
+
+                if (actualEffect.duration == 0)
+                {
+                    statDurationTracked.Checked = false;
+                }
+                else
+                {
+                    statDurationTracked.Checked = true;
+                    statDuration.Value = (decimal)actualEffect.duration;
+                }
+                return 4;
+            }
+            else if (effect is StatusEffectPart)
+            {
+                StatusEffectPart actualEffect = effect as StatusEffectPart;
+                statusEffectType.SelectedItem = actualEffect.status;
+                addEffectChoice.Checked = !actualEffect.remove;
+                removeEffectChoice.Checked = actualEffect.remove;
+                return 5;
+            }
+            else if(effect is UniqueEffectPart)
+            {
+                uniqueEffectType.SelectedIndex = (int)(effect as UniqueEffectPart).effect;
+                return 6;
+            }
+            //Screaming
+            return -1;
         }
 
         /// <summary>
@@ -55,7 +187,7 @@ namespace MasterTool.Tools
                     break;
                 case "Healing":
                     returnEffect = new HealingPart((TargettingType)targetType.SelectedIndex, (int)healValue.Value, (int)flatHealValue.Value,
-                        (int)flatHealValue.Value, (int)chance.Value, (healingModByValue.Checked ? (int)healingModifiedValue.Value : 0));
+                        (int)maxHPHeal.Value, (int)chance.Value, (healingModByValue.Checked ? (int)healingModifiedValue.Value : 0));
                     break;
                 case "Movement":
                     returnEffect = new MovePart((TargettingType)targetType.SelectedIndex, (MoveDirection)moveType.SelectedIndex, (int)moveDistance.Value,
@@ -93,10 +225,13 @@ namespace MasterTool.Tools
 
         private void effectList_DoubleClick(object sender, EventArgs e)
         {
-            using(SkillPartTool newEffect = new SkillPartTool())
+            if (effectList.SelectedIndex != -1)
             {
-                newEffect.Show(this);
-                effectList.Items[effectList.SelectedIndex] = newEffect.returnEffect;
+                using (SkillPartTool newEffect = new SkillPartTool((SkillPartBase)effectList.SelectedItem))
+                {
+                    newEffect.ShowDialog(this);
+                    effectList.Items[effectList.SelectedIndex] = newEffect.returnEffect;
+                }
             }
         }
 

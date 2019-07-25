@@ -25,7 +25,9 @@ namespace MasterTool
 
         private void ItemDefinitions_Click(object sender, EventArgs e)
         {
-            BasicItemTool itemScreen = new BasicItemTool();
+            //BasicItemTool itemScreen = new BasicItemTool();
+
+            SkillPartTool itemScreen = new SkillPartTool();
 
             itemScreen.ShowDialog(this);
         }
