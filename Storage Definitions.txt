@@ -1,23 +1,33 @@
-Item definitions
-Type
-     ItemBase
-	  Name
-          Max stack
-          Sell price
-          Flavor text
-     Equippable : Base
-          Slot
-          Weapon Type (If weapon)
-          Stats (List)
-          Effects
-               Trigger
-               SkillPart (Effect that gets triggered)
-               maxTimesPerBattle
-               turnCD
-               maxActiveTurns
-     BattleItem : Base
-          usableOutOfBattle
-          Effects (SkillParts)
+Basic Item
+Name
+Max stack
+Sell price
+Flavor text
+
+Weapon
+Name
+Weapon type
+Stats
+Effects
+Sell amount
+Flavor text
+
+Armor
+Name
+Equip slot
+Stats
+Effects
+Sell amount
+Flavor text
+
+Battle Item
+Name
+Max stack
+Effects
+Target type
+Usable out of battle
+Sell price
+Flavor text
 
 Movement types
 Name
@@ -37,9 +47,10 @@ Diagonal ranges
 Enemy definitions
 Name
 Stat bases (Health, atk, def, mAtk, mDef, crit)
+Stat scaling (Health, atk, def, mAtk, mDef)
 Move type
 Skill trees
-Stat scaling (Health, atk, def, mAtk, mDef)
+Level each skill is possible
 packVar
 packVar variance
 aggro
@@ -48,16 +59,34 @@ aggro variance
 Player templates
 Name
 Stat bases (Health, atk, def, mAtk, mDef, crit)
-Level
+Stat scaling (Health, atk, def, mAtk, mDef)
+Spawn level
 moveType
 Skill trees
-Stat scaling (Health, atk, def, mAtk, mDef)
+Skill points
+Equipment
 
-Tile effects
+Tile type
 Name
 Dictionary
      MoveTrigger
      SkillPartBase
+
+Spell
+Name
+Target type
+Cost
+Unlock level
+Unlock cost
+Cast AoE
+Targetting range
+Dependencies
+Effects
+Flavor text
+
+Spell tree
+Name
+Spells
 
 Skill parts:
 
