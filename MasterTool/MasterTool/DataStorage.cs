@@ -19,14 +19,16 @@ namespace MasterTool
     {
         private static string savePoint;
 
-        //List of information on all items
-        public static IDictionary<string, ItemBase> ItemRegistry = new Dictionary<string, ItemBase>();
+        //List of information on all basic items
+        public static List<ItemBase> BaseItemRegistry = new List<ItemBase>();
+        //List of information on all battle items
+        public static List<ItemBase> BattleItemRegistry = new List<ItemBase>();
         //List of information on all movement types
-        public static IDictionary<string, MovementType> MovementRegistry = new Dictionary<string, MovementType>();
+        public static List<MovementType> MovementRegistry = new List<MovementType>();
         //List of information on all weapon types
-        public static IDictionary<string, WeaponType> WeaponTypeRegistry = new Dictionary<string, WeaponType>();
+        public static List<WeaponType> WeaponTypeRegistry = new List<WeaponType>();
         //List of information on all status effects
-        public static IDictionary<string, StatusEffectDefinition> StatusEffectRegistry = new Dictionary<string, StatusEffectDefinition>();
+        public static List<StatusEffectDefinition> StatusEffectRegistry = new List<StatusEffectDefinition>();
         //List of all of the default effects a tile has. First is what happens when a pawn passes over the tile, Second is what happens when they are on it at the end of the turn
         public static IDictionary<string, Dictionary<MoveTriggers, SkillPartBase>> DefaultTileEffects = new Dictionary<string, Dictionary<MoveTriggers, SkillPartBase>>();
 

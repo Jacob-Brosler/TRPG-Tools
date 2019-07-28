@@ -23,9 +23,9 @@ namespace MasterTool.Tools
             typeSelector_SelectedIndexChanged(null, null);
             statusEffectType.Items.Clear();
             statusEffectType.Items.Add("All");
-            foreach(string status in DataStorage.StatusEffectRegistry.Keys)
+            foreach(StatusEffectDefinition status in DataStorage.StatusEffectRegistry)
             {
-                statusEffectType.Items.Add(status);
+                statusEffectType.Items.Add(status.name);
             }
             statusEffectType.SelectedIndex = 0;
         }
@@ -166,7 +166,7 @@ namespace MasterTool.Tools
         /// </summary>
         private void SkillPartTool_FormClosing(object sender, FormClosingEventArgs e)
         {
-            switch (typeSelector.SelectedItem)
+            switch ((string)typeSelector.SelectedItem)
             {
                 case "Add Trigger":
                     returnEffect = new AddTriggerPart((TargettingType)targetType.SelectedIndex, 
@@ -237,7 +237,7 @@ namespace MasterTool.Tools
 
         private void addEffect_Click(object sender, EventArgs e)
         {
-            effectList.Items.Add(new AddTriggerPart(TargettingType.Self, null));
+            effectList.Items.Add(new AddTriggerPart(TargettingType.Self, new TriggeredEffect(EffectTriggers.FallBelow25Percent)));
         }
 
         private void removeEffect_Click(object sender, EventArgs e)

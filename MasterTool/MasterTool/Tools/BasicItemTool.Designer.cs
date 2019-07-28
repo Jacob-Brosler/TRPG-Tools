@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.itemList = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.maxStackCount = new System.Windows.Forms.NumericUpDown();
             this.nameBox = new System.Windows.Forms.TextBox();
@@ -37,17 +37,20 @@
             this.sellPriceCount = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
             this.flavorTextBox = new System.Windows.Forms.RichTextBox();
+            this.addItem = new System.Windows.Forms.Button();
+            this.removeItem = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.maxStackCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sellPriceCount)).BeginInit();
             this.SuspendLayout();
             // 
-            // listBox1
+            // itemList
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(0, 0);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(88, 225);
-            this.listBox1.TabIndex = 0;
+            this.itemList.FormattingEnabled = true;
+            this.itemList.Location = new System.Drawing.Point(0, 0);
+            this.itemList.Name = "itemList";
+            this.itemList.Size = new System.Drawing.Size(88, 225);
+            this.itemList.TabIndex = 0;
+            this.itemList.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -62,7 +65,7 @@
             // 
             this.maxStackCount.Location = new System.Drawing.Point(152, 51);
             this.maxStackCount.Maximum = new decimal(new int[] {
-            5000,
+            9999,
             0,
             0,
             0});
@@ -146,11 +149,33 @@
             this.flavorTextBox.TabIndex = 8;
             this.flavorTextBox.Text = "";
             // 
+            // addItem
+            // 
+            this.addItem.Location = new System.Drawing.Point(0, 226);
+            this.addItem.Name = "addItem";
+            this.addItem.Size = new System.Drawing.Size(44, 23);
+            this.addItem.TabIndex = 9;
+            this.addItem.Text = "+";
+            this.addItem.UseVisualStyleBackColor = true;
+            this.addItem.Click += new System.EventHandler(this.addItem_Click);
+            // 
+            // removeItem
+            // 
+            this.removeItem.Location = new System.Drawing.Point(44, 226);
+            this.removeItem.Name = "removeItem";
+            this.removeItem.Size = new System.Drawing.Size(44, 23);
+            this.removeItem.TabIndex = 10;
+            this.removeItem.Text = "-";
+            this.removeItem.UseVisualStyleBackColor = true;
+            this.removeItem.Click += new System.EventHandler(this.removeItem_Click);
+            // 
             // BasicItemTool
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.removeItem);
+            this.Controls.Add(this.addItem);
             this.Controls.Add(this.flavorTextBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -159,7 +184,7 @@
             this.Controls.Add(this.nameBox);
             this.Controls.Add(this.maxStackCount);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.itemList);
             this.Name = "BasicItemTool";
             this.Text = "Item Definitions";
             ((System.ComponentModel.ISupportInitialize)(this.maxStackCount)).EndInit();
@@ -170,8 +195,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NumericUpDown maxStackCount;
         private System.Windows.Forms.TextBox nameBox;
@@ -180,5 +203,8 @@
         private System.Windows.Forms.NumericUpDown sellPriceCount;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.RichTextBox flavorTextBox;
+        private System.Windows.Forms.Button addItem;
+        private System.Windows.Forms.Button removeItem;
+        public System.Windows.Forms.ListBox itemList;
     }
 }

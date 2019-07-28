@@ -8,10 +8,6 @@ using System.Text;
 /// </summary>
 public class TemporaryEffectData
 {
-    public int usesThisBattle = 0;
-    public int turnsSinceLastUse = int.MaxValue;
-    public int turnsActive = 0;
-    
     public int maxTimesThisBattle;
     public int turnCooldown;
     public int maxActiveTurns;

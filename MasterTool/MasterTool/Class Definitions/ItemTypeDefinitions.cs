@@ -26,14 +26,24 @@ public enum Stats
 /// </summary>
 public class ItemBase
 {
+    public string Name
+    {
+        get
+        {
+            return name;
+        }
+    }
+
+    public string name;
     //Max amount the player can hold
     public int maxStack;
     //How much one of this item sells for
     public int sellAmount;
     public string flavorText;
 
-    public ItemBase(int maxstack, int sell, string flavor = "")
+    public ItemBase(string name, int maxstack, int sell, string flavor = "")
     {
+        this.name = name;
         maxStack = maxstack;
         sellAmount = sell;
         flavorText = flavor;
@@ -62,7 +72,7 @@ public class EquippableBase : ItemBase
     /// </summary>
     public List<Tuple<TriggeredEffect, TemporaryEffectData>> effects = new List<Tuple<TriggeredEffect, TemporaryEffectData>>();
     
-    public EquippableBase(int slot, int subtype, int sellPrice, string flavor, Dictionary<Stats, int> stats) : base(1, sellPrice, flavor)
+    public EquippableBase(string name, int slot, int subtype, int sellPrice, string flavor, Dictionary<Stats, int> stats) : base(name, 1, sellPrice, flavor)
     {
         equipSlot = slot;
         subType = subtype;
@@ -80,17 +90,17 @@ public class EquippableBase : ItemBase
 /// </summary>
 public class BattleItemBase : ItemBase
 {
+    public TargettingType targetType;
+
     //Is this item can be used outside of battle
     public bool usableOutOfBattle;
 
     public List<SkillPartBase> partList = new List<SkillPartBase>();
 
-    public BattleItemBase(bool outOfBattleUse, List<SkillPartBase> effects, int maxStack, int sellPrice, string flavor = "") : base(maxStack, sellPrice, flavor)
+    public BattleItemBase(string name, TargettingType targetType, bool outOfBattleUse, List<SkillPartBase> effects, int maxStack, int sellPrice, string flavor = "") : base(name, maxStack, sellPrice, flavor)
     {
+        this.targetType = targetType;
         usableOutOfBattle = outOfBattleUse;
-        foreach(SkillPartBase part in effects)
-        {
-            partList.Add(part);
-        }
+        partList.AddRange(effects);
     }
 }

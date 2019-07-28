@@ -13,6 +13,9 @@ namespace MasterTool
 {
     public partial class ToolHub : Form
     {
+        public BasicItemTool itemScreen;
+        public BattleItemTool battleItemScreen;
+
         public ToolHub()
         {
             InitializeComponent();
@@ -25,18 +28,18 @@ namespace MasterTool
 
         private void ItemDefinitions_Click(object sender, EventArgs e)
         {
-            //BasicItemTool itemScreen = new BasicItemTool();
-
-            SkillPartTool itemScreen = new SkillPartTool();
+            if(itemScreen == null)
+                itemScreen = new BasicItemTool();
 
             itemScreen.ShowDialog(this);
         }
 
-        private void MovementTypes_Click(object sender, EventArgs e)
+        private void BattleItems_Click(object sender, EventArgs e)
         {
-            MovementTypesTool movementScreen = new MovementTypesTool();
+            if (battleItemScreen == null)
+                battleItemScreen = new BattleItemTool();
 
-            movementScreen.ShowDialog(this);
+            battleItemScreen.ShowDialog(this);
         }
 
         private void PlayerTemplates_Click(object sender, EventArgs e)

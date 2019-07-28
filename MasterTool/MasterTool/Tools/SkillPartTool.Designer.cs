@@ -35,28 +35,6 @@
             this.chance = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.addTriggerBox = new System.Windows.Forms.GroupBox();
-            this.damageEffectBox = new System.Windows.Forms.GroupBox();
-            this.healBox = new System.Windows.Forms.GroupBox();
-            this.healingModByValue = new System.Windows.Forms.CheckBox();
-            this.healingModifiedValue = new System.Windows.Forms.NumericUpDown();
-            this.maxHPHeal = new System.Windows.Forms.NumericUpDown();
-            this.label14 = new System.Windows.Forms.Label();
-            this.flatHealValue = new System.Windows.Forms.NumericUpDown();
-            this.label13 = new System.Windows.Forms.Label();
-            this.healValue = new System.Windows.Forms.NumericUpDown();
-            this.label12 = new System.Windows.Forms.Label();
-            this.damageModByValue = new System.Windows.Forms.CheckBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.damageType = new System.Windows.Forms.ComboBox();
-            this.damageModifiedValue = new System.Windows.Forms.NumericUpDown();
-            this.missingHpPercent = new System.Windows.Forms.NumericUpDown();
-            this.label9 = new System.Windows.Forms.Label();
-            this.maxHpPercent = new System.Windows.Forms.NumericUpDown();
-            this.label8 = new System.Windows.Forms.Label();
-            this.flatDamageValue = new System.Windows.Forms.NumericUpDown();
-            this.label7 = new System.Windows.Forms.Label();
-            this.damageValue = new System.Windows.Forms.NumericUpDown();
-            this.label6 = new System.Windows.Forms.Label();
             this.removeEffect = new System.Windows.Forms.Button();
             this.addEffect = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -69,6 +47,28 @@
             this.timesPerBattleCount = new System.Windows.Forms.NumericUpDown();
             this.addTriggerTrigger = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.damageEffectBox = new System.Windows.Forms.GroupBox();
+            this.damageModByValue = new System.Windows.Forms.CheckBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.damageType = new System.Windows.Forms.ComboBox();
+            this.damageModifiedValue = new System.Windows.Forms.NumericUpDown();
+            this.missingHpPercent = new System.Windows.Forms.NumericUpDown();
+            this.label9 = new System.Windows.Forms.Label();
+            this.maxHpPercent = new System.Windows.Forms.NumericUpDown();
+            this.label8 = new System.Windows.Forms.Label();
+            this.flatDamageValue = new System.Windows.Forms.NumericUpDown();
+            this.label7 = new System.Windows.Forms.Label();
+            this.damageValue = new System.Windows.Forms.NumericUpDown();
+            this.label6 = new System.Windows.Forms.Label();
+            this.healBox = new System.Windows.Forms.GroupBox();
+            this.healingModByValue = new System.Windows.Forms.CheckBox();
+            this.healingModifiedValue = new System.Windows.Forms.NumericUpDown();
+            this.maxHPHeal = new System.Windows.Forms.NumericUpDown();
+            this.label14 = new System.Windows.Forms.Label();
+            this.flatHealValue = new System.Windows.Forms.NumericUpDown();
+            this.label13 = new System.Windows.Forms.Label();
+            this.healValue = new System.Windows.Forms.NumericUpDown();
+            this.label12 = new System.Windows.Forms.Label();
             this.movementBox = new System.Windows.Forms.GroupBox();
             this.movementForced = new System.Windows.Forms.CheckBox();
             this.moveDistance = new System.Windows.Forms.NumericUpDown();
@@ -94,20 +94,20 @@
             this.label20 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.chance)).BeginInit();
             this.addTriggerBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.activeTurnCount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cooldownCount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timesPerBattleCount)).BeginInit();
             this.damageEffectBox.SuspendLayout();
-            this.healBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.healingModifiedValue)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.maxHPHeal)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.flatHealValue)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.healValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.damageModifiedValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.missingHpPercent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.maxHpPercent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.flatDamageValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.damageValue)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.activeTurnCount)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cooldownCount)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.timesPerBattleCount)).BeginInit();
+            this.healBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.healingModifiedValue)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.maxHPHeal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.flatHealValue)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.healValue)).BeginInit();
             this.movementBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.moveDistance)).BeginInit();
             this.statChangeBox.SuspendLayout();
@@ -151,7 +151,7 @@
             this.targetType.Name = "targetType";
             this.targetType.Size = new System.Drawing.Size(121, 21);
             this.targetType.TabIndex = 0;
-            this.targetType.Text = "All";
+            this.targetType.Text = "Self";
             // 
             // label1
             // 
@@ -217,231 +217,6 @@
             this.addTriggerBox.TabIndex = 6;
             this.addTriggerBox.TabStop = false;
             this.addTriggerBox.Text = "Add Trigger Effect";
-            // 
-            // damageEffectBox
-            // 
-            this.damageEffectBox.Controls.Add(this.damageModByValue);
-            this.damageEffectBox.Controls.Add(this.label11);
-            this.damageEffectBox.Controls.Add(this.damageType);
-            this.damageEffectBox.Controls.Add(this.damageModifiedValue);
-            this.damageEffectBox.Controls.Add(this.missingHpPercent);
-            this.damageEffectBox.Controls.Add(this.label9);
-            this.damageEffectBox.Controls.Add(this.maxHpPercent);
-            this.damageEffectBox.Controls.Add(this.label8);
-            this.damageEffectBox.Controls.Add(this.flatDamageValue);
-            this.damageEffectBox.Controls.Add(this.label7);
-            this.damageEffectBox.Controls.Add(this.damageValue);
-            this.damageEffectBox.Controls.Add(this.label6);
-            this.damageEffectBox.Location = new System.Drawing.Point(139, 12);
-            this.damageEffectBox.Name = "damageEffectBox";
-            this.damageEffectBox.Size = new System.Drawing.Size(268, 237);
-            this.damageEffectBox.TabIndex = 7;
-            this.damageEffectBox.TabStop = false;
-            this.damageEffectBox.Text = "Damage Effect";
-            // 
-            // healBox
-            // 
-            this.healBox.Controls.Add(this.healingModByValue);
-            this.healBox.Controls.Add(this.healingModifiedValue);
-            this.healBox.Controls.Add(this.maxHPHeal);
-            this.healBox.Controls.Add(this.label14);
-            this.healBox.Controls.Add(this.flatHealValue);
-            this.healBox.Controls.Add(this.label13);
-            this.healBox.Controls.Add(this.healValue);
-            this.healBox.Controls.Add(this.label12);
-            this.healBox.Location = new System.Drawing.Point(139, 12);
-            this.healBox.Name = "healBox";
-            this.healBox.Size = new System.Drawing.Size(268, 237);
-            this.healBox.TabIndex = 7;
-            this.healBox.TabStop = false;
-            this.healBox.Text = "Heal Effect";
-            // 
-            // healingModByValue
-            // 
-            this.healingModByValue.AutoSize = true;
-            this.healingModByValue.Location = new System.Drawing.Point(142, 66);
-            this.healingModByValue.Name = "healingModByValue";
-            this.healingModByValue.Size = new System.Drawing.Size(110, 17);
-            this.healingModByValue.TabIndex = 7;
-            this.healingModByValue.Text = "Modified by Value";
-            this.healingModByValue.UseVisualStyleBackColor = true;
-            // 
-            // healingModifiedValue
-            // 
-            this.healingModifiedValue.DecimalPlaces = 2;
-            this.healingModifiedValue.Location = new System.Drawing.Point(142, 83);
-            this.healingModifiedValue.Name = "healingModifiedValue";
-            this.healingModifiedValue.Size = new System.Drawing.Size(120, 20);
-            this.healingModifiedValue.TabIndex = 6;
-            // 
-            // maxHPHeal
-            // 
-            this.maxHPHeal.DecimalPlaces = 2;
-            this.maxHPHeal.Location = new System.Drawing.Point(142, 34);
-            this.maxHPHeal.Name = "maxHPHeal";
-            this.maxHPHeal.Size = new System.Drawing.Size(120, 20);
-            this.maxHPHeal.TabIndex = 5;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(139, 18);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(85, 13);
-            this.label14.TabIndex = 4;
-            this.label14.Text = "Max HP Percent";
-            // 
-            // flatHealValue
-            // 
-            this.flatHealValue.Location = new System.Drawing.Point(6, 83);
-            this.flatHealValue.Name = "flatHealValue";
-            this.flatHealValue.Size = new System.Drawing.Size(120, 20);
-            this.flatHealValue.TabIndex = 3;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(6, 67);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(49, 13);
-            this.label13.TabIndex = 2;
-            this.label13.Text = "Flat Heal";
-            // 
-            // healValue
-            // 
-            this.healValue.Location = new System.Drawing.Point(6, 34);
-            this.healValue.Name = "healValue";
-            this.healValue.Size = new System.Drawing.Size(120, 20);
-            this.healValue.TabIndex = 1;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(6, 18);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(29, 13);
-            this.label12.TabIndex = 0;
-            this.label12.Text = "Heal";
-            // 
-            // damageModByValue
-            // 
-            this.damageModByValue.AutoSize = true;
-            this.damageModByValue.Location = new System.Drawing.Point(142, 64);
-            this.damageModByValue.Name = "damageModByValue";
-            this.damageModByValue.Size = new System.Drawing.Size(110, 17);
-            this.damageModByValue.TabIndex = 7;
-            this.damageModByValue.Text = "Modified by Value";
-            this.damageModByValue.UseVisualStyleBackColor = true;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(139, 114);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(74, 13);
-            this.label11.TabIndex = 18;
-            this.label11.Text = "Damage Type";
-            // 
-            // damageType
-            // 
-            this.damageType.FormattingEnabled = true;
-            this.damageType.Items.AddRange(new object[] {
-            "Physical",
-            "Magical"});
-            this.damageType.Location = new System.Drawing.Point(142, 133);
-            this.damageType.Name = "damageType";
-            this.damageType.Size = new System.Drawing.Size(121, 21);
-            this.damageType.TabIndex = 17;
-            this.damageType.Text = "Physical";
-            // 
-            // damageModifiedValue
-            // 
-            this.damageModifiedValue.DecimalPlaces = 2;
-            this.damageModifiedValue.Location = new System.Drawing.Point(142, 81);
-            this.damageModifiedValue.Maximum = new decimal(new int[] {
-            200,
-            0,
-            0,
-            0});
-            this.damageModifiedValue.Name = "damageModifiedValue";
-            this.damageModifiedValue.Size = new System.Drawing.Size(120, 20);
-            this.damageModifiedValue.TabIndex = 15;
-            // 
-            // missingHpPercent
-            // 
-            this.missingHpPercent.DecimalPlaces = 2;
-            this.missingHpPercent.Location = new System.Drawing.Point(142, 35);
-            this.missingHpPercent.Name = "missingHpPercent";
-            this.missingHpPercent.Size = new System.Drawing.Size(120, 20);
-            this.missingHpPercent.TabIndex = 14;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(139, 19);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(100, 13);
-            this.label9.TabIndex = 13;
-            this.label9.Text = "Missing HP Percent";
-            // 
-            // maxHpPercent
-            // 
-            this.maxHpPercent.DecimalPlaces = 2;
-            this.maxHpPercent.Location = new System.Drawing.Point(6, 134);
-            this.maxHpPercent.Name = "maxHpPercent";
-            this.maxHpPercent.Size = new System.Drawing.Size(120, 20);
-            this.maxHpPercent.TabIndex = 12;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 118);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(85, 13);
-            this.label8.TabIndex = 11;
-            this.label8.Text = "Max HP Percent";
-            // 
-            // flatDamageValue
-            // 
-            this.flatDamageValue.Location = new System.Drawing.Point(6, 81);
-            this.flatDamageValue.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.flatDamageValue.Name = "flatDamageValue";
-            this.flatDamageValue.Size = new System.Drawing.Size(120, 20);
-            this.flatDamageValue.TabIndex = 10;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 65);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(67, 13);
-            this.label7.TabIndex = 9;
-            this.label7.Text = "Flat Damage";
-            // 
-            // damageValue
-            // 
-            this.damageValue.Location = new System.Drawing.Point(6, 35);
-            this.damageValue.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.damageValue.Name = "damageValue";
-            this.damageValue.Size = new System.Drawing.Size(120, 20);
-            this.damageValue.TabIndex = 8;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 19);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(47, 13);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "Damage";
             // 
             // removeEffect
             // 
@@ -594,6 +369,231 @@
             this.label4.Size = new System.Drawing.Size(40, 13);
             this.label4.TabIndex = 0;
             this.label4.Text = "Trigger";
+            // 
+            // damageEffectBox
+            // 
+            this.damageEffectBox.Controls.Add(this.damageModByValue);
+            this.damageEffectBox.Controls.Add(this.label11);
+            this.damageEffectBox.Controls.Add(this.damageType);
+            this.damageEffectBox.Controls.Add(this.damageModifiedValue);
+            this.damageEffectBox.Controls.Add(this.missingHpPercent);
+            this.damageEffectBox.Controls.Add(this.label9);
+            this.damageEffectBox.Controls.Add(this.maxHpPercent);
+            this.damageEffectBox.Controls.Add(this.label8);
+            this.damageEffectBox.Controls.Add(this.flatDamageValue);
+            this.damageEffectBox.Controls.Add(this.label7);
+            this.damageEffectBox.Controls.Add(this.damageValue);
+            this.damageEffectBox.Controls.Add(this.label6);
+            this.damageEffectBox.Location = new System.Drawing.Point(139, 12);
+            this.damageEffectBox.Name = "damageEffectBox";
+            this.damageEffectBox.Size = new System.Drawing.Size(268, 237);
+            this.damageEffectBox.TabIndex = 7;
+            this.damageEffectBox.TabStop = false;
+            this.damageEffectBox.Text = "Damage Effect";
+            // 
+            // damageModByValue
+            // 
+            this.damageModByValue.AutoSize = true;
+            this.damageModByValue.Location = new System.Drawing.Point(142, 64);
+            this.damageModByValue.Name = "damageModByValue";
+            this.damageModByValue.Size = new System.Drawing.Size(110, 17);
+            this.damageModByValue.TabIndex = 7;
+            this.damageModByValue.Text = "Modified by Value";
+            this.damageModByValue.UseVisualStyleBackColor = true;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(139, 114);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(74, 13);
+            this.label11.TabIndex = 18;
+            this.label11.Text = "Damage Type";
+            // 
+            // damageType
+            // 
+            this.damageType.FormattingEnabled = true;
+            this.damageType.Items.AddRange(new object[] {
+            "Physical",
+            "Magical"});
+            this.damageType.Location = new System.Drawing.Point(142, 133);
+            this.damageType.Name = "damageType";
+            this.damageType.Size = new System.Drawing.Size(121, 21);
+            this.damageType.TabIndex = 17;
+            this.damageType.Text = "Physical";
+            // 
+            // damageModifiedValue
+            // 
+            this.damageModifiedValue.DecimalPlaces = 2;
+            this.damageModifiedValue.Location = new System.Drawing.Point(142, 81);
+            this.damageModifiedValue.Maximum = new decimal(new int[] {
+            200,
+            0,
+            0,
+            0});
+            this.damageModifiedValue.Name = "damageModifiedValue";
+            this.damageModifiedValue.Size = new System.Drawing.Size(120, 20);
+            this.damageModifiedValue.TabIndex = 15;
+            // 
+            // missingHpPercent
+            // 
+            this.missingHpPercent.DecimalPlaces = 2;
+            this.missingHpPercent.Location = new System.Drawing.Point(142, 35);
+            this.missingHpPercent.Name = "missingHpPercent";
+            this.missingHpPercent.Size = new System.Drawing.Size(120, 20);
+            this.missingHpPercent.TabIndex = 14;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(139, 19);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(100, 13);
+            this.label9.TabIndex = 13;
+            this.label9.Text = "Missing HP Percent";
+            // 
+            // maxHpPercent
+            // 
+            this.maxHpPercent.DecimalPlaces = 2;
+            this.maxHpPercent.Location = new System.Drawing.Point(6, 134);
+            this.maxHpPercent.Name = "maxHpPercent";
+            this.maxHpPercent.Size = new System.Drawing.Size(120, 20);
+            this.maxHpPercent.TabIndex = 12;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(6, 118);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(85, 13);
+            this.label8.TabIndex = 11;
+            this.label8.Text = "Max HP Percent";
+            // 
+            // flatDamageValue
+            // 
+            this.flatDamageValue.Location = new System.Drawing.Point(6, 81);
+            this.flatDamageValue.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.flatDamageValue.Name = "flatDamageValue";
+            this.flatDamageValue.Size = new System.Drawing.Size(120, 20);
+            this.flatDamageValue.TabIndex = 10;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 65);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(67, 13);
+            this.label7.TabIndex = 9;
+            this.label7.Text = "Flat Damage";
+            // 
+            // damageValue
+            // 
+            this.damageValue.Location = new System.Drawing.Point(6, 35);
+            this.damageValue.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.damageValue.Name = "damageValue";
+            this.damageValue.Size = new System.Drawing.Size(120, 20);
+            this.damageValue.TabIndex = 8;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 19);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(47, 13);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "Damage";
+            // 
+            // healBox
+            // 
+            this.healBox.Controls.Add(this.healingModByValue);
+            this.healBox.Controls.Add(this.healingModifiedValue);
+            this.healBox.Controls.Add(this.maxHPHeal);
+            this.healBox.Controls.Add(this.label14);
+            this.healBox.Controls.Add(this.flatHealValue);
+            this.healBox.Controls.Add(this.label13);
+            this.healBox.Controls.Add(this.healValue);
+            this.healBox.Controls.Add(this.label12);
+            this.healBox.Location = new System.Drawing.Point(139, 12);
+            this.healBox.Name = "healBox";
+            this.healBox.Size = new System.Drawing.Size(268, 237);
+            this.healBox.TabIndex = 7;
+            this.healBox.TabStop = false;
+            this.healBox.Text = "Heal Effect";
+            // 
+            // healingModByValue
+            // 
+            this.healingModByValue.AutoSize = true;
+            this.healingModByValue.Location = new System.Drawing.Point(142, 66);
+            this.healingModByValue.Name = "healingModByValue";
+            this.healingModByValue.Size = new System.Drawing.Size(110, 17);
+            this.healingModByValue.TabIndex = 7;
+            this.healingModByValue.Text = "Modified by Value";
+            this.healingModByValue.UseVisualStyleBackColor = true;
+            // 
+            // healingModifiedValue
+            // 
+            this.healingModifiedValue.DecimalPlaces = 2;
+            this.healingModifiedValue.Location = new System.Drawing.Point(142, 83);
+            this.healingModifiedValue.Name = "healingModifiedValue";
+            this.healingModifiedValue.Size = new System.Drawing.Size(120, 20);
+            this.healingModifiedValue.TabIndex = 6;
+            // 
+            // maxHPHeal
+            // 
+            this.maxHPHeal.DecimalPlaces = 2;
+            this.maxHPHeal.Location = new System.Drawing.Point(142, 34);
+            this.maxHPHeal.Name = "maxHPHeal";
+            this.maxHPHeal.Size = new System.Drawing.Size(120, 20);
+            this.maxHPHeal.TabIndex = 5;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(139, 18);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(85, 13);
+            this.label14.TabIndex = 4;
+            this.label14.Text = "Max HP Percent";
+            // 
+            // flatHealValue
+            // 
+            this.flatHealValue.Location = new System.Drawing.Point(6, 83);
+            this.flatHealValue.Name = "flatHealValue";
+            this.flatHealValue.Size = new System.Drawing.Size(120, 20);
+            this.flatHealValue.TabIndex = 3;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(6, 67);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(49, 13);
+            this.label13.TabIndex = 2;
+            this.label13.Text = "Flat Heal";
+            // 
+            // healValue
+            // 
+            this.healValue.Location = new System.Drawing.Point(6, 34);
+            this.healValue.Name = "healValue";
+            this.healValue.Size = new System.Drawing.Size(120, 20);
+            this.healValue.TabIndex = 1;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(6, 18);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(29, 13);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "Heal";
             // 
             // movementBox
             // 
@@ -928,22 +928,22 @@
             ((System.ComponentModel.ISupportInitialize)(this.chance)).EndInit();
             this.addTriggerBox.ResumeLayout(false);
             this.addTriggerBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.activeTurnCount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cooldownCount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timesPerBattleCount)).EndInit();
             this.damageEffectBox.ResumeLayout(false);
             this.damageEffectBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.damageModifiedValue)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.missingHpPercent)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.maxHpPercent)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.flatDamageValue)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.damageValue)).EndInit();
             this.healBox.ResumeLayout(false);
             this.healBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.healingModifiedValue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.maxHPHeal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.flatHealValue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.healValue)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.damageModifiedValue)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.missingHpPercent)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.maxHpPercent)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.flatDamageValue)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.damageValue)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.activeTurnCount)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cooldownCount)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.timesPerBattleCount)).EndInit();
             this.movementBox.ResumeLayout(false);
             this.movementBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.moveDistance)).EndInit();

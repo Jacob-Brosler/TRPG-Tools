@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.ItemDefinitions = new System.Windows.Forms.Button();
-            this.MovementTypes = new System.Windows.Forms.Button();
+            this.BattleItems = new System.Windows.Forms.Button();
             this.PlayerTemplates = new System.Windows.Forms.Button();
             this.EnemyDefinitions = new System.Windows.Forms.Button();
             this.WeaponTypes = new System.Windows.Forms.Button();
@@ -47,15 +47,15 @@
             this.ItemDefinitions.UseVisualStyleBackColor = true;
             this.ItemDefinitions.Click += new System.EventHandler(this.ItemDefinitions_Click);
             // 
-            // MovementTypes
+            // BattleItems
             // 
-            this.MovementTypes.Location = new System.Drawing.Point(118, 12);
-            this.MovementTypes.Name = "MovementTypes";
-            this.MovementTypes.Size = new System.Drawing.Size(100, 25);
-            this.MovementTypes.TabIndex = 1;
-            this.MovementTypes.Text = "Movement Types";
-            this.MovementTypes.UseVisualStyleBackColor = true;
-            this.MovementTypes.Click += new System.EventHandler(this.MovementTypes_Click);
+            this.BattleItems.Location = new System.Drawing.Point(118, 12);
+            this.BattleItems.Name = "BattleItems";
+            this.BattleItems.Size = new System.Drawing.Size(100, 25);
+            this.BattleItems.TabIndex = 1;
+            this.BattleItems.Text = "Battle Items";
+            this.BattleItems.UseVisualStyleBackColor = true;
+            this.BattleItems.Click += new System.EventHandler(this.BattleItems_Click);
             // 
             // PlayerTemplates
             // 
@@ -107,7 +107,7 @@
             this.Save.UseVisualStyleBackColor = true;
             this.Save.Click += new System.EventHandler(this.Save_Click);
             // 
-            // Form1
+            // ToolHub
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -117,11 +117,11 @@
             this.Controls.Add(this.WeaponTypes);
             this.Controls.Add(this.EnemyDefinitions);
             this.Controls.Add(this.PlayerTemplates);
-            this.Controls.Add(this.MovementTypes);
+            this.Controls.Add(this.BattleItems);
             this.Controls.Add(this.ItemDefinitions);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Form1";
+            this.Name = "ToolHub";
             this.Text = "TRPG Tool Hub";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
@@ -131,7 +131,7 @@
         #endregion
 
         private System.Windows.Forms.Button ItemDefinitions;
-        private System.Windows.Forms.Button MovementTypes;
+        private System.Windows.Forms.Button BattleItems;
         private System.Windows.Forms.Button PlayerTemplates;
         private System.Windows.Forms.Button EnemyDefinitions;
         private System.Windows.Forms.Button TileTypes;
