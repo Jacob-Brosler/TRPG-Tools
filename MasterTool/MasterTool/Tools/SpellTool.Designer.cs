@@ -54,6 +54,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.aoeX = new System.Windows.Forms.NumericUpDown();
             this.aoeY = new System.Windows.Forms.NumericUpDown();
+            this.listView1 = new System.Windows.Forms.ListView();
             ((System.ComponentModel.ISupportInitialize)(this.castCost)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.unlockLevel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.unlockCost)).BeginInit();
@@ -284,7 +285,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(420, 72);
+            this.label9.Location = new System.Drawing.Point(518, 3);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(72, 13);
             this.label9.TabIndex = 50;
@@ -293,7 +294,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(420, 91);
+            this.label10.Location = new System.Drawing.Point(518, 22);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(20, 13);
             this.label10.TabIndex = 51;
@@ -302,7 +303,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(420, 116);
+            this.label11.Location = new System.Drawing.Point(518, 47);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(20, 13);
             this.label11.TabIndex = 52;
@@ -310,7 +311,7 @@
             // 
             // aoeX
             // 
-            this.aoeX.Location = new System.Drawing.Point(446, 89);
+            this.aoeX.Location = new System.Drawing.Point(544, 20);
             this.aoeX.Maximum = new decimal(new int[] {
             20,
             0,
@@ -332,7 +333,7 @@
             // 
             // aoeY
             // 
-            this.aoeY.Location = new System.Drawing.Point(446, 114);
+            this.aoeY.Location = new System.Drawing.Point(544, 45);
             this.aoeY.Maximum = new decimal(new int[] {
             20,
             0,
@@ -352,11 +353,21 @@
             0,
             0});
             // 
+            // listView1
+            // 
+            this.listView1.Location = new System.Drawing.Point(433, 86);
+            this.listView1.MultiSelect = false;
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(121, 134);
+            this.listView1.TabIndex = 55;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            // 
             // SpellTool
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(519, 261);
+            this.ClientSize = new System.Drawing.Size(607, 261);
+            this.Controls.Add(this.listView1);
             this.Controls.Add(this.aoeY);
             this.Controls.Add(this.aoeX);
             this.Controls.Add(this.label11);
@@ -424,5 +435,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.NumericUpDown aoeX;
         private System.Windows.Forms.NumericUpDown aoeY;
+        private System.Windows.Forms.ListView listView1;
     }
 }
