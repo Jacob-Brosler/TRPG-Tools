@@ -54,7 +54,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.aoeX = new System.Windows.Forms.NumericUpDown();
             this.aoeY = new System.Windows.Forms.NumericUpDown();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.dependencyList = new System.Windows.Forms.CheckedListBox();
             ((System.ComponentModel.ISupportInitialize)(this.castCost)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.unlockLevel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.unlockCost)).BeginInit();
@@ -353,21 +353,20 @@
             0,
             0});
             // 
-            // listView1
+            // dependencyList
             // 
-            this.listView1.Location = new System.Drawing.Point(433, 86);
-            this.listView1.MultiSelect = false;
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(121, 134);
-            this.listView1.TabIndex = 55;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.dependencyList.FormattingEnabled = true;
+            this.dependencyList.Location = new System.Drawing.Point(441, 86);
+            this.dependencyList.Name = "dependencyList";
+            this.dependencyList.Size = new System.Drawing.Size(120, 154);
+            this.dependencyList.TabIndex = 55;
             // 
             // SpellTool
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(607, 261);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.dependencyList);
             this.Controls.Add(this.aoeY);
             this.Controls.Add(this.aoeX);
             this.Controls.Add(this.label11);
@@ -435,6 +434,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.NumericUpDown aoeX;
         private System.Windows.Forms.NumericUpDown aoeY;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.CheckedListBox dependencyList;
     }
 }

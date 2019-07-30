@@ -78,5 +78,12 @@ namespace MasterTool
                 DataStorage.Save();
             }
         }
+
+        private void spellTrees_Click(object sender, EventArgs e)
+        {
+            SpellTool spellScreen = new SpellTool(new SpellTree("Fun stuff", new List<Skill>()));
+
+            spellScreen.ShowDialog(this);
+        }
     }
 }

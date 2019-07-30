@@ -57,6 +57,10 @@ namespace MasterTool.Tools
                     //Stores the changed item values
                     itemBoundList[previousSelectedIndex] = new Skill(nameBox.Text, (TargettingType)targetType.SelectedIndex, (int)castCost.Value,
                         (int)targetRange.Value, (int)aoeX.Value, (int)aoeY.Value, (int)unlockCost.Value, (int)unlockLevel.Value, flavorTextBox.Text);
+                    foreach(int id in dependencyList.CheckedIndices)
+                    {
+                        itemBoundList[previousSelectedIndex].dependencies.Add(id + (id >= previousSelectedIndex ? 1 : 0));
+                    }
                 }
                 //Displays the values for the newly selected item
                 Skill displayItem = itemBoundList[spellList.SelectedIndex];
@@ -73,6 +77,16 @@ namespace MasterTool.Tools
                 {
                     effectList.Items.Add(effect);
                 }
+
+                dependencyList.Items.Clear();
+                for(int i = 0; i < itemBoundList.Count; i++)
+                {
+                    if (i == spellList.SelectedIndex)
+                        continue;
+                    dependencyList.Items.Add(itemBoundList[i].name);
+                    dependencyList.SetItemChecked(i - (i > spellList.SelectedIndex ? 1 : 0), itemBoundList[spellList.SelectedIndex].dependencies.Contains(i));
+                }
+
                 flavorTextBox.Text = displayItem.flavorText;
                 previousSelectedIndex = spellList.SelectedIndex;
             }
@@ -94,6 +108,9 @@ namespace MasterTool.Tools
                 }
             } while (!validName);
             itemBoundList.Add(new Skill(name + append, TargettingType.Self, 1, 1, 1, 1, 1, 1, ""));
+            //Keeps the first item in a tree from being able to add itself as a dependency
+            if(itemBoundList.Count != 1)
+                dependencyList.Items.Add(itemBoundList[itemBoundList.Count - 1].name);
         }
 
         private void removeSpell_Click(object sender, EventArgs e)
@@ -102,6 +119,10 @@ namespace MasterTool.Tools
             {
                 previousSelectedIndex = -1;
                 itemBoundList.RemoveAt(spellList.SelectedIndex);
+                foreach(Skill spell in itemBoundList)
+                {
+                    spell.RemoveSpell(spellList.SelectedIndex);
+                }
                 spellList.SelectedIndex = (itemBoundList.Count == 0 ? -1 : 0);
             }
         }

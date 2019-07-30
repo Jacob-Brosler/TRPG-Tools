@@ -46,4 +46,19 @@ public class Skill
         unlockLevel = unlockLvl;
         this.flavorText = flavorText;
     }
+
+    /// <summary>
+    /// Called when a skill is removed from the tree, shifts all dependecies over that came after it
+    /// </summary>
+    /// <param name="id"></param>
+    public void RemoveSpell(int id)
+    {
+        if (dependencies.Contains(id))
+            dependencies.Remove(id);
+        for(int i = 0; i < dependencies.Count; i++)
+        {
+            if (dependencies[i] > id)
+                dependencies[i]--;
+        }
+    }
 }

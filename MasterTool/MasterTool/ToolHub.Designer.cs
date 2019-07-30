@@ -35,6 +35,7 @@
             this.WeaponTypes = new System.Windows.Forms.Button();
             this.TileTypes = new System.Windows.Forms.Button();
             this.Save = new System.Windows.Forms.Button();
+            this.spellTrees = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ItemDefinitions
@@ -107,11 +108,22 @@
             this.Save.UseVisualStyleBackColor = true;
             this.Save.Click += new System.EventHandler(this.Save_Click);
             // 
+            // spellTrees
+            // 
+            this.spellTrees.Location = new System.Drawing.Point(12, 73);
+            this.spellTrees.Name = "spellTrees";
+            this.spellTrees.Size = new System.Drawing.Size(100, 25);
+            this.spellTrees.TabIndex = 7;
+            this.spellTrees.Text = "Spell Trees";
+            this.spellTrees.UseVisualStyleBackColor = true;
+            this.spellTrees.Click += new System.EventHandler(this.spellTrees_Click);
+            // 
             // ToolHub
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(336, 106);
+            this.Controls.Add(this.spellTrees);
             this.Controls.Add(this.Save);
             this.Controls.Add(this.TileTypes);
             this.Controls.Add(this.WeaponTypes);
@@ -137,6 +149,7 @@
         private System.Windows.Forms.Button TileTypes;
         private System.Windows.Forms.Button Save;
         private System.Windows.Forms.Button WeaponTypes;
+        private System.Windows.Forms.Button spellTrees;
     }
 }
 
