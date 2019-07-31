@@ -18,10 +18,7 @@ namespace MasterTool.Tools
         public SpellTool(SpellTree tree)
         {
             InitializeComponent();
-            foreach (Skill item in tree.spells)
-            {
-                itemBoundList.Add(item);
-            }
+            itemBoundList = tree.spells;
             spellList.DataSource = itemBoundList;
             spellList.DisplayMember = "Name";
             if (itemBoundList.Count > 0)
@@ -42,7 +39,7 @@ namespace MasterTool.Tools
                         if (i == previousSelectedIndex)
                             continue;
                         //If the name they want is already in use
-                        if ((itemBoundList[i]).name == nameBox.Text)
+                        if (itemBoundList[i].name == nameBox.Text)
                         {
                             MessageBox.Show("The name of the item needs to be unique. This name is already in use, please choose another name and try again.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                             spellList.SelectedIndex = previousSelectedIndex;
@@ -115,7 +112,7 @@ namespace MasterTool.Tools
 
         private void removeSpell_Click(object sender, EventArgs e)
         {
-            if (spellList.SelectedIndex != -1 && MessageBox.Show(this, "Are you sure you want to delete this item? This cannot be undone.", "Warning", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (spellList.SelectedIndex != -1 && MessageBox.Show(this, "Are you sure you want to delete this spell? This cannot be undone.", "Warning", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 previousSelectedIndex = -1;
                 itemBoundList.RemoveAt(spellList.SelectedIndex);
@@ -124,6 +121,7 @@ namespace MasterTool.Tools
                     spell.RemoveSpell(spellList.SelectedIndex);
                 }
                 spellList.SelectedIndex = (itemBoundList.Count == 0 ? -1 : 0);
+                spellList_SelectedIndexChanged(null, null);
             }
         }
 

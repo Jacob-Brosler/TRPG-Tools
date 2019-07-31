@@ -1,5 +1,7 @@
-﻿using System;
+﻿using MasterTool.Tools;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,15 +22,17 @@ namespace MasterTool
         private static string savePoint;
 
         //List of information on all basic items
-        public static List<ItemBase> BaseItemRegistry = new List<ItemBase>();
+        public static BindingList<ItemBase> BaseItemRegistry = new BindingList<ItemBase>();
         //List of information on all battle items
-        public static List<ItemBase> BattleItemRegistry = new List<ItemBase>();
+        public static BindingList<ItemBase> BattleItemRegistry = new BindingList<ItemBase>();
         //List of information on all movement types
-        public static List<MovementType> MovementRegistry = new List<MovementType>();
+        public static BindingList<MovementType> MovementRegistry = new BindingList<MovementType>();
         //List of information on all weapon types
-        public static List<WeaponType> WeaponTypeRegistry = new List<WeaponType>();
+        public static BindingList<WeaponType> WeaponTypeRegistry = new BindingList<WeaponType>();
         //List of information on all status effects
-        public static List<StatusEffectDefinition> StatusEffectRegistry = new List<StatusEffectDefinition>();
+        public static BindingList<StatusEffectDefinition> StatusEffectRegistry = new BindingList<StatusEffectDefinition>();
+        //List of information on all spell trees
+        public static BindingList<SpellTree> spellTreeRegistry = new BindingList<SpellTree>(); 
         //List of all of the default effects a tile has. First is what happens when a pawn passes over the tile, Second is what happens when they are on it at the end of the turn
         public static IDictionary<string, Dictionary<MoveTriggers, SkillPartBase>> DefaultTileEffects = new Dictionary<string, Dictionary<MoveTriggers, SkillPartBase>>();
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,9 +18,9 @@ namespace MasterTool.Tools
         }
         
         public string name;
-        public List<Skill> spells;
+        public BindingList<Skill> spells;
 
-        public SpellTree(string name, List<Skill> spells)
+        public SpellTree(string name, BindingList<Skill> spells)
         {
             this.name = name;
             this.spells = spells;
