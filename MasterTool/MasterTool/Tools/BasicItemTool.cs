@@ -18,16 +18,18 @@ namespace MasterTool.Tools
         public BasicItemTool()
         {
             InitializeComponent();
-            foreach(ItemBase item in DataStorage.BaseItemRegistry)
-            {
-                itemBoundList.Add(item);
-            }
+            itemBoundList = DataStorage.BaseItemRegistry;
             itemList.DataSource = itemBoundList;
             itemList.DisplayMember = "Name";
             if (itemBoundList.Count > 0)
             {
                 itemList.SelectedIndex = 0;
                 listBox1_SelectedIndexChanged(null, null);
+            }
+            else
+            {
+                backPanel.Visible = false;
+                backPanel.Enabled = false;
             }
         }
 
@@ -47,6 +49,14 @@ namespace MasterTool.Tools
                 }
             } while (!validName);
             itemBoundList.Add(new ItemBase(name + append, 1, 1, ""));
+
+            if (itemBoundList.Count == 1)
+            {
+                backPanel.Visible = true;
+                backPanel.Enabled = true;
+                itemList.SelectedIndex = 0;
+                listBox1_SelectedIndexChanged(null, null);
+            }
         }
 
         private void removeItem_Click(object sender, EventArgs e)
@@ -56,6 +66,13 @@ namespace MasterTool.Tools
                 previousSelectedIndex = -1;
                 itemBoundList.RemoveAt(itemList.SelectedIndex);
                 itemList.SelectedIndex = (itemBoundList.Count == 0 ? -1 : 0);
+                if (itemList.SelectedIndex == -1)
+                {
+                    backPanel.Visible = false;
+                    backPanel.Enabled = false;
+                }
+                else
+                    listBox1_SelectedIndexChanged(null, null);
             }
         }
 
@@ -80,12 +97,22 @@ namespace MasterTool.Tools
                     //Stores the changed item values
                     itemBoundList[previousSelectedIndex] = new ItemBase(nameBox.Text, (int)maxStackCount.Value, (int)sellPriceCount.Value, flavorTextBox.Text);
                 }
-                //Displays the values for the newly selected item
-                ItemBase displayItem = itemBoundList[itemList.SelectedIndex];
-                nameBox.Text = displayItem.name;
-                maxStackCount.Value = displayItem.maxStack;
-                sellPriceCount.Value = displayItem.sellAmount;
-                flavorTextBox.Text = displayItem.flavorText;
+                if (itemList.SelectedIndex != -1)
+                {
+                    backPanel.Visible = true;
+                    backPanel.Enabled = true;
+                    //Displays the values for the newly selected item
+                    ItemBase displayItem = itemBoundList[itemList.SelectedIndex];
+                    nameBox.Text = displayItem.name;
+                    maxStackCount.Value = displayItem.maxStack;
+                    sellPriceCount.Value = displayItem.sellAmount;
+                    flavorTextBox.Text = displayItem.flavorText;
+                }
+                else
+                {
+                    backPanel.Visible = false;
+                    backPanel.Enabled = false;
+                }
                 previousSelectedIndex = itemList.SelectedIndex;
             }
         }

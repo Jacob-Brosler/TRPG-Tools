@@ -46,8 +46,10 @@
             this.addEffect = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.effectList = new System.Windows.Forms.ListBox();
+            this.backPanel = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.sellPriceCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.maxStackCount)).BeginInit();
+            this.backPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // removeItem
@@ -82,7 +84,7 @@
             // flavorTextBox
             // 
             this.flavorTextBox.DetectUrls = false;
-            this.flavorTextBox.Location = new System.Drawing.Point(100, 131);
+            this.flavorTextBox.Location = new System.Drawing.Point(5, 128);
             this.flavorTextBox.Multiline = false;
             this.flavorTextBox.Name = "flavorTextBox";
             this.flavorTextBox.Size = new System.Drawing.Size(175, 96);
@@ -92,7 +94,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(97, 115);
+            this.label4.Location = new System.Drawing.Point(2, 112);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(60, 13);
             this.label4.TabIndex = 20;
@@ -101,7 +103,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(97, 85);
+            this.label3.Location = new System.Drawing.Point(2, 82);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(51, 13);
             this.label3.TabIndex = 19;
@@ -109,7 +111,7 @@
             // 
             // sellPriceCount
             // 
-            this.sellPriceCount.Location = new System.Drawing.Point(154, 83);
+            this.sellPriceCount.Location = new System.Drawing.Point(59, 80);
             this.sellPriceCount.Maximum = new decimal(new int[] {
             50000,
             0,
@@ -132,7 +134,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(97, 50);
+            this.label2.Location = new System.Drawing.Point(2, 47);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 13);
             this.label2.TabIndex = 17;
@@ -140,14 +142,14 @@
             // 
             // nameBox
             // 
-            this.nameBox.Location = new System.Drawing.Point(138, 12);
+            this.nameBox.Location = new System.Drawing.Point(43, 9);
             this.nameBox.Name = "nameBox";
             this.nameBox.Size = new System.Drawing.Size(100, 20);
             this.nameBox.TabIndex = 16;
             // 
             // maxStackCount
             // 
-            this.maxStackCount.Location = new System.Drawing.Point(155, 48);
+            this.maxStackCount.Location = new System.Drawing.Point(60, 45);
             this.maxStackCount.Maximum = new decimal(new int[] {
             9999,
             0,
@@ -170,7 +172,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(97, 15);
+            this.label1.Location = new System.Drawing.Point(2, 12);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 14;
@@ -179,7 +181,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(293, 15);
+            this.label5.Location = new System.Drawing.Point(198, 12);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(82, 13);
             this.label5.TabIndex = 22;
@@ -196,7 +198,7 @@
             "All Allies",
             "All Allies Except Self",
             "All Enemies"});
-            this.targetType.Location = new System.Drawing.Point(381, 11);
+            this.targetType.Location = new System.Drawing.Point(286, 8);
             this.targetType.Name = "targetType";
             this.targetType.Size = new System.Drawing.Size(121, 21);
             this.targetType.TabIndex = 23;
@@ -205,7 +207,7 @@
             // useableOutOfBattle
             // 
             this.useableOutOfBattle.AutoSize = true;
-            this.useableOutOfBattle.Location = new System.Drawing.Point(295, 49);
+            this.useableOutOfBattle.Location = new System.Drawing.Point(200, 46);
             this.useableOutOfBattle.Name = "useableOutOfBattle";
             this.useableOutOfBattle.Size = new System.Drawing.Size(142, 17);
             this.useableOutOfBattle.TabIndex = 24;
@@ -214,7 +216,7 @@
             // 
             // removeEffect
             // 
-            this.removeEffect.Location = new System.Drawing.Point(356, 218);
+            this.removeEffect.Location = new System.Drawing.Point(261, 215);
             this.removeEffect.Margin = new System.Windows.Forms.Padding(1);
             this.removeEffect.Name = "removeEffect";
             this.removeEffect.Size = new System.Drawing.Size(58, 23);
@@ -225,7 +227,7 @@
             // 
             // addEffect
             // 
-            this.addEffect.Location = new System.Drawing.Point(293, 218);
+            this.addEffect.Location = new System.Drawing.Point(198, 215);
             this.addEffect.Margin = new System.Windows.Forms.Padding(1);
             this.addEffect.Name = "addEffect";
             this.addEffect.Size = new System.Drawing.Size(57, 23);
@@ -237,7 +239,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(293, 83);
+            this.label6.Location = new System.Drawing.Point(198, 80);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(40, 13);
             this.label6.TabIndex = 26;
@@ -246,41 +248,50 @@
             // effectList
             // 
             this.effectList.FormattingEnabled = true;
-            this.effectList.Location = new System.Drawing.Point(293, 98);
+            this.effectList.Location = new System.Drawing.Point(198, 95);
             this.effectList.Name = "effectList";
             this.effectList.Size = new System.Drawing.Size(120, 121);
             this.effectList.TabIndex = 25;
             this.effectList.DoubleClick += new System.EventHandler(this.effectList_DoubleClick);
+            // 
+            // backPanel
+            // 
+            this.backPanel.Controls.Add(this.removeEffect);
+            this.backPanel.Controls.Add(this.nameBox);
+            this.backPanel.Controls.Add(this.addEffect);
+            this.backPanel.Controls.Add(this.label1);
+            this.backPanel.Controls.Add(this.label6);
+            this.backPanel.Controls.Add(this.maxStackCount);
+            this.backPanel.Controls.Add(this.effectList);
+            this.backPanel.Controls.Add(this.label2);
+            this.backPanel.Controls.Add(this.useableOutOfBattle);
+            this.backPanel.Controls.Add(this.sellPriceCount);
+            this.backPanel.Controls.Add(this.targetType);
+            this.backPanel.Controls.Add(this.label3);
+            this.backPanel.Controls.Add(this.label5);
+            this.backPanel.Controls.Add(this.label4);
+            this.backPanel.Controls.Add(this.flavorTextBox);
+            this.backPanel.Location = new System.Drawing.Point(96, 3);
+            this.backPanel.Name = "backPanel";
+            this.backPanel.Size = new System.Drawing.Size(417, 248);
+            this.backPanel.TabIndex = 29;
             // 
             // BattleItemTool
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(511, 261);
-            this.Controls.Add(this.removeEffect);
-            this.Controls.Add(this.addEffect);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.effectList);
-            this.Controls.Add(this.useableOutOfBattle);
-            this.Controls.Add(this.targetType);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.flavorTextBox);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.sellPriceCount);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.nameBox);
-            this.Controls.Add(this.maxStackCount);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.removeItem);
             this.Controls.Add(this.addItem);
             this.Controls.Add(this.itemList);
+            this.Controls.Add(this.backPanel);
             this.Name = "BattleItemTool";
             this.Text = "BattleItemTool";
             ((System.ComponentModel.ISupportInitialize)(this.sellPriceCount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.maxStackCount)).EndInit();
+            this.backPanel.ResumeLayout(false);
+            this.backPanel.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -304,5 +315,6 @@
         private System.Windows.Forms.Button addEffect;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ListBox effectList;
+        private System.Windows.Forms.Panel backPanel;
     }
 }

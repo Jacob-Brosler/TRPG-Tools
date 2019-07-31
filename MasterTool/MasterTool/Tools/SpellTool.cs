@@ -26,6 +26,11 @@ namespace MasterTool.Tools
                 spellList.SelectedIndex = 0;
                 spellList_SelectedIndexChanged(null, null);
             }
+            else
+            {
+                backPanel.Visible = false;
+                backPanel.Enabled = false;
+            }
         }
 
         private void spellList_SelectedIndexChanged(object sender, EventArgs e)
@@ -59,32 +64,42 @@ namespace MasterTool.Tools
                         itemBoundList[previousSelectedIndex].dependencies.Add(id + (id >= previousSelectedIndex ? 1 : 0));
                     }
                 }
-                //Displays the values for the newly selected item
-                Skill displayItem = itemBoundList[spellList.SelectedIndex];
-                nameBox.Text = displayItem.name;
-                targetType.SelectedIndex = (int)displayItem.targetType;
-                castCost.Value = displayItem.aEtherCost;
-                targetRange.Value = displayItem.targettingRange;
-                aoeX.Value = displayItem.xRange;
-                aoeY.Value = displayItem.yRange;
-                unlockCost.Value = displayItem.unlockCost;
-                unlockLevel.Value = displayItem.unlockLevel;
-                effectList.Items.Clear();
-                foreach (SkillPartBase effect in displayItem.partList)
+                if (spellList.SelectedIndex != -1)
                 {
-                    effectList.Items.Add(effect);
-                }
+                    backPanel.Visible = true;
+                    backPanel.Enabled = true;
+                    //Displays the values for the newly selected item
+                    Skill displayItem = itemBoundList[spellList.SelectedIndex];
+                    nameBox.Text = displayItem.name;
+                    targetType.SelectedIndex = (int)displayItem.targetType;
+                    castCost.Value = displayItem.aEtherCost;
+                    targetRange.Value = displayItem.targettingRange;
+                    aoeX.Value = displayItem.xRange;
+                    aoeY.Value = displayItem.yRange;
+                    unlockCost.Value = displayItem.unlockCost;
+                    unlockLevel.Value = displayItem.unlockLevel;
+                    effectList.Items.Clear();
+                    foreach (SkillPartBase effect in displayItem.partList)
+                    {
+                        effectList.Items.Add(effect);
+                    }
 
-                dependencyList.Items.Clear();
-                for(int i = 0; i < itemBoundList.Count; i++)
+                    dependencyList.Items.Clear();
+                    for (int i = 0; i < itemBoundList.Count; i++)
+                    {
+                        if (i == spellList.SelectedIndex)
+                            continue;
+                        dependencyList.Items.Add(itemBoundList[i].name);
+                        dependencyList.SetItemChecked(i - (i > spellList.SelectedIndex ? 1 : 0), itemBoundList[spellList.SelectedIndex].dependencies.Contains(i));
+                    }
+
+                    flavorTextBox.Text = displayItem.flavorText;
+                }
+                else
                 {
-                    if (i == spellList.SelectedIndex)
-                        continue;
-                    dependencyList.Items.Add(itemBoundList[i].name);
-                    dependencyList.SetItemChecked(i - (i > spellList.SelectedIndex ? 1 : 0), itemBoundList[spellList.SelectedIndex].dependencies.Contains(i));
+                    backPanel.Visible = false;
+                    backPanel.Enabled = false;
                 }
-
-                flavorTextBox.Text = displayItem.flavorText;
                 previousSelectedIndex = spellList.SelectedIndex;
             }
         }
@@ -108,6 +123,14 @@ namespace MasterTool.Tools
             //Keeps the first item in a tree from being able to add itself as a dependency
             if(itemBoundList.Count != 1)
                 dependencyList.Items.Add(itemBoundList[itemBoundList.Count - 1].name);
+
+            if (itemBoundList.Count == 1)
+            {
+                backPanel.Visible = true;
+                backPanel.Enabled = true;
+                spellList.SelectedIndex = 0;
+                spellList_SelectedIndexChanged(null, null);
+            }
         }
 
         private void removeSpell_Click(object sender, EventArgs e)
@@ -121,7 +144,13 @@ namespace MasterTool.Tools
                     spell.RemoveSpell(spellList.SelectedIndex);
                 }
                 spellList.SelectedIndex = (itemBoundList.Count == 0 ? -1 : 0);
-                spellList_SelectedIndexChanged(null, null);
+                if (spellList.SelectedIndex == -1)
+                {
+                    backPanel.Visible = false;
+                    backPanel.Enabled = false;
+                }
+                else
+                    spellList_SelectedIndexChanged(null, null);
             }
         }
 

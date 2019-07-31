@@ -26,6 +26,11 @@ namespace MasterTool.Tools
                 spellTreeList.SelectedIndex = 0;
                 spellTreeList_SelectedIndexChanged(null, null);
             }
+            else
+            {
+                backPanel.Visible = false;
+                backPanel.Enabled = false;
+            }
         }
 
         private void spellTreeList_SelectedIndexChanged(object sender, EventArgs e)
@@ -47,7 +52,17 @@ namespace MasterTool.Tools
                 //Stores the changed item values
                 itemBoundList[previousSelectedIndex].name = nameBox.Text;
             }
-            nameBox.Text = itemBoundList[spellTreeList.SelectedIndex].name;
+            if (spellTreeList.SelectedIndex != -1)
+            {
+                backPanel.Visible = true;
+                backPanel.Enabled = true;
+                nameBox.Text = itemBoundList[spellTreeList.SelectedIndex].name;
+            }
+            else
+            {
+                backPanel.Visible = false;
+                backPanel.Enabled = false;
+            }
             previousSelectedIndex = spellTreeList.SelectedIndex;
         }
 
@@ -70,6 +85,8 @@ namespace MasterTool.Tools
 
             if (itemBoundList.Count == 1)
             {
+                backPanel.Visible = true;
+                backPanel.Enabled = true;
                 spellTreeList.SelectedIndex = 0;
                 spellTreeList_SelectedIndexChanged(null, null);
             }
@@ -82,7 +99,13 @@ namespace MasterTool.Tools
                 previousSelectedIndex = -1;
                 itemBoundList.RemoveAt(spellTreeList.SelectedIndex);
                 spellTreeList.SelectedIndex = (itemBoundList.Count == 0 ? -1 : 0);
-                spellTreeList_SelectedIndexChanged(null, null);
+                if (spellTreeList.SelectedIndex == -1)
+                {
+                    backPanel.Visible = false;
+                    backPanel.Enabled = false;
+                }
+                else
+                    spellTreeList_SelectedIndexChanged(null, null);
             }
         }
 

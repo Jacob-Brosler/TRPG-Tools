@@ -18,16 +18,18 @@ namespace MasterTool.Tools
         public BattleItemTool()
         {
             InitializeComponent();
-            foreach (BattleItemBase item in DataStorage.BaseItemRegistry)
-            {
-                itemBoundList.Add(item);
-            }
+            itemBoundList = DataStorage.BattleItemRegistry;
             itemList.DataSource = itemBoundList;
             itemList.DisplayMember = "Name";
             if (itemBoundList.Count > 0)
             {
                 itemList.SelectedIndex = 0;
                 itemList_SelectedIndexChanged(null, null);
+            }
+            else
+            {
+                backPanel.Visible = false;
+                backPanel.Enabled = false;
             }
         }
 
@@ -58,19 +60,29 @@ namespace MasterTool.Tools
                     itemBoundList[previousSelectedIndex] = new BattleItemBase(nameBox.Text, (TargettingType)targetType.SelectedIndex, useableOutOfBattle.Checked, 
                         tempEffectList, (int)maxStackCount.Value, (int)sellPriceCount.Value, flavorTextBox.Text);
                 }
-                //Displays the values for the newly selected item
-                BattleItemBase displayItem = itemBoundList[itemList.SelectedIndex];
-                nameBox.Text = displayItem.name;
-                targetType.SelectedIndex = (int)displayItem.targetType;
-                useableOutOfBattle.Checked = displayItem.usableOutOfBattle;
-                effectList.Items.Clear();
-                foreach (SkillPartBase effect in displayItem.partList)
+                if (itemList.SelectedIndex != -1)
                 {
-                    effectList.Items.Add(effect);
+                    backPanel.Visible = true;
+                    backPanel.Enabled = true;
+                    //Displays the values for the newly selected item
+                    BattleItemBase displayItem = itemBoundList[itemList.SelectedIndex];
+                    nameBox.Text = displayItem.name;
+                    targetType.SelectedIndex = (int)displayItem.targetType;
+                    useableOutOfBattle.Checked = displayItem.usableOutOfBattle;
+                    effectList.Items.Clear();
+                    foreach (SkillPartBase effect in displayItem.partList)
+                    {
+                        effectList.Items.Add(effect);
+                    }
+                    maxStackCount.Value = displayItem.maxStack;
+                    sellPriceCount.Value = displayItem.sellAmount;
+                    flavorTextBox.Text = displayItem.flavorText;
                 }
-                maxStackCount.Value = displayItem.maxStack;
-                sellPriceCount.Value = displayItem.sellAmount;
-                flavorTextBox.Text = displayItem.flavorText;
+                else
+                {
+                    backPanel.Visible = false;
+                    backPanel.Enabled = false;
+                }
                 previousSelectedIndex = itemList.SelectedIndex;
             }
         }
@@ -91,6 +103,14 @@ namespace MasterTool.Tools
                 }
             } while (!validName);
             itemBoundList.Add(new BattleItemBase(name + append, TargettingType.Self, false, new List<SkillPartBase>(), 1, 1, ""));
+
+            if (itemBoundList.Count == 1)
+            {
+                backPanel.Visible = true;
+                backPanel.Enabled = true;
+                itemList.SelectedIndex = 0;
+                itemList_SelectedIndexChanged(null, null);
+            }
         }
 
         private void removeItem_Click(object sender, EventArgs e)
@@ -100,6 +120,13 @@ namespace MasterTool.Tools
                 previousSelectedIndex = -1;
                 itemBoundList.RemoveAt(itemList.SelectedIndex);
                 itemList.SelectedIndex = (itemBoundList.Count == 0 ? -1 : 0);
+                if (itemList.SelectedIndex == -1)
+                {
+                    backPanel.Visible = false;
+                    backPanel.Enabled = false;
+                }
+                else
+                    itemList_SelectedIndexChanged(null, null);
             }
         }
 
