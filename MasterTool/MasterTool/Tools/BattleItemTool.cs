@@ -39,6 +39,13 @@ namespace MasterTool.Tools
             {
                 if (previousSelectedIndex != -1)
                 {
+                    if (string.IsNullOrWhiteSpace(nameBox.Text))
+                    {
+                        MessageBox.Show("The name of the item cannot be empty or only whitespace. Please choose another name and try again.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        itemList.SelectedIndex = previousSelectedIndex;
+                        return;
+                    }
+
                     for (int i = 0; i < itemBoundList.Count; i++)
                     {
                         if (i == previousSelectedIndex)

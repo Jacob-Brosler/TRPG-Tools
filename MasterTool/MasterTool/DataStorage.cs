@@ -33,8 +33,8 @@ namespace MasterTool
         public static BindingList<StatusEffectDefinition> StatusEffectRegistry = new BindingList<StatusEffectDefinition>();
         //List of information on all spell trees
         public static BindingList<SpellTree> spellTreeRegistry = new BindingList<SpellTree>(); 
-        //List of all of the default effects a tile has. First is what happens when a pawn passes over the tile, Second is what happens when they are on it at the end of the turn
-        public static IDictionary<string, Dictionary<MoveTriggers, SkillPartBase>> DefaultTileEffects = new Dictionary<string, Dictionary<MoveTriggers, SkillPartBase>>();
+        //List of all of the tile types and their effects
+        public static BindingList<TileType> tileEffectsRegistry = new BindingList<TileType>();
 
         public static void Load()
         {

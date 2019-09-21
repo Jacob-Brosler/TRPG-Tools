@@ -59,6 +59,7 @@
     <Compile Include="Class Definitions\StatusEffectDefinition.cs" />
     <Compile Include="Class Definitions\SkillParts\StatusEffectPart.cs" />
     <Compile Include="Class Definitions\TemporaryEffectData.cs" />
+    <Compile Include="Class Definitions\TileType.cs" />
     <Compile Include="Class Definitions\TriggeredEffect.cs" />
     <Compile Include="Class Definitions\SkillParts\UniqueEffectPart.cs" />
     <Compile Include="Class Definitions\WeaponStatsAtRange.cs" />

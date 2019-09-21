@@ -1,4 +1,4 @@
-Basic Item
+Basic Item /////////
 Name
 Max stack
 Sell price
@@ -20,7 +20,7 @@ Effects
 Sell amount
 Flavor text
 
-Battle Item
+Battle Item /////////
 Name
 Max stack
 Effects
@@ -66,13 +66,13 @@ Skill trees
 Skill points
 Equipment
 
-Tile type
+Tile type /////////
 Name
 Dictionary
      MoveTrigger
      SkillPartBase
 
-Spell
+Spell /////////
 Name
 Target type
 Cost
@@ -84,9 +84,13 @@ Dependencies
 Effects
 Flavor text
 
-Spell tree
+Spell tree /////////
 Name
 Spells
+
+
+
+
 
 Skill parts:
 

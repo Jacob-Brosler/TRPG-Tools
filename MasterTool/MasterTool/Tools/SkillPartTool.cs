@@ -195,7 +195,7 @@ namespace MasterTool.Tools
                     break;
                 case "Stat Change":
                     returnEffect = new StatChangePart((TargettingType)targetType.SelectedIndex, (Stats)statToChange.SelectedIndex, (int)flatStatChange.Value,
-                        (int)statMultiplier.Value, (statDurationTracked.Checked ? (int)statDuration.Value : -1), (int)chance.Value);
+                        (float)statMultiplier.Value, (statDurationTracked.Checked ? (int)statDuration.Value : 0), (int)chance.Value);
                     break;
                 case "Status Effect":
                     returnEffect = new StatusEffectPart((TargettingType)targetType.SelectedIndex, (string)statusEffectType.SelectedItem, 

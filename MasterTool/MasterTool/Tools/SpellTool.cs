@@ -39,6 +39,13 @@ namespace MasterTool.Tools
             {
                 if (previousSelectedIndex != -1)
                 {
+                    if (string.IsNullOrWhiteSpace(nameBox.Text))
+                    {
+                        MessageBox.Show("The name of the spell cannot be empty or only whitespace. Please choose another name and try again.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        spellList.SelectedIndex = previousSelectedIndex;
+                        return;
+                    }
+
                     for (int i = 0; i < itemBoundList.Count; i++)
                     {
                         if (i == previousSelectedIndex)
@@ -46,7 +53,7 @@ namespace MasterTool.Tools
                         //If the name they want is already in use
                         if (itemBoundList[i].name == nameBox.Text)
                         {
-                            MessageBox.Show("The name of the item needs to be unique. This name is already in use, please choose another name and try again.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            MessageBox.Show("The name of the spell needs to be unique. This name is already in use, please choose another name and try again.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                             spellList.SelectedIndex = previousSelectedIndex;
                             return;
                         }
@@ -106,7 +113,7 @@ namespace MasterTool.Tools
 
         private void addSpell_Click(object sender, EventArgs e)
         {
-            string name = "BattleItem";
+            string name = "Spell";
             int append = 0;
             bool validName;
             do
