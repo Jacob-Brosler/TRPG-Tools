@@ -34,7 +34,7 @@ Name
 List of valid tiles and whether they're limited movement
 Move speed
 
-Weapon types
+Weapon types //////////
 Name
 Attack ranges
 Diagonal ranges

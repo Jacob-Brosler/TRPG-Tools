@@ -1,9 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26730.3
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29209.62
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MasterTool", "MasterTool\MasterTool.csproj", "{B1EEBDD6-BC4B-4A5E-9CBA-E264B049A6A0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{185648C6-B1EA-4851-9BCD-3BE0BDCB32DE}"
+	ProjectSection(SolutionItems) = preProject
+		..\Storage Definitions.txt = ..\Storage Definitions.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

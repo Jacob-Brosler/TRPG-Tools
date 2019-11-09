@@ -48,24 +48,28 @@
             // itemList
             // 
             this.itemList.FormattingEnabled = true;
+            this.itemList.ItemHeight = 16;
             this.itemList.Location = new System.Drawing.Point(0, 0);
+            this.itemList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.itemList.Name = "itemList";
-            this.itemList.Size = new System.Drawing.Size(88, 225);
+            this.itemList.Size = new System.Drawing.Size(116, 276);
             this.itemList.TabIndex = 0;
             this.itemList.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(1, 14);
+            this.label1.Location = new System.Drawing.Point(1, 17);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(45, 17);
             this.label1.TabIndex = 1;
             this.label1.Text = "Name";
             // 
             // maxStackCount
             // 
-            this.maxStackCount.Location = new System.Drawing.Point(59, 47);
+            this.maxStackCount.Location = new System.Drawing.Point(79, 58);
+            this.maxStackCount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.maxStackCount.Maximum = new decimal(new int[] {
             9999,
             0,
@@ -77,7 +81,7 @@
             0,
             0});
             this.maxStackCount.Name = "maxStackCount";
-            this.maxStackCount.Size = new System.Drawing.Size(120, 20);
+            this.maxStackCount.Size = new System.Drawing.Size(160, 22);
             this.maxStackCount.TabIndex = 2;
             this.maxStackCount.Value = new decimal(new int[] {
             1,
@@ -87,32 +91,36 @@
             // 
             // nameBox
             // 
-            this.nameBox.Location = new System.Drawing.Point(42, 11);
+            this.nameBox.Location = new System.Drawing.Point(56, 14);
+            this.nameBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.nameBox.Name = "nameBox";
-            this.nameBox.Size = new System.Drawing.Size(100, 20);
+            this.nameBox.Size = new System.Drawing.Size(132, 22);
             this.nameBox.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(1, 49);
+            this.label2.Location = new System.Drawing.Point(1, 60);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 13);
+            this.label2.Size = new System.Drawing.Size(72, 17);
             this.label2.TabIndex = 4;
             this.label2.Text = "Max Stack";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(1, 84);
+            this.label3.Location = new System.Drawing.Point(1, 103);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(51, 13);
+            this.label3.Size = new System.Drawing.Size(67, 17);
             this.label3.TabIndex = 6;
             this.label3.Text = "Sell Price";
             // 
             // sellPriceCount
             // 
-            this.sellPriceCount.Location = new System.Drawing.Point(58, 82);
+            this.sellPriceCount.Location = new System.Drawing.Point(77, 101);
+            this.sellPriceCount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.sellPriceCount.Maximum = new decimal(new int[] {
             50000,
             0,
@@ -124,7 +132,7 @@
             0,
             0});
             this.sellPriceCount.Name = "sellPriceCount";
-            this.sellPriceCount.Size = new System.Drawing.Size(120, 20);
+            this.sellPriceCount.Size = new System.Drawing.Size(160, 22);
             this.sellPriceCount.TabIndex = 5;
             this.sellPriceCount.Value = new decimal(new int[] {
             1,
@@ -135,27 +143,30 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(1, 114);
+            this.label4.Location = new System.Drawing.Point(1, 140);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(60, 13);
+            this.label4.Size = new System.Drawing.Size(78, 17);
             this.label4.TabIndex = 7;
             this.label4.Text = "Flavor Text";
             // 
             // flavorTextBox
             // 
             this.flavorTextBox.DetectUrls = false;
-            this.flavorTextBox.Location = new System.Drawing.Point(4, 130);
+            this.flavorTextBox.Location = new System.Drawing.Point(5, 160);
+            this.flavorTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.flavorTextBox.Multiline = false;
             this.flavorTextBox.Name = "flavorTextBox";
-            this.flavorTextBox.Size = new System.Drawing.Size(175, 96);
+            this.flavorTextBox.Size = new System.Drawing.Size(232, 117);
             this.flavorTextBox.TabIndex = 8;
             this.flavorTextBox.Text = "";
             // 
             // addItem
             // 
-            this.addItem.Location = new System.Drawing.Point(0, 226);
+            this.addItem.Location = new System.Drawing.Point(0, 278);
+            this.addItem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.addItem.Name = "addItem";
-            this.addItem.Size = new System.Drawing.Size(44, 23);
+            this.addItem.Size = new System.Drawing.Size(59, 28);
             this.addItem.TabIndex = 9;
             this.addItem.Text = "+";
             this.addItem.UseVisualStyleBackColor = true;
@@ -163,9 +174,10 @@
             // 
             // removeItem
             // 
-            this.removeItem.Location = new System.Drawing.Point(44, 226);
+            this.removeItem.Location = new System.Drawing.Point(59, 278);
+            this.removeItem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.removeItem.Name = "removeItem";
-            this.removeItem.Size = new System.Drawing.Size(44, 23);
+            this.removeItem.Size = new System.Drawing.Size(59, 28);
             this.removeItem.TabIndex = 10;
             this.removeItem.Text = "-";
             this.removeItem.UseVisualStyleBackColor = true;
@@ -181,20 +193,22 @@
             this.backPanel.Controls.Add(this.label2);
             this.backPanel.Controls.Add(this.label3);
             this.backPanel.Controls.Add(this.sellPriceCount);
-            this.backPanel.Location = new System.Drawing.Point(94, 1);
+            this.backPanel.Location = new System.Drawing.Point(125, 1);
+            this.backPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.backPanel.Name = "backPanel";
-            this.backPanel.Size = new System.Drawing.Size(188, 248);
+            this.backPanel.Size = new System.Drawing.Size(251, 305);
             this.backPanel.TabIndex = 11;
             // 
             // BasicItemTool
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(379, 321);
             this.Controls.Add(this.removeItem);
             this.Controls.Add(this.addItem);
             this.Controls.Add(this.itemList);
             this.Controls.Add(this.backPanel);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "BasicItemTool";
             this.Text = "Item Definitions";
             ((System.ComponentModel.ISupportInitialize)(this.maxStackCount)).EndInit();

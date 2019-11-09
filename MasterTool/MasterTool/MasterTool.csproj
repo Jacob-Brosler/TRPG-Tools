@@ -127,6 +127,12 @@
     <Compile Include="Tools\TileTypesTool.Designer.cs">
       <DependentUpon>TileTypesTool.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tools\WeaponStatsAtRangeTool.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tools\WeaponStatsAtRangeTool.Designer.cs">
+      <DependentUpon>WeaponStatsAtRangeTool.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tools\WeaponTypesTool.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,6 +177,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Tools\TileTypesTool.resx">
       <DependentUpon>TileTypesTool.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\WeaponStatsAtRangeTool.resx">
+      <DependentUpon>WeaponStatsAtRangeTool.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tools\WeaponTypesTool.resx">
       <DependentUpon>WeaponTypesTool.cs</DependentUpon>
