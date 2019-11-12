@@ -91,6 +91,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tools\EquipmentTool.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tools\EquipmentTool.Designer.cs">
+      <DependentUpon>EquipmentTool.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tools\MovementTypesTool.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +138,12 @@
     </Compile>
     <Compile Include="Tools\WeaponStatsAtRangeTool.Designer.cs">
       <DependentUpon>WeaponStatsAtRangeTool.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\WeaponTool.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tools\WeaponTool.Designer.cs">
+      <DependentUpon>WeaponTool.cs</DependentUpon>
     </Compile>
     <Compile Include="Tools\WeaponTypesTool.cs">
       <SubType>Form</SubType>
@@ -180,6 +192,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Tools\WeaponStatsAtRangeTool.resx">
       <DependentUpon>WeaponStatsAtRangeTool.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\WeaponTool.resx">
+      <DependentUpon>WeaponTool.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tools\WeaponTypesTool.resx">
       <DependentUpon>WeaponTypesTool.cs</DependentUpon>

@@ -32,19 +32,19 @@
             this.addTileType = new System.Windows.Forms.Button();
             this.tileList = new System.Windows.Forms.ListBox();
             this.backPanel = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.nameBox = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.flavorTextBox = new System.Windows.Forms.RichTextBox();
-            this.startOfTurn = new System.Windows.Forms.CheckBox();
-            this.startOfTurnButton = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.passOverButton = new System.Windows.Forms.Button();
-            this.passOver = new System.Windows.Forms.CheckBox();
-            this.stopOnTileButton = new System.Windows.Forms.Button();
-            this.stopOnTile = new System.Windows.Forms.CheckBox();
             this.endOfTurnButton = new System.Windows.Forms.Button();
             this.endOfTurn = new System.Windows.Forms.CheckBox();
+            this.stopOnTileButton = new System.Windows.Forms.Button();
+            this.stopOnTile = new System.Windows.Forms.CheckBox();
+            this.passOverButton = new System.Windows.Forms.Button();
+            this.passOver = new System.Windows.Forms.CheckBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.startOfTurnButton = new System.Windows.Forms.Button();
+            this.startOfTurn = new System.Windows.Forms.CheckBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.flavorTextBox = new System.Windows.Forms.RichTextBox();
+            this.nameBox = new System.Windows.Forms.TextBox();
             this.backPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -101,97 +101,27 @@
             this.backPanel.Size = new System.Drawing.Size(487, 306);
             this.backPanel.TabIndex = 35;
             // 
-            // label1
+            // endOfTurnButton
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(1, 12);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 17);
-            this.label1.TabIndex = 34;
-            this.label1.Text = "Name";
+            this.endOfTurnButton.Enabled = false;
+            this.endOfTurnButton.Location = new System.Drawing.Point(372, 190);
+            this.endOfTurnButton.Name = "endOfTurnButton";
+            this.endOfTurnButton.Size = new System.Drawing.Size(90, 35);
+            this.endOfTurnButton.TabIndex = 46;
+            this.endOfTurnButton.Text = "Edit Effect";
+            this.endOfTurnButton.UseVisualStyleBackColor = true;
+            this.endOfTurnButton.Click += new System.EventHandler(this.EndOfTurnButton_Click);
             // 
-            // nameBox
+            // endOfTurn
             // 
-            this.nameBox.Location = new System.Drawing.Point(94, 9);
-            this.nameBox.Margin = new System.Windows.Forms.Padding(4);
-            this.nameBox.Name = "nameBox";
-            this.nameBox.Size = new System.Drawing.Size(132, 22);
-            this.nameBox.TabIndex = 35;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(0, 51);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(78, 17);
-            this.label4.TabIndex = 36;
-            this.label4.Text = "Flavor Text";
-            // 
-            // flavorTextBox
-            // 
-            this.flavorTextBox.DetectUrls = false;
-            this.flavorTextBox.Location = new System.Drawing.Point(4, 70);
-            this.flavorTextBox.Margin = new System.Windows.Forms.Padding(4);
-            this.flavorTextBox.Multiline = false;
-            this.flavorTextBox.Name = "flavorTextBox";
-            this.flavorTextBox.Size = new System.Drawing.Size(232, 155);
-            this.flavorTextBox.TabIndex = 37;
-            this.flavorTextBox.Text = "";
-            // 
-            // startOfTurn
-            // 
-            this.startOfTurn.AutoSize = true;
-            this.startOfTurn.Location = new System.Drawing.Point(256, 38);
-            this.startOfTurn.Name = "startOfTurn";
-            this.startOfTurn.Size = new System.Drawing.Size(110, 21);
-            this.startOfTurn.TabIndex = 38;
-            this.startOfTurn.Text = "Start of Turn";
-            this.startOfTurn.UseVisualStyleBackColor = true;
-            this.startOfTurn.CheckedChanged += new System.EventHandler(this.StartOfTurn_CheckedChanged);
-            // 
-            // startOfTurnButton
-            // 
-            this.startOfTurnButton.Enabled = false;
-            this.startOfTurnButton.Location = new System.Drawing.Point(372, 30);
-            this.startOfTurnButton.Name = "startOfTurnButton";
-            this.startOfTurnButton.Size = new System.Drawing.Size(90, 35);
-            this.startOfTurnButton.TabIndex = 39;
-            this.startOfTurnButton.Text = "Edit Effect";
-            this.startOfTurnButton.UseVisualStyleBackColor = true;
-            this.startOfTurnButton.Click += new System.EventHandler(this.StartOfTurnButton_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(253, 12);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 17);
-            this.label2.TabIndex = 40;
-            this.label2.Text = "Effects";
-            // 
-            // passOverButton
-            // 
-            this.passOverButton.Enabled = false;
-            this.passOverButton.Location = new System.Drawing.Point(372, 83);
-            this.passOverButton.Name = "passOverButton";
-            this.passOverButton.Size = new System.Drawing.Size(90, 35);
-            this.passOverButton.TabIndex = 42;
-            this.passOverButton.Text = "Edit Effect";
-            this.passOverButton.UseVisualStyleBackColor = true;
-            this.passOverButton.Click += new System.EventHandler(this.PassOverButton_Click);
-            // 
-            // passOver
-            // 
-            this.passOver.AutoSize = true;
-            this.passOver.Location = new System.Drawing.Point(256, 91);
-            this.passOver.Name = "passOver";
-            this.passOver.Size = new System.Drawing.Size(96, 21);
-            this.passOver.TabIndex = 41;
-            this.passOver.Text = "Pass Over";
-            this.passOver.UseVisualStyleBackColor = true;
-            this.passOver.CheckedChanged += new System.EventHandler(this.PassOver_CheckedChanged);
+            this.endOfTurn.AutoSize = true;
+            this.endOfTurn.Location = new System.Drawing.Point(256, 198);
+            this.endOfTurn.Name = "endOfTurn";
+            this.endOfTurn.Size = new System.Drawing.Size(105, 21);
+            this.endOfTurn.TabIndex = 45;
+            this.endOfTurn.Text = "End of Turn";
+            this.endOfTurn.UseVisualStyleBackColor = true;
+            this.endOfTurn.CheckedChanged += new System.EventHandler(this.EndOfTurn_CheckedChanged);
             // 
             // stopOnTileButton
             // 
@@ -215,27 +145,97 @@
             this.stopOnTile.UseVisualStyleBackColor = true;
             this.stopOnTile.CheckedChanged += new System.EventHandler(this.StopOnTile_CheckedChanged);
             // 
-            // endOfTurnButton
+            // passOverButton
             // 
-            this.endOfTurnButton.Enabled = false;
-            this.endOfTurnButton.Location = new System.Drawing.Point(372, 190);
-            this.endOfTurnButton.Name = "endOfTurnButton";
-            this.endOfTurnButton.Size = new System.Drawing.Size(90, 35);
-            this.endOfTurnButton.TabIndex = 46;
-            this.endOfTurnButton.Text = "Edit Effect";
-            this.endOfTurnButton.UseVisualStyleBackColor = true;
-            this.endOfTurnButton.Click += new System.EventHandler(this.EndOfTurnButton_Click);
+            this.passOverButton.Enabled = false;
+            this.passOverButton.Location = new System.Drawing.Point(372, 83);
+            this.passOverButton.Name = "passOverButton";
+            this.passOverButton.Size = new System.Drawing.Size(90, 35);
+            this.passOverButton.TabIndex = 42;
+            this.passOverButton.Text = "Edit Effect";
+            this.passOverButton.UseVisualStyleBackColor = true;
+            this.passOverButton.Click += new System.EventHandler(this.PassOverButton_Click);
             // 
-            // endOfTurn
+            // passOver
             // 
-            this.endOfTurn.AutoSize = true;
-            this.endOfTurn.Location = new System.Drawing.Point(256, 198);
-            this.endOfTurn.Name = "endOfTurn";
-            this.endOfTurn.Size = new System.Drawing.Size(105, 21);
-            this.endOfTurn.TabIndex = 45;
-            this.endOfTurn.Text = "End of Turn";
-            this.endOfTurn.UseVisualStyleBackColor = true;
-            this.endOfTurn.CheckedChanged += new System.EventHandler(this.EndOfTurn_CheckedChanged);
+            this.passOver.AutoSize = true;
+            this.passOver.Location = new System.Drawing.Point(256, 91);
+            this.passOver.Name = "passOver";
+            this.passOver.Size = new System.Drawing.Size(96, 21);
+            this.passOver.TabIndex = 41;
+            this.passOver.Text = "Pass Over";
+            this.passOver.UseVisualStyleBackColor = true;
+            this.passOver.CheckedChanged += new System.EventHandler(this.PassOver_CheckedChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(253, 12);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(51, 17);
+            this.label2.TabIndex = 40;
+            this.label2.Text = "Effects";
+            // 
+            // startOfTurnButton
+            // 
+            this.startOfTurnButton.Enabled = false;
+            this.startOfTurnButton.Location = new System.Drawing.Point(372, 30);
+            this.startOfTurnButton.Name = "startOfTurnButton";
+            this.startOfTurnButton.Size = new System.Drawing.Size(90, 35);
+            this.startOfTurnButton.TabIndex = 39;
+            this.startOfTurnButton.Text = "Edit Effect";
+            this.startOfTurnButton.UseVisualStyleBackColor = true;
+            this.startOfTurnButton.Click += new System.EventHandler(this.StartOfTurnButton_Click);
+            // 
+            // startOfTurn
+            // 
+            this.startOfTurn.AutoSize = true;
+            this.startOfTurn.Location = new System.Drawing.Point(256, 38);
+            this.startOfTurn.Name = "startOfTurn";
+            this.startOfTurn.Size = new System.Drawing.Size(110, 21);
+            this.startOfTurn.TabIndex = 38;
+            this.startOfTurn.Text = "Start of Turn";
+            this.startOfTurn.UseVisualStyleBackColor = true;
+            this.startOfTurn.CheckedChanged += new System.EventHandler(this.StartOfTurn_CheckedChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(0, 51);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(78, 17);
+            this.label4.TabIndex = 36;
+            this.label4.Text = "Flavor Text";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(1, 12);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(45, 17);
+            this.label1.TabIndex = 34;
+            this.label1.Text = "Name";
+            // 
+            // flavorTextBox
+            // 
+            this.flavorTextBox.DetectUrls = false;
+            this.flavorTextBox.Location = new System.Drawing.Point(4, 70);
+            this.flavorTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.flavorTextBox.Multiline = false;
+            this.flavorTextBox.Name = "flavorTextBox";
+            this.flavorTextBox.Size = new System.Drawing.Size(232, 155);
+            this.flavorTextBox.TabIndex = 37;
+            this.flavorTextBox.Text = "";
+            // 
+            // nameBox
+            // 
+            this.nameBox.Location = new System.Drawing.Point(94, 9);
+            this.nameBox.Margin = new System.Windows.Forms.Padding(4);
+            this.nameBox.Name = "nameBox";
+            this.nameBox.Size = new System.Drawing.Size(132, 22);
+            this.nameBox.TabIndex = 35;
             // 
             // TileTypesTool
             // 
@@ -246,9 +246,10 @@
             this.Controls.Add(this.removeTileType);
             this.Controls.Add(this.addTileType);
             this.Controls.Add(this.tileList);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "TileTypesTool";
             this.Text = "Tile Types";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TileTypesTool_FormClosing);
             this.backPanel.ResumeLayout(false);
             this.backPanel.PerformLayout();
             this.ResumeLayout(false);

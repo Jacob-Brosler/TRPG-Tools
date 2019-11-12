@@ -15,12 +15,13 @@ namespace MasterTool.Tools
         public SkillPartBase returnEffect;
         private GroupBox[] panels;
 
-        public SkillPartTool(SkillPartBase effect = null)
+        public SkillPartTool(SkillPartBase effect = null, bool switchEnabled = true)
         {
             InitializeComponent();
             panels = new GroupBox[] { addTriggerBox, damageEffectBox, healBox, movementBox, statChangeBox, statusEffectBox, uniqueEffectBox };
             typeSelector.SelectedIndex = LoadEffect(effect);
             typeSelector_SelectedIndexChanged(null, null);
+            typeSelector.Enabled = switchEnabled;
             statusEffectType.Items.Clear();
             statusEffectType.Items.Add("All");
             foreach(StatusEffectDefinition status in DataStorage.StatusEffectRegistry)
@@ -246,6 +247,18 @@ namespace MasterTool.Tools
             {
                 effectList.Items.RemoveAt(effectList.SelectedIndex);
             }
+        }
+
+        /// <summary>
+        /// Locks out most selections for a stat change part for making stat changes for equippables
+        /// </summary>
+        public void LockoutStatChange()
+        {
+            targetType.Enabled = false;
+            statMultiplier.Enabled = false;
+            statDurationTracked.Enabled = false;
+            chance.Enabled = false;
+            statDuration.Enabled = false;
         }
     }
 }

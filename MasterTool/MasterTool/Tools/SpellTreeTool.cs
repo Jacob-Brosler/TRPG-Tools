@@ -35,42 +35,24 @@ namespace MasterTool.Tools
 
         private void spellTreeList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (previousSelectedIndex != -1)
+            if (spellTreeList.SelectedIndex != previousSelectedIndex)
             {
-                if (string.IsNullOrWhiteSpace(nameBox.Text))
+                if (SaveItem(previousSelectedIndex))
                 {
-                    MessageBox.Show("The name of the spell tree cannot be empty or only whitespace. Please choose another name and try again.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    spellTreeList.SelectedIndex = previousSelectedIndex;
-                    return;
-                }
-
-                for (int i = 0; i < itemBoundList.Count; i++)
-                {
-                    if (i == previousSelectedIndex)
-                        continue;
-                    //If the name they want is already in use
-                    if (itemBoundList[i].name == nameBox.Text)
+                    if (spellTreeList.SelectedIndex != -1)
                     {
-                        MessageBox.Show("The name of the spell tree needs to be unique. This name is already in use, please choose another name and try again.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        spellTreeList.SelectedIndex = previousSelectedIndex;
-                        return;
+                        backPanel.Visible = true;
+                        backPanel.Enabled = true;
+                        nameBox.Text = itemBoundList[spellTreeList.SelectedIndex].name;
                     }
+                    else
+                    {
+                        backPanel.Visible = false;
+                        backPanel.Enabled = false;
+                    }
+                    previousSelectedIndex = spellTreeList.SelectedIndex;
                 }
-                //Stores the changed item values
-                itemBoundList[previousSelectedIndex].name = nameBox.Text;
             }
-            if (spellTreeList.SelectedIndex != -1)
-            {
-                backPanel.Visible = true;
-                backPanel.Enabled = true;
-                nameBox.Text = itemBoundList[spellTreeList.SelectedIndex].name;
-            }
-            else
-            {
-                backPanel.Visible = false;
-                backPanel.Enabled = false;
-            }
-            previousSelectedIndex = spellTreeList.SelectedIndex;
         }
 
         private void addTree_Click(object sender, EventArgs e)
@@ -120,7 +102,45 @@ namespace MasterTool.Tools
         {
             SpellTool spellScreen = new SpellTool(itemBoundList[spellTreeList.SelectedIndex]);
 
-            spellScreen.ShowDialog(this);
+            if(!spellScreen.IsDisposed)
+                spellScreen.ShowDialog(this);
+        }
+
+        /// <summary>
+        /// Saves the selected index
+        /// </summary>
+        /// <returns>Did the item save successfully</returns>
+        private bool SaveItem(int index)
+        {
+            if (index != -1)
+            {
+                if (string.IsNullOrWhiteSpace(nameBox.Text))
+                {
+                    MessageBox.Show("The name of the spell tree cannot be empty or only whitespace. Please choose another name and try again.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    spellTreeList.SelectedIndex = index;
+                    return false;
+                }
+
+                for (int i = 0; i < itemBoundList.Count; i++)
+                {
+                    if (i == index)
+                        continue;
+                    //If the name they want is already in use
+                    if ((itemBoundList[i]).name == nameBox.Text)
+                    {
+                        MessageBox.Show("The name of the spell tree needs to be unique. This name is already in use, please choose another name and try again.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        spellTreeList.SelectedIndex = index;
+                        return false;
+                    }
+                }
+                itemBoundList[index].name = nameBox.Text;
+            }
+            return true;
+        }
+
+        private void SpellTreeTool_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = !SaveItem(spellTreeList.SelectedIndex);
         }
     }
 }

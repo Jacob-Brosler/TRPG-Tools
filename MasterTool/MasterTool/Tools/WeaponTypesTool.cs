@@ -37,67 +37,33 @@ namespace MasterTool.Tools
         {
             if (weaponTypeList.SelectedIndex != previousSelectedIndex)
             {
-                if (previousSelectedIndex != -1)
+                if (SaveItem(previousSelectedIndex))
                 {
-                    if (string.IsNullOrWhiteSpace(nameBox.Text))
+                    if (weaponTypeList.SelectedIndex != -1)
                     {
-                        MessageBox.Show("The name of the weapon type cannot be empty or only whitespace. Please choose another name and try again.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        weaponTypeList.SelectedIndex = previousSelectedIndex;
-                        return;
-                    }
-
-                    for (int i = 0; i < weaponTypeBoundList.Count; i++)
-                    {
-                        if (i == previousSelectedIndex)
-                            continue;
-                        //If the name they want is already in use
-                        if ((weaponTypeBoundList[i]).name == nameBox.Text)
+                        backPanel.Visible = true;
+                        backPanel.Enabled = true;
+                        //Displays the values for the newly selected item
+                        WeaponType displayItem = weaponTypeBoundList[weaponTypeList.SelectedIndex];
+                        nameBox.Text = displayItem.name;
+                        rangesList.Items.Clear();
+                        foreach (WeaponStatsAtRange effect in displayItem.ranges)
                         {
-                            MessageBox.Show("The name of the weapon type needs to be unique. This name is already in use, please choose another name and try again.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                            weaponTypeList.SelectedIndex = previousSelectedIndex;
-                            return;
+                            rangesList.Items.Add(effect);
+                        }
+                        diagRangeList.Items.Clear();
+                        foreach (WeaponStatsAtRange effect in displayItem.diagonalRanges)
+                        {
+                            diagRangeList.Items.Add(effect);
                         }
                     }
-
-                    List<WeaponStatsAtRange> tempOrthoRangeList = new List<WeaponStatsAtRange>();
-                    foreach (WeaponStatsAtRange range in rangesList.Items)
+                    else
                     {
-                        tempOrthoRangeList.Add(range);
+                        backPanel.Visible = false;
+                        backPanel.Enabled = false;
                     }
-
-                    List<WeaponStatsAtRange> tempDiagRangeList = new List<WeaponStatsAtRange>();
-                    foreach (WeaponStatsAtRange range in diagRangeList.Items)
-                    {
-                        tempDiagRangeList.Add(range);
-                    }
-
-                    //Stores the changed item values
-                    weaponTypeBoundList[previousSelectedIndex] = new WeaponType(nameBox.Text, tempOrthoRangeList, tempDiagRangeList);
+                    previousSelectedIndex = weaponTypeList.SelectedIndex;
                 }
-                if (weaponTypeList.SelectedIndex != -1)
-                {
-                    backPanel.Visible = true;
-                    backPanel.Enabled = true;
-                    //Displays the values for the newly selected item
-                    WeaponType displayItem = weaponTypeBoundList[weaponTypeList.SelectedIndex];
-                    nameBox.Text = displayItem.name;
-                    rangesList.Items.Clear();
-                    foreach (WeaponStatsAtRange effect in displayItem.ranges)
-                    {
-                        rangesList.Items.Add(effect);
-                    }
-                    diagRangeList.Items.Clear();
-                    foreach (WeaponStatsAtRange effect in displayItem.diagonalRanges)
-                    {
-                        diagRangeList.Items.Add(effect);
-                    }
-                }
-                else
-                {
-                    backPanel.Visible = false;
-                    backPanel.Enabled = false;
-                }
-                previousSelectedIndex = weaponTypeList.SelectedIndex;
             }
         }
 
@@ -129,10 +95,24 @@ namespace MasterTool.Tools
 
         private void RemoveType_Click(object sender, EventArgs e)
         {
-            if (weaponTypeList.SelectedIndex != -1 && MessageBox.Show(this, "Are you sure you want to delete this item? This cannot be undone.", "Warning", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            foreach(EquippableBase weapon in DataStorage.WeaponRegistry)
+            {
+                if(weapon.subType == weaponTypeList.SelectedIndex)
+                {
+                    MessageBox.Show("This weapon type is used by an existing weapon. Please make sure no weapon uses this type then try again.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+            }
+
+            if (weaponTypeList.SelectedIndex != -1 && MessageBox.Show(this, "Are you sure you want to delete this weapon type? This cannot be undone.", "Warning", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 previousSelectedIndex = -1;
                 weaponTypeBoundList.RemoveAt(weaponTypeList.SelectedIndex);
+                foreach (EquippableBase weapon in DataStorage.WeaponRegistry)
+                {
+                    if (weapon.subType > weaponTypeList.SelectedIndex)
+                        weapon.subType--;
+                }
                 weaponTypeList.SelectedIndex = (weaponTypeBoundList.Count == 0 ? -1 : 0);
                 if (weaponTypeList.SelectedIndex == -1)
                 {
@@ -192,6 +172,55 @@ namespace MasterTool.Tools
             {
                 diagRangeList.Items.RemoveAt(diagRangeList.SelectedIndex);
             }
+        }
+
+        /// <summary>
+        /// Saves the selected index
+        /// </summary>
+        /// <returns>Did the item save successfully</returns>
+        private bool SaveItem(int index)
+        {
+            if (index != -1)
+            {
+                if (string.IsNullOrWhiteSpace(nameBox.Text))
+                {
+                    MessageBox.Show("The name of the item cannot be empty or only whitespace. Please choose another name and try again.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    weaponTypeList.SelectedIndex = index;
+                    return false;
+                }
+
+                for (int i = 0; i < weaponTypeBoundList.Count; i++)
+                {
+                    if (i == index)
+                        continue;
+                    //If the name they want is already in use
+                    if ((weaponTypeBoundList[i]).name == nameBox.Text)
+                    {
+                        MessageBox.Show("The name of the item needs to be unique. This name is already in use, please choose another name and try again.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        weaponTypeList.SelectedIndex = index;
+                        return false;
+                    }
+                }
+
+                //Stores the changed item values
+                List<WeaponStatsAtRange> tempOrthoRangeList = new List<WeaponStatsAtRange>();
+                foreach (WeaponStatsAtRange range in rangesList.Items)
+                {
+                    tempOrthoRangeList.Add(range);
+                }
+                List<WeaponStatsAtRange> tempDiagRangeList = new List<WeaponStatsAtRange>();
+                foreach (WeaponStatsAtRange range in diagRangeList.Items)
+                {
+                    tempDiagRangeList.Add(range);
+                }
+                weaponTypeBoundList[index] = new WeaponType(nameBox.Text, tempOrthoRangeList, tempDiagRangeList);
+            }
+            return true;
+        }
+
+        private void WeaponTypesTool_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = !SaveItem(weaponTypeList.SelectedIndex);
         }
     }
 }

@@ -32,16 +32,16 @@
             this.addType = new System.Windows.Forms.Button();
             this.weaponTypeList = new System.Windows.Forms.ListBox();
             this.backPanel = new System.Windows.Forms.Panel();
-            this.nameBox = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.removeRange = new System.Windows.Forms.Button();
-            this.addRange = new System.Windows.Forms.Button();
-            this.rangesList = new System.Windows.Forms.ListBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.removeDiagRange = new System.Windows.Forms.Button();
             this.addDiagRange = new System.Windows.Forms.Button();
             this.diagRangeList = new System.Windows.Forms.ListBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.removeRange = new System.Windows.Forms.Button();
+            this.nameBox = new System.Windows.Forms.TextBox();
+            this.addRange = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.rangesList = new System.Windows.Forms.ListBox();
             this.backPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -95,66 +95,6 @@
             this.backPanel.Size = new System.Drawing.Size(287, 305);
             this.backPanel.TabIndex = 14;
             // 
-            // nameBox
-            // 
-            this.nameBox.Location = new System.Drawing.Point(59, 9);
-            this.nameBox.Margin = new System.Windows.Forms.Padding(4);
-            this.nameBox.Name = "nameBox";
-            this.nameBox.Size = new System.Drawing.Size(132, 22);
-            this.nameBox.TabIndex = 5;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 12);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 17);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Name";
-            // 
-            // removeRange
-            // 
-            this.removeRange.Location = new System.Drawing.Point(66, 269);
-            this.removeRange.Margin = new System.Windows.Forms.Padding(4);
-            this.removeRange.Name = "removeRange";
-            this.removeRange.Size = new System.Drawing.Size(59, 28);
-            this.removeRange.TabIndex = 17;
-            this.removeRange.Text = "-";
-            this.removeRange.UseVisualStyleBackColor = true;
-            this.removeRange.Click += new System.EventHandler(this.RemoveRange_Click);
-            // 
-            // addRange
-            // 
-            this.addRange.Location = new System.Drawing.Point(7, 269);
-            this.addRange.Margin = new System.Windows.Forms.Padding(4);
-            this.addRange.Name = "addRange";
-            this.addRange.Size = new System.Drawing.Size(59, 28);
-            this.addRange.TabIndex = 16;
-            this.addRange.Text = "+";
-            this.addRange.UseVisualStyleBackColor = true;
-            this.addRange.Click += new System.EventHandler(this.AddRange_Click);
-            // 
-            // rangesList
-            // 
-            this.rangesList.FormattingEnabled = true;
-            this.rangesList.ItemHeight = 16;
-            this.rangesList.Location = new System.Drawing.Point(7, 71);
-            this.rangesList.Margin = new System.Windows.Forms.Padding(4);
-            this.rangesList.Name = "rangesList";
-            this.rangesList.Size = new System.Drawing.Size(116, 196);
-            this.rangesList.TabIndex = 15;
-            this.rangesList.DoubleClick += new System.EventHandler(this.RangesList_DoubleClick);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 50);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(132, 17);
-            this.label2.TabIndex = 18;
-            this.label2.Text = "Orthogonal Ranges";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -197,6 +137,66 @@
             this.diagRangeList.TabIndex = 19;
             this.diagRangeList.DoubleClick += new System.EventHandler(this.DiagRangeList_DoubleClick);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 50);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(132, 17);
+            this.label2.TabIndex = 18;
+            this.label2.Text = "Orthogonal Ranges";
+            // 
+            // removeRange
+            // 
+            this.removeRange.Location = new System.Drawing.Point(66, 269);
+            this.removeRange.Margin = new System.Windows.Forms.Padding(4);
+            this.removeRange.Name = "removeRange";
+            this.removeRange.Size = new System.Drawing.Size(59, 28);
+            this.removeRange.TabIndex = 17;
+            this.removeRange.Text = "-";
+            this.removeRange.UseVisualStyleBackColor = true;
+            this.removeRange.Click += new System.EventHandler(this.RemoveRange_Click);
+            // 
+            // nameBox
+            // 
+            this.nameBox.Location = new System.Drawing.Point(59, 9);
+            this.nameBox.Margin = new System.Windows.Forms.Padding(4);
+            this.nameBox.Name = "nameBox";
+            this.nameBox.Size = new System.Drawing.Size(132, 22);
+            this.nameBox.TabIndex = 5;
+            // 
+            // addRange
+            // 
+            this.addRange.Location = new System.Drawing.Point(7, 269);
+            this.addRange.Margin = new System.Windows.Forms.Padding(4);
+            this.addRange.Name = "addRange";
+            this.addRange.Size = new System.Drawing.Size(59, 28);
+            this.addRange.TabIndex = 16;
+            this.addRange.Text = "+";
+            this.addRange.UseVisualStyleBackColor = true;
+            this.addRange.Click += new System.EventHandler(this.AddRange_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 12);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(45, 17);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Name";
+            // 
+            // rangesList
+            // 
+            this.rangesList.FormattingEnabled = true;
+            this.rangesList.ItemHeight = 16;
+            this.rangesList.Location = new System.Drawing.Point(7, 71);
+            this.rangesList.Margin = new System.Windows.Forms.Padding(4);
+            this.rangesList.Name = "rangesList";
+            this.rangesList.Size = new System.Drawing.Size(116, 196);
+            this.rangesList.TabIndex = 15;
+            this.rangesList.DoubleClick += new System.EventHandler(this.RangesList_DoubleClick);
+            // 
             // WeaponTypesTool
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -206,9 +206,10 @@
             this.Controls.Add(this.removeType);
             this.Controls.Add(this.addType);
             this.Controls.Add(this.weaponTypeList);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "WeaponTypesTool";
             this.Text = "Weapon Types";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.WeaponTypesTool_FormClosing);
             this.backPanel.ResumeLayout(false);
             this.backPanel.PerformLayout();
             this.ResumeLayout(false);

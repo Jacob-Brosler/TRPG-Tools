@@ -4,7 +4,7 @@ Max stack
 Sell price
 Flavor text
 
-Weapon
+Weapon //////////
 Name
 Weapon type
 Stats
@@ -15,6 +15,7 @@ Flavor text
 Armor
 Name
 Equip slot
+Armor class
 Stats
 Effects
 Sell amount
@@ -92,7 +93,7 @@ Spells
 
 
 
-Skill parts:
+Skill parts: /////////
 
 Base
 targetType

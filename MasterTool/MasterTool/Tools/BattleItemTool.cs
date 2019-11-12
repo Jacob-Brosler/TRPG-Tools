@@ -37,60 +37,33 @@ namespace MasterTool.Tools
         {
             if (itemList.SelectedIndex != previousSelectedIndex)
             {
-                if (previousSelectedIndex != -1)
+                if (SaveItem(previousSelectedIndex))
                 {
-                    if (string.IsNullOrWhiteSpace(nameBox.Text))
+                    if (itemList.SelectedIndex != -1)
                     {
-                        MessageBox.Show("The name of the item cannot be empty or only whitespace. Please choose another name and try again.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        itemList.SelectedIndex = previousSelectedIndex;
-                        return;
-                    }
-
-                    for (int i = 0; i < itemBoundList.Count; i++)
-                    {
-                        if (i == previousSelectedIndex)
-                            continue;
-                        //If the name they want is already in use
-                        if ((itemBoundList[i]).name == nameBox.Text)
+                        backPanel.Visible = true;
+                        backPanel.Enabled = true;
+                        //Displays the values for the newly selected item
+                        BattleItemBase displayItem = itemBoundList[itemList.SelectedIndex];
+                        nameBox.Text = displayItem.name;
+                        targetType.SelectedIndex = (int)displayItem.targetType;
+                        useableOutOfBattle.Checked = displayItem.usableOutOfBattle;
+                        effectList.Items.Clear();
+                        foreach (SkillPartBase effect in displayItem.partList)
                         {
-                            MessageBox.Show("The name of the item needs to be unique. This name is already in use, please choose another name and try again.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                            itemList.SelectedIndex = previousSelectedIndex;
-                            return;
+                            effectList.Items.Add(effect);
                         }
+                        maxStackCount.Value = displayItem.maxStack;
+                        sellPriceCount.Value = displayItem.sellAmount;
+                        flavorTextBox.Text = displayItem.flavorText;
                     }
-                    List<SkillPartBase> tempEffectList = new List<SkillPartBase>();
-                    foreach(SkillPartBase effect in effectList.Items)
+                    else
                     {
-                        tempEffectList.Add(effect);
+                        backPanel.Visible = false;
+                        backPanel.Enabled = false;
                     }
-                    //Stores the changed item values
-                    itemBoundList[previousSelectedIndex] = new BattleItemBase(nameBox.Text, (TargettingType)targetType.SelectedIndex, useableOutOfBattle.Checked, 
-                        tempEffectList, (int)maxStackCount.Value, (int)sellPriceCount.Value, flavorTextBox.Text);
+                    previousSelectedIndex = itemList.SelectedIndex;
                 }
-                if (itemList.SelectedIndex != -1)
-                {
-                    backPanel.Visible = true;
-                    backPanel.Enabled = true;
-                    //Displays the values for the newly selected item
-                    BattleItemBase displayItem = itemBoundList[itemList.SelectedIndex];
-                    nameBox.Text = displayItem.name;
-                    targetType.SelectedIndex = (int)displayItem.targetType;
-                    useableOutOfBattle.Checked = displayItem.usableOutOfBattle;
-                    effectList.Items.Clear();
-                    foreach (SkillPartBase effect in displayItem.partList)
-                    {
-                        effectList.Items.Add(effect);
-                    }
-                    maxStackCount.Value = displayItem.maxStack;
-                    sellPriceCount.Value = displayItem.sellAmount;
-                    flavorTextBox.Text = displayItem.flavorText;
-                }
-                else
-                {
-                    backPanel.Visible = false;
-                    backPanel.Enabled = false;
-                }
-                previousSelectedIndex = itemList.SelectedIndex;
             }
         }
 
@@ -160,6 +133,50 @@ namespace MasterTool.Tools
             {
                 effectList.Items.RemoveAt(effectList.SelectedIndex);
             }
+        }
+
+        /// <summary>
+        /// Saves the selected index
+        /// </summary>
+        /// <returns>Did the item save successfully</returns>
+        private bool SaveItem(int index)
+        {
+            if (index != -1)
+            {
+                if (string.IsNullOrWhiteSpace(nameBox.Text))
+                {
+                    MessageBox.Show("The name of the item cannot be empty or only whitespace. Please choose another name and try again.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    itemList.SelectedIndex = index;
+                    return false;
+                }
+
+                for (int i = 0; i < itemBoundList.Count; i++)
+                {
+                    if (i == index)
+                        continue;
+                    //If the name they want is already in use
+                    if ((itemBoundList[i]).name == nameBox.Text)
+                    {
+                        MessageBox.Show("The name of the item needs to be unique. This name is already in use, please choose another name and try again.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        itemList.SelectedIndex = index;
+                        return false;
+                    }
+                }
+                List<SkillPartBase> tempEffectList = new List<SkillPartBase>();
+                foreach (SkillPartBase effect in effectList.Items)
+                {
+                    tempEffectList.Add(effect);
+                }
+                //Stores the changed item values
+                itemBoundList[index] = new BattleItemBase(nameBox.Text, (TargettingType)targetType.SelectedIndex, useableOutOfBattle.Checked,
+                    tempEffectList, (int)maxStackCount.Value, (int)sellPriceCount.Value, flavorTextBox.Text);
+            }
+            return true;
+        }
+
+        private void BattleItemTool_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = !SaveItem(itemList.SelectedIndex);
         }
     }
 }

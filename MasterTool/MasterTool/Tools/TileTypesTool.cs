@@ -79,53 +79,29 @@ namespace MasterTool.Tools
 
         private void TileList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (previousSelectedIndex != -1)
+            if (tileList.SelectedIndex != previousSelectedIndex)
             {
-                if (string.IsNullOrWhiteSpace(nameBox.Text))
+                if (SaveItem(previousSelectedIndex))
                 {
-                    MessageBox.Show("The name of the tile cannot be empty or only whitespace. Please choose another name and try again.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    tileList.SelectedIndex = previousSelectedIndex;
-                    return;
-                }
-
-                for (int i = 0; i < itemBoundList.Count; i++)
-                {
-                    if (i == previousSelectedIndex)
-                        continue;
-                    //If the name they want is already in use
-                    if (itemBoundList[i].name == nameBox.Text)
+                    if (tileList.SelectedIndex != -1)
                     {
-                        MessageBox.Show("The name of the tile needs to be unique. This name is already in use, please choose another name and try again.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        tileList.SelectedIndex = previousSelectedIndex;
-                        return;
+                        backPanel.Visible = true;
+                        backPanel.Enabled = true;
+                        nameBox.Text = itemBoundList[tileList.SelectedIndex].name;
+                        flavorTextBox.Text = itemBoundList[tileList.SelectedIndex].flavorText;
+                        startOfTurnButton.Enabled = startOfTurn.Checked = itemBoundList[tileList.SelectedIndex].startOfTurn != null;
+                        passOverButton.Enabled = passOver.Checked = itemBoundList[tileList.SelectedIndex].passOver != null;
+                        stopOnTileButton.Enabled = stopOnTile.Checked = itemBoundList[tileList.SelectedIndex].stopOnTile != null;
+                        endOfTurnButton.Enabled = endOfTurn.Checked = itemBoundList[tileList.SelectedIndex].endOfTurn != null;
                     }
+                    else
+                    {
+                        backPanel.Visible = false;
+                        backPanel.Enabled = false;
+                    }
+                    previousSelectedIndex = tileList.SelectedIndex;
                 }
-                //Stores the changed item values
-                itemBoundList[previousSelectedIndex] = new TileType(nameBox.Text, flavorTextBox.Text)
-                {
-                    startOfTurn = startOfTurn.Checked ? itemBoundList[previousSelectedIndex].startOfTurn : null,
-                    passOver = passOver.Checked ? itemBoundList[previousSelectedIndex].passOver : null,
-                    stopOnTile = stopOnTile.Checked ? itemBoundList[previousSelectedIndex].stopOnTile : null,
-                    endOfTurn = endOfTurn.Checked ? itemBoundList[previousSelectedIndex].endOfTurn : null,
-                };
             }
-            if (tileList.SelectedIndex != -1)
-            {
-                backPanel.Visible = true;
-                backPanel.Enabled = true;
-                nameBox.Text = itemBoundList[tileList.SelectedIndex].name;
-                flavorTextBox.Text = itemBoundList[tileList.SelectedIndex].flavorText;
-                startOfTurnButton.Enabled = startOfTurn.Checked = itemBoundList[tileList.SelectedIndex].startOfTurn != null;
-                passOverButton.Enabled = passOver.Checked = itemBoundList[tileList.SelectedIndex].passOver != null;
-                stopOnTileButton.Enabled = stopOnTile.Checked = itemBoundList[tileList.SelectedIndex].stopOnTile != null;
-                endOfTurnButton.Enabled = endOfTurn.Checked = itemBoundList[tileList.SelectedIndex].endOfTurn != null;
-            }
-            else
-            {
-                backPanel.Visible = false;
-                backPanel.Enabled = false;
-            }
-            previousSelectedIndex = tileList.SelectedIndex;
         }
 
         private void StartOfTurn_CheckedChanged(object sender, EventArgs e)
@@ -194,6 +170,51 @@ namespace MasterTool.Tools
 
                 itemBoundList[tileList.SelectedIndex].endOfTurn = skillScreen.returnEffect;
             }
+        }
+
+        /// <summary>
+        /// Saves the selected index
+        /// </summary>
+        /// <returns>Did the item save successfully</returns>
+        private bool SaveItem(int index)
+        {
+            if (index != -1)
+            {
+                if (string.IsNullOrWhiteSpace(nameBox.Text))
+                {
+                    MessageBox.Show("The name of the tile type cannot be empty or only whitespace. Please choose another name and try again.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    tileList.SelectedIndex = index;
+                    return false;
+                }
+
+                for (int i = 0; i < itemBoundList.Count; i++)
+                {
+                    if (i == index)
+                        continue;
+                    //If the name they want is already in use
+                    if ((itemBoundList[i]).name == nameBox.Text)
+                    {
+                        MessageBox.Show("The name of the tile type needs to be unique. This name is already in use, please choose another name and try again.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        tileList.SelectedIndex = index;
+                        return false;
+                    }
+                }
+
+                //Stores the changed item values
+                itemBoundList[index] = new TileType(nameBox.Text, flavorTextBox.Text)
+                {
+                    startOfTurn = startOfTurn.Checked ? itemBoundList[index].startOfTurn : null,
+                    passOver = passOver.Checked ? itemBoundList[index].passOver : null,
+                    stopOnTile = stopOnTile.Checked ? itemBoundList[index].stopOnTile : null,
+                    endOfTurn = endOfTurn.Checked ? itemBoundList[index].endOfTurn : null,
+                };
+            }
+            return true;
+        }
+
+        private void TileTypesTool_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = !SaveItem(tileList.SelectedIndex);
         }
     }
 }

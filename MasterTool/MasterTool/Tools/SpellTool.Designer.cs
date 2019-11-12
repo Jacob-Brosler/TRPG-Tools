@@ -102,7 +102,7 @@
             this.effectList.FormattingEnabled = true;
             this.effectList.ItemHeight = 16;
             this.effectList.Location = new System.Drawing.Point(261, 105);
-            this.effectList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.effectList.Margin = new System.Windows.Forms.Padding(4);
             this.effectList.Name = "effectList";
             this.effectList.Size = new System.Drawing.Size(159, 164);
             this.effectList.TabIndex = 38;
@@ -120,7 +120,7 @@
             "All Allies Except Self",
             "All Enemies"});
             this.targetType.Location = new System.Drawing.Point(379, 14);
-            this.targetType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.targetType.Margin = new System.Windows.Forms.Padding(4);
             this.targetType.Name = "targetType";
             this.targetType.Size = new System.Drawing.Size(160, 24);
             this.targetType.TabIndex = 37;
@@ -140,7 +140,7 @@
             // 
             this.flavorTextBox.DetectUrls = false;
             this.flavorTextBox.Location = new System.Drawing.Point(4, 161);
-            this.flavorTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flavorTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.flavorTextBox.Multiline = false;
             this.flavorTextBox.Name = "flavorTextBox";
             this.flavorTextBox.Size = new System.Drawing.Size(232, 117);
@@ -160,7 +160,7 @@
             // nameBox
             // 
             this.nameBox.Location = new System.Drawing.Point(93, 15);
-            this.nameBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nameBox.Margin = new System.Windows.Forms.Padding(4);
             this.nameBox.Name = "nameBox";
             this.nameBox.Size = new System.Drawing.Size(132, 22);
             this.nameBox.TabIndex = 33;
@@ -178,7 +178,7 @@
             // removeSpell
             // 
             this.removeSpell.Location = new System.Drawing.Point(63, 282);
-            this.removeSpell.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.removeSpell.Margin = new System.Windows.Forms.Padding(4);
             this.removeSpell.Name = "removeSpell";
             this.removeSpell.Size = new System.Drawing.Size(59, 28);
             this.removeSpell.TabIndex = 31;
@@ -189,7 +189,7 @@
             // addSpell
             // 
             this.addSpell.Location = new System.Drawing.Point(4, 282);
-            this.addSpell.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addSpell.Margin = new System.Windows.Forms.Padding(4);
             this.addSpell.Name = "addSpell";
             this.addSpell.Size = new System.Drawing.Size(59, 28);
             this.addSpell.TabIndex = 30;
@@ -202,7 +202,7 @@
             this.spellList.FormattingEnabled = true;
             this.spellList.ItemHeight = 16;
             this.spellList.Location = new System.Drawing.Point(4, 4);
-            this.spellList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spellList.Margin = new System.Windows.Forms.Padding(4);
             this.spellList.Name = "spellList";
             this.spellList.Size = new System.Drawing.Size(116, 276);
             this.spellList.TabIndex = 29;
@@ -211,7 +211,7 @@
             // castCost
             // 
             this.castCost.Location = new System.Drawing.Point(93, 47);
-            this.castCost.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.castCost.Margin = new System.Windows.Forms.Padding(4);
             this.castCost.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -234,7 +234,7 @@
             // unlockLevel
             // 
             this.unlockLevel.Location = new System.Drawing.Point(93, 79);
-            this.unlockLevel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.unlockLevel.Margin = new System.Windows.Forms.Padding(4);
             this.unlockLevel.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -257,7 +257,7 @@
             // unlockCost
             // 
             this.unlockCost.Location = new System.Drawing.Point(93, 111);
-            this.unlockCost.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.unlockCost.Margin = new System.Windows.Forms.Padding(4);
             this.unlockCost.Name = "unlockCost";
             this.unlockCost.Size = new System.Drawing.Size(160, 22);
             this.unlockCost.TabIndex = 45;
@@ -295,7 +295,7 @@
             // targetRange
             // 
             this.targetRange.Location = new System.Drawing.Point(379, 44);
-            this.targetRange.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.targetRange.Margin = new System.Windows.Forms.Padding(4);
             this.targetRange.Maximum = new decimal(new int[] {
             20,
             0,
@@ -338,7 +338,7 @@
             // aoeX
             // 
             this.aoeX.Location = new System.Drawing.Point(595, 23);
-            this.aoeX.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.aoeX.Margin = new System.Windows.Forms.Padding(4);
             this.aoeX.Maximum = new decimal(new int[] {
             20,
             0,
@@ -361,7 +361,7 @@
             // aoeY
             // 
             this.aoeY.Location = new System.Drawing.Point(595, 54);
-            this.aoeY.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.aoeY.Margin = new System.Windows.Forms.Padding(4);
             this.aoeY.Maximum = new decimal(new int[] {
             20,
             0,
@@ -385,7 +385,7 @@
             // 
             this.dependencyList.FormattingEnabled = true;
             this.dependencyList.Location = new System.Drawing.Point(457, 105);
-            this.dependencyList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dependencyList.Margin = new System.Windows.Forms.Padding(4);
             this.dependencyList.Name = "dependencyList";
             this.dependencyList.Size = new System.Drawing.Size(159, 174);
             this.dependencyList.TabIndex = 55;
@@ -417,7 +417,7 @@
             this.backPanel.Controls.Add(this.unlockLevel);
             this.backPanel.Controls.Add(this.label2);
             this.backPanel.Location = new System.Drawing.Point(129, 4);
-            this.backPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.backPanel.Margin = new System.Windows.Forms.Padding(4);
             this.backPanel.Name = "backPanel";
             this.backPanel.Size = new System.Drawing.Size(671, 306);
             this.backPanel.TabIndex = 56;
@@ -431,9 +431,10 @@
             this.Controls.Add(this.addSpell);
             this.Controls.Add(this.spellList);
             this.Controls.Add(this.backPanel);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "SpellTool";
             this.Text = "SpellTool";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SpellTool_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.castCost)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.unlockLevel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.unlockCost)).EndInit();

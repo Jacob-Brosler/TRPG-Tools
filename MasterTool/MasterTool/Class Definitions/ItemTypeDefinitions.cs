@@ -70,18 +70,21 @@ public class EquippableBase : ItemBase
     /// Keeps track of the battle-mutable effect limiters for each triggerable effect
     /// The TemporaryEffectData here should never be modified
     /// </summary>
-    public List<Tuple<TriggeredEffect, TemporaryEffectData>> effects = new List<Tuple<TriggeredEffect, TemporaryEffectData>>();
+    public List<AddTriggerPart> effects = new List<AddTriggerPart>();
     
-    public EquippableBase(string name, int slot, int subtype, int sellPrice, string flavor, Dictionary<Stats, int> stats) : base(name, 1, sellPrice, flavor)
+    public EquippableBase(string name, int slot, int subtype, int sellPrice, string flavor, List<StatChangePart> statChanges, List<AddTriggerPart> effects) : base(name, 1, sellPrice, flavor)
     {
         equipSlot = slot;
         subType = subtype;
-        this.stats = stats;
-    }
-
-    public void AddEffect(TriggeredEffect effect, int maxTimesThisBattle = -1, int turnCooldown = -1, int maxActiveTurns = -1)
-    {
-        effects.Add(new Tuple<TriggeredEffect, TemporaryEffectData>(effect, new TemporaryEffectData(maxTimesThisBattle, turnCooldown, maxActiveTurns)));
+        this.effects = effects;
+        stats = new Dictionary<Stats, int>();
+        foreach(StatChangePart singleStat in statChanges)
+        {
+            if (stats.ContainsKey(singleStat.affectedStat))
+                stats[singleStat.affectedStat] += singleStat.flatChange;
+            else
+                stats.Add(singleStat.affectedStat, singleStat.flatChange);
+        }
     }
 }
 

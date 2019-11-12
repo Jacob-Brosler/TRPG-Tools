@@ -37,77 +37,46 @@ namespace MasterTool.Tools
         {
             if (spellList.SelectedIndex != previousSelectedIndex)
             {
-                if (previousSelectedIndex != -1)
+                if (SaveItem(previousSelectedIndex))
                 {
-                    if (string.IsNullOrWhiteSpace(nameBox.Text))
+                    if (spellList.SelectedIndex != -1)
                     {
-                        MessageBox.Show("The name of the spell cannot be empty or only whitespace. Please choose another name and try again.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        spellList.SelectedIndex = previousSelectedIndex;
-                        return;
-                    }
-
-                    for (int i = 0; i < itemBoundList.Count; i++)
-                    {
-                        if (i == previousSelectedIndex)
-                            continue;
-                        //If the name they want is already in use
-                        if (itemBoundList[i].name == nameBox.Text)
+                        backPanel.Visible = true;
+                        backPanel.Enabled = true;
+                        //Displays the values for the newly selected item
+                        Skill displayItem = itemBoundList[spellList.SelectedIndex];
+                        nameBox.Text = displayItem.name;
+                        targetType.SelectedIndex = (int)displayItem.targetType;
+                        castCost.Value = displayItem.aEtherCost;
+                        targetRange.Value = displayItem.targettingRange;
+                        aoeX.Value = displayItem.xRange;
+                        aoeY.Value = displayItem.yRange;
+                        unlockCost.Value = displayItem.unlockCost;
+                        unlockLevel.Value = displayItem.unlockLevel;
+                        effectList.Items.Clear();
+                        foreach (SkillPartBase effect in displayItem.partList)
                         {
-                            MessageBox.Show("The name of the spell needs to be unique. This name is already in use, please choose another name and try again.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                            spellList.SelectedIndex = previousSelectedIndex;
-                            return;
+                            effectList.Items.Add(effect);
                         }
-                    }
-                    List<SkillPartBase> tempEffectList = new List<SkillPartBase>();
-                    foreach (SkillPartBase effect in effectList.Items)
-                    {
-                        tempEffectList.Add(effect);
-                    }
-                    //Stores the changed item values
-                    itemBoundList[previousSelectedIndex] = new Skill(nameBox.Text, (TargettingType)targetType.SelectedIndex, (int)castCost.Value,
-                        (int)targetRange.Value, (int)aoeX.Value, (int)aoeY.Value, (int)unlockCost.Value, (int)unlockLevel.Value, flavorTextBox.Text);
-                    foreach(int id in dependencyList.CheckedIndices)
-                    {
-                        itemBoundList[previousSelectedIndex].dependencies.Add(id + (id >= previousSelectedIndex ? 1 : 0));
-                    }
-                }
-                if (spellList.SelectedIndex != -1)
-                {
-                    backPanel.Visible = true;
-                    backPanel.Enabled = true;
-                    //Displays the values for the newly selected item
-                    Skill displayItem = itemBoundList[spellList.SelectedIndex];
-                    nameBox.Text = displayItem.name;
-                    targetType.SelectedIndex = (int)displayItem.targetType;
-                    castCost.Value = displayItem.aEtherCost;
-                    targetRange.Value = displayItem.targettingRange;
-                    aoeX.Value = displayItem.xRange;
-                    aoeY.Value = displayItem.yRange;
-                    unlockCost.Value = displayItem.unlockCost;
-                    unlockLevel.Value = displayItem.unlockLevel;
-                    effectList.Items.Clear();
-                    foreach (SkillPartBase effect in displayItem.partList)
-                    {
-                        effectList.Items.Add(effect);
-                    }
 
-                    dependencyList.Items.Clear();
-                    for (int i = 0; i < itemBoundList.Count; i++)
-                    {
-                        if (i == spellList.SelectedIndex)
-                            continue;
-                        dependencyList.Items.Add(itemBoundList[i].name);
-                        dependencyList.SetItemChecked(i - (i > spellList.SelectedIndex ? 1 : 0), itemBoundList[spellList.SelectedIndex].dependencies.Contains(i));
-                    }
+                        dependencyList.Items.Clear();
+                        for (int i = 0; i < itemBoundList.Count; i++)
+                        {
+                            if (i == spellList.SelectedIndex)
+                                continue;
+                            dependencyList.Items.Add(itemBoundList[i].name);
+                            dependencyList.SetItemChecked(i - (i > spellList.SelectedIndex ? 1 : 0), itemBoundList[spellList.SelectedIndex].dependencies.Contains(i));
+                        }
 
-                    flavorTextBox.Text = displayItem.flavorText;
+                        flavorTextBox.Text = displayItem.flavorText;
+                    }
+                    else
+                    {
+                        backPanel.Visible = false;
+                        backPanel.Enabled = false;
+                    }
+                    previousSelectedIndex = spellList.SelectedIndex;
                 }
-                else
-                {
-                    backPanel.Visible = false;
-                    backPanel.Enabled = false;
-                }
-                previousSelectedIndex = spellList.SelectedIndex;
             }
         }
 
@@ -184,6 +153,54 @@ namespace MasterTool.Tools
             {
                 effectList.Items.RemoveAt(effectList.SelectedIndex);
             }
+        }
+
+        /// <summary>
+        /// Saves the selected index
+        /// </summary>
+        /// <returns>Did the item save successfully</returns>
+        private bool SaveItem(int index)
+        {
+            if (index != -1)
+            {
+                if (string.IsNullOrWhiteSpace(nameBox.Text))
+                {
+                    MessageBox.Show("The name of the spell cannot be empty or only whitespace. Please choose another name and try again.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    spellList.SelectedIndex = index;
+                    return false;
+                }
+
+                for (int i = 0; i < itemBoundList.Count; i++)
+                {
+                    if (i == index)
+                        continue;
+                    //If the name they want is already in use
+                    if ((itemBoundList[i]).name == nameBox.Text)
+                    {
+                        MessageBox.Show("The name of the spell needs to be unique. This name is already in use, please choose another name and try again.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        spellList.SelectedIndex = index;
+                        return false;
+                    }
+                }
+                List<SkillPartBase> tempEffectList = new List<SkillPartBase>();
+                foreach (SkillPartBase effect in effectList.Items)
+                {
+                    tempEffectList.Add(effect);
+                }
+                //Stores the changed item values
+                itemBoundList[index] = new Skill(nameBox.Text, (TargettingType)targetType.SelectedIndex, (int)castCost.Value,
+                    (int)targetRange.Value, (int)aoeX.Value, (int)aoeY.Value, (int)unlockCost.Value, (int)unlockLevel.Value, flavorTextBox.Text);
+                foreach (int id in dependencyList.CheckedIndices)
+                {
+                    itemBoundList[index].dependencies.Add(id + (id >= index ? 1 : 0));
+                }
+            }
+            return true;
+        }
+
+        private void SpellTool_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = !SaveItem(spellList.SelectedIndex);
         }
     }
 }

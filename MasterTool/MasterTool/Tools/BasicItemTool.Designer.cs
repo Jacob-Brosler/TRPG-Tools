@@ -50,7 +50,7 @@
             this.itemList.FormattingEnabled = true;
             this.itemList.ItemHeight = 16;
             this.itemList.Location = new System.Drawing.Point(0, 0);
-            this.itemList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.itemList.Margin = new System.Windows.Forms.Padding(4);
             this.itemList.Name = "itemList";
             this.itemList.Size = new System.Drawing.Size(116, 276);
             this.itemList.TabIndex = 0;
@@ -69,7 +69,7 @@
             // maxStackCount
             // 
             this.maxStackCount.Location = new System.Drawing.Point(79, 58);
-            this.maxStackCount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.maxStackCount.Margin = new System.Windows.Forms.Padding(4);
             this.maxStackCount.Maximum = new decimal(new int[] {
             9999,
             0,
@@ -92,7 +92,7 @@
             // nameBox
             // 
             this.nameBox.Location = new System.Drawing.Point(56, 14);
-            this.nameBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nameBox.Margin = new System.Windows.Forms.Padding(4);
             this.nameBox.Name = "nameBox";
             this.nameBox.Size = new System.Drawing.Size(132, 22);
             this.nameBox.TabIndex = 3;
@@ -120,7 +120,7 @@
             // sellPriceCount
             // 
             this.sellPriceCount.Location = new System.Drawing.Point(77, 101);
-            this.sellPriceCount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.sellPriceCount.Margin = new System.Windows.Forms.Padding(4);
             this.sellPriceCount.Maximum = new decimal(new int[] {
             50000,
             0,
@@ -154,7 +154,7 @@
             // 
             this.flavorTextBox.DetectUrls = false;
             this.flavorTextBox.Location = new System.Drawing.Point(5, 160);
-            this.flavorTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flavorTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.flavorTextBox.Multiline = false;
             this.flavorTextBox.Name = "flavorTextBox";
             this.flavorTextBox.Size = new System.Drawing.Size(232, 117);
@@ -164,7 +164,7 @@
             // addItem
             // 
             this.addItem.Location = new System.Drawing.Point(0, 278);
-            this.addItem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addItem.Margin = new System.Windows.Forms.Padding(4);
             this.addItem.Name = "addItem";
             this.addItem.Size = new System.Drawing.Size(59, 28);
             this.addItem.TabIndex = 9;
@@ -175,7 +175,7 @@
             // removeItem
             // 
             this.removeItem.Location = new System.Drawing.Point(59, 278);
-            this.removeItem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.removeItem.Margin = new System.Windows.Forms.Padding(4);
             this.removeItem.Name = "removeItem";
             this.removeItem.Size = new System.Drawing.Size(59, 28);
             this.removeItem.TabIndex = 10;
@@ -194,7 +194,7 @@
             this.backPanel.Controls.Add(this.label3);
             this.backPanel.Controls.Add(this.sellPriceCount);
             this.backPanel.Location = new System.Drawing.Point(125, 1);
-            this.backPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.backPanel.Margin = new System.Windows.Forms.Padding(4);
             this.backPanel.Name = "backPanel";
             this.backPanel.Size = new System.Drawing.Size(251, 305);
             this.backPanel.TabIndex = 11;
@@ -208,9 +208,10 @@
             this.Controls.Add(this.addItem);
             this.Controls.Add(this.itemList);
             this.Controls.Add(this.backPanel);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "BasicItemTool";
             this.Text = "Item Definitions";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BasicItemTool_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.maxStackCount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sellPriceCount)).EndInit();
             this.backPanel.ResumeLayout(false);

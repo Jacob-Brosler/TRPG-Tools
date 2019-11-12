@@ -23,6 +23,10 @@ namespace MasterTool
 
         //List of information on all basic items
         public static BindingList<ItemBase> BaseItemRegistry = new BindingList<ItemBase>();
+        //List of information on all basic items
+        public static BindingList<EquippableBase> WeaponRegistry = new BindingList<EquippableBase>();
+        //List of information on all basic items
+        public static BindingList<EquippableBase> ArmorRegistry = new BindingList<EquippableBase>();
         //List of information on all battle items
         public static BindingList<BattleItemBase> BattleItemRegistry = new BindingList<BattleItemBase>();
         //List of information on all movement types

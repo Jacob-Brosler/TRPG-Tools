@@ -13,10 +13,6 @@ namespace MasterTool
 {
     public partial class ToolHub : Form
     {
-        public BasicItemTool itemScreen;
-        public BattleItemTool battleItemScreen;
-        public SpellTreeTool spellScreen;
-
         public ToolHub()
         {
             InitializeComponent();
@@ -29,46 +25,50 @@ namespace MasterTool
 
         private void ItemDefinitions_Click(object sender, EventArgs e)
         {
-            if(itemScreen == null)
-                itemScreen = new BasicItemTool();
+            BasicItemTool itemScreen = new BasicItemTool();
 
-            itemScreen.ShowDialog(this);
+            if (!itemScreen.IsDisposed)
+                itemScreen.ShowDialog(this);
         }
 
         private void BattleItems_Click(object sender, EventArgs e)
         {
-            if (battleItemScreen == null)
-                battleItemScreen = new BattleItemTool();
+            BattleItemTool battleItemScreen = new BattleItemTool();
 
-            battleItemScreen.ShowDialog(this);
+            if (!battleItemScreen.IsDisposed)
+                battleItemScreen.ShowDialog(this);
         }
 
         private void PlayerTemplates_Click(object sender, EventArgs e)
         {
             PlayerTemplatesTool playerScreen = new PlayerTemplatesTool();
 
-            playerScreen.ShowDialog(this);
+            if (!playerScreen.IsDisposed)
+                playerScreen.ShowDialog(this);
         }
 
         private void EnemyDefinitions_Click(object sender, EventArgs e)
         {
             EnemyDefinitionsTool enemyScreen = new EnemyDefinitionsTool();
 
-            enemyScreen.ShowDialog(this);
+            if (!enemyScreen.IsDisposed)
+                enemyScreen.ShowDialog(this);
         }
 
         private void WeaponTypes_Click(object sender, EventArgs e)
         {
             WeaponTypesTool weaponScreen = new WeaponTypesTool();
 
-            weaponScreen.ShowDialog(this);
+            if (!weaponScreen.IsDisposed)
+                weaponScreen.ShowDialog(this);
         }
 
         private void TileTypes_Click(object sender, EventArgs e)
         {
             TileTypesTool tileScreen = new TileTypesTool();
 
-            tileScreen.ShowDialog(this);
+            if (!tileScreen.IsDisposed)
+                tileScreen.ShowDialog(this);
         }
 
         private void Save_Click(object sender, EventArgs e)
@@ -82,9 +82,26 @@ namespace MasterTool
 
         private void spellTrees_Click(object sender, EventArgs e)
         {
-            spellScreen = new SpellTreeTool();
+            SpellTreeTool spellScreen = new SpellTreeTool();
 
-            spellScreen.ShowDialog(this);
+            if (!spellScreen.IsDisposed)
+                spellScreen.ShowDialog(this);
+        }
+
+        private void Weapons_Click(object sender, EventArgs e)
+        {
+            WeaponTool weaponScreen = new WeaponTool();
+
+            if(!weaponScreen.IsDisposed)
+                weaponScreen.ShowDialog(this);
+        }
+
+        private void Equipment_Click(object sender, EventArgs e)
+        {
+            EquipmentTool equipmentScreen = new EquipmentTool();
+
+            if (!equipmentScreen.IsDisposed)
+                equipmentScreen.ShowDialog(this);
         }
     }
 }
