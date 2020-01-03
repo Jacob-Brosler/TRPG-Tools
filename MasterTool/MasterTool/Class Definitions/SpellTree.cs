@@ -9,15 +9,8 @@ namespace MasterTool.Tools
 {
     public class SpellTree
     {
-        public string Name
-        {
-            get
-            {
-                return name;
-            }
-        }
-        
-        public string name;
+        public string name { get; set; }
+
         public BindingList<Skill> spells;
 
         public SpellTree(string name, BindingList<Skill> spells)

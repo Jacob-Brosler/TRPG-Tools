@@ -38,12 +38,13 @@
             this.spellTrees = new System.Windows.Forms.Button();
             this.Weapons = new System.Windows.Forms.Button();
             this.Equipment = new System.Windows.Forms.Button();
+            this.LoadData = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ItemDefinitions
             // 
             this.ItemDefinitions.Location = new System.Drawing.Point(16, 15);
-            this.ItemDefinitions.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ItemDefinitions.Margin = new System.Windows.Forms.Padding(4);
             this.ItemDefinitions.Name = "ItemDefinitions";
             this.ItemDefinitions.Size = new System.Drawing.Size(133, 31);
             this.ItemDefinitions.TabIndex = 0;
@@ -54,7 +55,7 @@
             // BattleItems
             // 
             this.BattleItems.Location = new System.Drawing.Point(157, 15);
-            this.BattleItems.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BattleItems.Margin = new System.Windows.Forms.Padding(4);
             this.BattleItems.Name = "BattleItems";
             this.BattleItems.Size = new System.Drawing.Size(133, 31);
             this.BattleItems.TabIndex = 1;
@@ -65,7 +66,7 @@
             // PlayerTemplates
             // 
             this.PlayerTemplates.Location = new System.Drawing.Point(299, 15);
-            this.PlayerTemplates.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PlayerTemplates.Margin = new System.Windows.Forms.Padding(4);
             this.PlayerTemplates.Name = "PlayerTemplates";
             this.PlayerTemplates.Size = new System.Drawing.Size(133, 31);
             this.PlayerTemplates.TabIndex = 2;
@@ -76,7 +77,7 @@
             // EnemyDefinitions
             // 
             this.EnemyDefinitions.Location = new System.Drawing.Point(16, 53);
-            this.EnemyDefinitions.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.EnemyDefinitions.Margin = new System.Windows.Forms.Padding(4);
             this.EnemyDefinitions.Name = "EnemyDefinitions";
             this.EnemyDefinitions.Size = new System.Drawing.Size(133, 31);
             this.EnemyDefinitions.TabIndex = 3;
@@ -87,7 +88,7 @@
             // WeaponTypes
             // 
             this.WeaponTypes.Location = new System.Drawing.Point(157, 53);
-            this.WeaponTypes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.WeaponTypes.Margin = new System.Windows.Forms.Padding(4);
             this.WeaponTypes.Name = "WeaponTypes";
             this.WeaponTypes.Size = new System.Drawing.Size(133, 31);
             this.WeaponTypes.TabIndex = 4;
@@ -98,7 +99,7 @@
             // TileTypes
             // 
             this.TileTypes.Location = new System.Drawing.Point(299, 53);
-            this.TileTypes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TileTypes.Margin = new System.Windows.Forms.Padding(4);
             this.TileTypes.Name = "TileTypes";
             this.TileTypes.Size = new System.Drawing.Size(133, 31);
             this.TileTypes.TabIndex = 5;
@@ -108,8 +109,8 @@
             // 
             // Save
             // 
-            this.Save.Location = new System.Drawing.Point(172, 129);
-            this.Save.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Save.Location = new System.Drawing.Point(244, 129);
+            this.Save.Margin = new System.Windows.Forms.Padding(4);
             this.Save.Name = "Save";
             this.Save.Size = new System.Drawing.Size(100, 28);
             this.Save.TabIndex = 6;
@@ -120,7 +121,7 @@
             // spellTrees
             // 
             this.spellTrees.Location = new System.Drawing.Point(16, 90);
-            this.spellTrees.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spellTrees.Margin = new System.Windows.Forms.Padding(4);
             this.spellTrees.Name = "spellTrees";
             this.spellTrees.Size = new System.Drawing.Size(133, 31);
             this.spellTrees.TabIndex = 7;
@@ -150,11 +151,23 @@
             this.Equipment.UseVisualStyleBackColor = true;
             this.Equipment.Click += new System.EventHandler(this.Equipment_Click);
             // 
+            // LoadData
+            // 
+            this.LoadData.Location = new System.Drawing.Point(103, 129);
+            this.LoadData.Margin = new System.Windows.Forms.Padding(4);
+            this.LoadData.Name = "LoadData";
+            this.LoadData.Size = new System.Drawing.Size(100, 28);
+            this.LoadData.TabIndex = 10;
+            this.LoadData.Text = "Load";
+            this.LoadData.UseVisualStyleBackColor = true;
+            this.LoadData.Click += new System.EventHandler(this.LoadData_Click);
+            // 
             // ToolHub
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(448, 167);
+            this.Controls.Add(this.LoadData);
             this.Controls.Add(this.Equipment);
             this.Controls.Add(this.Weapons);
             this.Controls.Add(this.spellTrees);
@@ -165,7 +178,7 @@
             this.Controls.Add(this.PlayerTemplates);
             this.Controls.Add(this.BattleItems);
             this.Controls.Add(this.ItemDefinitions);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ToolHub";
@@ -187,6 +200,7 @@
         private System.Windows.Forms.Button spellTrees;
         private System.Windows.Forms.Button Weapons;
         private System.Windows.Forms.Button Equipment;
+        private System.Windows.Forms.Button LoadData;
     }
 }
 

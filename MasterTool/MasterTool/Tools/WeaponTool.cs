@@ -33,7 +33,7 @@ namespace MasterTool.Tools
             }
             itemBoundList = DataStorage.WeaponRegistry;
             weaponList.DataSource = itemBoundList;
-            weaponList.DisplayMember = "Name";
+            weaponList.DisplayMember = "name";
 
             if (itemBoundList.Count > 0)
             {

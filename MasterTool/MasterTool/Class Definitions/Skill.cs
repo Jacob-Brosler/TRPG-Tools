@@ -4,15 +4,7 @@ using System.Collections.Generic;
 
 public class Skill
 {
-    public string Name
-    {
-        get
-        {
-            return name;
-        }
-    }
-
-    public string name;
+    public string name { get; set; }
 
     public TargettingType targetType;
 

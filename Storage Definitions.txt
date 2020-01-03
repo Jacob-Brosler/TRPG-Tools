@@ -12,7 +12,7 @@ Effects
 Sell amount
 Flavor text
 
-Armor
+Armor ///////////
 Name
 Equip slot
 Armor class

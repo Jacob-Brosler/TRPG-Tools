@@ -18,9 +18,9 @@ namespace MasterTool.Tools
         public SpellTreeTool()
         {
             InitializeComponent();
-            itemBoundList = DataStorage.spellTreeRegistry;
+            itemBoundList = DataStorage.SpellTreeRegistry;
             spellTreeList.DataSource = itemBoundList;
-            spellTreeList.DisplayMember = "Name";
+            spellTreeList.DisplayMember = "name";
             if (itemBoundList.Count > 0)
             {
                 spellTreeList.SelectedIndex = 0;

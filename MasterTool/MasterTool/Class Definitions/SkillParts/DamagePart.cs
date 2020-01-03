@@ -14,6 +14,8 @@ public class DamagePart : SkillPartBase{
 
     public DamageType damageType;
 
+    public DamagePart() { }
+
     /// <summary>
     /// Creates a new damage part with the corresponding damage values
     /// </summary>

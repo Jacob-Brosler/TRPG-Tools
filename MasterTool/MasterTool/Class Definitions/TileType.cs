@@ -8,15 +8,7 @@ namespace MasterTool.Tools
 {
     class TileType
     {
-        public string Name
-        {
-            get
-            {
-                return name;
-            }
-        }
-
-        public string name;
+        public string name { get; set; }
         public string flavorText;
         public SkillPartBase startOfTurn;
         public SkillPartBase passOver;

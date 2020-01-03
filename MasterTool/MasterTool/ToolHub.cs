@@ -103,5 +103,10 @@ namespace MasterTool
             if (!equipmentScreen.IsDisposed)
                 equipmentScreen.ShowDialog(this);
         }
+
+        private void LoadData_Click(object sender, EventArgs e)
+        {
+            DataStorage.Load();
+        }
     }
 }

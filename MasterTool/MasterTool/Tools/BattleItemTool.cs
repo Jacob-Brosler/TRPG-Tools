@@ -20,7 +20,7 @@ namespace MasterTool.Tools
             InitializeComponent();
             itemBoundList = DataStorage.BattleItemRegistry;
             itemList.DataSource = itemBoundList;
-            itemList.DisplayMember = "Name";
+            itemList.DisplayMember = "name";
             if (itemBoundList.Count > 0)
             {
                 itemList.SelectedIndex = 0;

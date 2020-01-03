@@ -18,6 +18,8 @@ public class MovePart : SkillPartBase
     //False if this movement was made by the pawn/from the same team
     public bool forced;
 
+    public MovePart() { }
+
     public MovePart(TargettingType target, MoveDirection direction, int distance, bool forced = false, int chance = 100) : base(target, chance)
     {
         this.direction = direction;

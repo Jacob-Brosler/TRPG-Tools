@@ -15,7 +15,7 @@ public enum CountdownType
 /// </summary>
 public struct StatusEffectDefinition
 {
-    public string name;
+    public string name { get; set; }
     //What limit there is on this effect, if any
     public CountdownType limit;
     //Does this effect persist between battles

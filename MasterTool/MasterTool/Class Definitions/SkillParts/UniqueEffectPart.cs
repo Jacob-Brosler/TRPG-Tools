@@ -14,10 +14,12 @@ public enum UniqueEffects
 /// </summary>
 public class UniqueEffectPart : SkillPartBase
 {
-    public UniqueEffects effect;
+    public UniqueEffects effectType;
+
+    public UniqueEffectPart() { }
 
     public UniqueEffectPart(TargettingType target, UniqueEffects effect, int chance = 100) : base(target, chance)
     {
-        this.effect = effect;
+        this.effectType = effect;
     }
 }

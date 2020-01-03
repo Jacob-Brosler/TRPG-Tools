@@ -155,7 +155,7 @@ namespace MasterTool.Tools
             }
             else if(effect is UniqueEffectPart)
             {
-                uniqueEffectType.SelectedIndex = (int)(effect as UniqueEffectPart).effect;
+                uniqueEffectType.SelectedIndex = (int)(effect as UniqueEffectPart).effectType;
                 return 6;
             }
             //Screaming

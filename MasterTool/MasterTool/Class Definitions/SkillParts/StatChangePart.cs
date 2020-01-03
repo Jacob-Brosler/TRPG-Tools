@@ -7,6 +7,8 @@ public class StatChangePart : SkillPartBase{
     public float multiplier;
     public int duration;
 
+    public StatChangePart() { }
+
     public StatChangePart(TargettingType target, Stats affectedStat, int flatChange, float multiplier, int duration, int chance = 100) : base(target, chance)
     {
         this.affectedStat = affectedStat;

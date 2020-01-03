@@ -5,15 +5,7 @@ using System.Text;
 
 public class WeaponType
 {
-    public string Name
-    {
-        get
-        {
-            return name;
-        }
-    }
-
-    public string name;
+    public string name { get; set; }
     //List of special effects acivated at certain ranges
     public List<WeaponStatsAtRange> ranges;
     public List<WeaponStatsAtRange> diagonalRanges;

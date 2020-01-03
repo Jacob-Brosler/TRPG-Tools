@@ -106,7 +106,7 @@
             this.backPanel.Location = new System.Drawing.Point(127, 3);
             this.backPanel.Margin = new System.Windows.Forms.Padding(4);
             this.backPanel.Name = "backPanel";
-            this.backPanel.Size = new System.Drawing.Size(660, 305);
+            this.backPanel.Size = new System.Drawing.Size(648, 305);
             this.backPanel.TabIndex = 14;
             // 
             // statList
@@ -290,7 +290,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 314);
+            this.ClientSize = new System.Drawing.Size(779, 314);
             this.Controls.Add(this.backPanel);
             this.Controls.Add(this.removeWeapon);
             this.Controls.Add(this.addWeapon);

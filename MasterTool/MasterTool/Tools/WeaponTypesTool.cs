@@ -20,7 +20,7 @@ namespace MasterTool.Tools
             InitializeComponent();
             weaponTypeBoundList = DataStorage.WeaponTypeRegistry;
             weaponTypeList.DataSource = weaponTypeBoundList;
-            weaponTypeList.DisplayMember = "Name";
+            weaponTypeList.DisplayMember = "name";
             if (weaponTypeBoundList.Count > 0)
             {
                 weaponTypeList.SelectedIndex = 0;

@@ -19,9 +19,9 @@ namespace MasterTool.Tools
         public TileTypesTool()
         {
             InitializeComponent();
-            itemBoundList = DataStorage.tileEffectsRegistry;
+            itemBoundList = DataStorage.TileEffectsRegistry;
             tileList.DataSource = itemBoundList;
-            tileList.DisplayMember = "Name";
+            tileList.DisplayMember = "name";
             if (itemBoundList.Count > 0)
             {
                 tileList.SelectedIndex = 0;

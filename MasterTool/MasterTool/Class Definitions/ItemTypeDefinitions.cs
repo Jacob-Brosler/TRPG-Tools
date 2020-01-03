@@ -26,15 +26,7 @@ public enum Stats
 /// </summary>
 public class ItemBase
 {
-    public string Name
-    {
-        get
-        {
-            return name;
-        }
-    }
-
-    public string name;
+    public string name { get; set; }
     //Max amount the player can hold
     public int maxStack;
     //How much one of this item sells for
@@ -78,12 +70,15 @@ public class EquippableBase : ItemBase
         subType = subtype;
         this.effects = effects;
         stats = new Dictionary<Stats, int>();
-        foreach(StatChangePart singleStat in statChanges)
+        if (statChanges != null)
         {
-            if (stats.ContainsKey(singleStat.affectedStat))
-                stats[singleStat.affectedStat] += singleStat.flatChange;
-            else
-                stats.Add(singleStat.affectedStat, singleStat.flatChange);
+            foreach (StatChangePart singleStat in statChanges)
+            {
+                if (stats.ContainsKey(singleStat.affectedStat))
+                    stats[singleStat.affectedStat] += singleStat.flatChange;
+                else
+                    stats.Add(singleStat.affectedStat, singleStat.flatChange);
+            }
         }
     }
 }

@@ -20,7 +20,7 @@ namespace MasterTool.Tools
             InitializeComponent();
             itemBoundList = tree.spells;
             spellList.DataSource = itemBoundList;
-            spellList.DisplayMember = "Name";
+            spellList.DisplayMember = "name";
             if (itemBoundList.Count > 0)
             {
                 spellList.SelectedIndex = 0;
@@ -182,17 +182,16 @@ namespace MasterTool.Tools
                         return false;
                     }
                 }
-                List<SkillPartBase> tempEffectList = new List<SkillPartBase>();
-                foreach (SkillPartBase effect in effectList.Items)
-                {
-                    tempEffectList.Add(effect);
-                }
                 //Stores the changed item values
                 itemBoundList[index] = new Skill(nameBox.Text, (TargettingType)targetType.SelectedIndex, (int)castCost.Value,
                     (int)targetRange.Value, (int)aoeX.Value, (int)aoeY.Value, (int)unlockCost.Value, (int)unlockLevel.Value, flavorTextBox.Text);
                 foreach (int id in dependencyList.CheckedIndices)
                 {
                     itemBoundList[index].dependencies.Add(id + (id >= index ? 1 : 0));
+                }
+                foreach (SkillPartBase effect in effectList.Items)
+                {
+                    itemBoundList[index].partList.Add(effect);
                 }
             }
             return true;

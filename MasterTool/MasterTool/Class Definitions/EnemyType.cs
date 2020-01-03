@@ -8,8 +8,8 @@ using System.Text;
 /// </summary>
 public class EnemyType
 {
-    public string name;
-    
+    public string name { get; set; }
+
     public int level1Atk;
     public int level1MAtk;
     public int level1Def;
