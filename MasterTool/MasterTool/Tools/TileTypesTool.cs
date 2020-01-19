@@ -89,6 +89,8 @@ namespace MasterTool.Tools
                         backPanel.Enabled = true;
                         nameBox.Text = itemBoundList[tileList.SelectedIndex].name;
                         flavorTextBox.Text = itemBoundList[tileList.SelectedIndex].flavorText;
+                        stopsMelee.Checked = itemBoundList[tileList.SelectedIndex].blocksMeleeAttacks;
+                        stopsRanged.Checked = itemBoundList[tileList.SelectedIndex].blocksRangedAttacks;
                         startOfTurnButton.Enabled = startOfTurn.Checked = itemBoundList[tileList.SelectedIndex].startOfTurn != null;
                         passOverButton.Enabled = passOver.Checked = itemBoundList[tileList.SelectedIndex].passOver != null;
                         stopOnTileButton.Enabled = stopOnTile.Checked = itemBoundList[tileList.SelectedIndex].stopOnTile != null;
@@ -203,6 +205,8 @@ namespace MasterTool.Tools
                 //Stores the changed item values
                 itemBoundList[index] = new TileType(nameBox.Text, flavorTextBox.Text)
                 {
+                    blocksMeleeAttacks = stopsMelee.Checked,
+                    blocksRangedAttacks = stopsRanged.Checked,
                     startOfTurn = startOfTurn.Checked ? itemBoundList[index].startOfTurn : null,
                     passOver = passOver.Checked ? itemBoundList[index].passOver : null,
                     stopOnTile = stopOnTile.Checked ? itemBoundList[index].stopOnTile : null,

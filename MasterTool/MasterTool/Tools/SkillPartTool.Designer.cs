@@ -727,6 +727,7 @@
             // 
             // statChangeBox
             // 
+            this.statChangeBox.Controls.Add(this.statusEffectBox);
             this.statChangeBox.Controls.Add(this.statDuration);
             this.statChangeBox.Controls.Add(this.statDurationTracked);
             this.statChangeBox.Controls.Add(this.statMultiplier);
@@ -863,7 +864,11 @@
             "Spell Damage Effectiveness",
             "Spell Damage Receptiveness",
             "Healing Effectiveness",
-            "Healing Receptiveness"});
+            "Healing Receptiveness",
+            "Flat Armor Pen",
+            "Percent Armor Pen",
+            "Flat Magic Armor Pen",
+            "Percent Magin Armor Pen"});
             this.statToChange.Location = new System.Drawing.Point(8, 43);
             this.statToChange.Margin = new System.Windows.Forms.Padding(4);
             this.statToChange.Name = "statToChange";
@@ -887,7 +892,7 @@
             this.statusEffectBox.Controls.Add(this.addEffectChoice);
             this.statusEffectBox.Controls.Add(this.statusEffectType);
             this.statusEffectBox.Controls.Add(this.label19);
-            this.statusEffectBox.Location = new System.Drawing.Point(185, 15);
+            this.statusEffectBox.Location = new System.Drawing.Point(0, 0);
             this.statusEffectBox.Margin = new System.Windows.Forms.Padding(4);
             this.statusEffectBox.Name = "statusEffectBox";
             this.statusEffectBox.Padding = new System.Windows.Forms.Padding(4);
@@ -980,7 +985,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(559, 321);
             this.Controls.Add(this.uniqueEffectBox);
-            this.Controls.Add(this.statusEffectBox);
             this.Controls.Add(this.statChangeBox);
             this.Controls.Add(this.movementBox);
             this.Controls.Add(this.healBox);

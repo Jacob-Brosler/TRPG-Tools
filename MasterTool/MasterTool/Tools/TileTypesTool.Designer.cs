@@ -45,6 +45,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.flavorTextBox = new System.Windows.Forms.RichTextBox();
             this.nameBox = new System.Windows.Forms.TextBox();
+            this.stopsRanged = new System.Windows.Forms.CheckBox();
+            this.stopsMelee = new System.Windows.Forms.CheckBox();
             this.backPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -83,6 +85,8 @@
             // 
             // backPanel
             // 
+            this.backPanel.Controls.Add(this.stopsMelee);
+            this.backPanel.Controls.Add(this.stopsRanged);
             this.backPanel.Controls.Add(this.endOfTurnButton);
             this.backPanel.Controls.Add(this.endOfTurn);
             this.backPanel.Controls.Add(this.stopOnTileButton);
@@ -201,7 +205,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(0, 51);
+            this.label4.Location = new System.Drawing.Point(1, 101);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(78, 17);
@@ -221,7 +225,7 @@
             // flavorTextBox
             // 
             this.flavorTextBox.DetectUrls = false;
-            this.flavorTextBox.Location = new System.Drawing.Point(4, 70);
+            this.flavorTextBox.Location = new System.Drawing.Point(5, 120);
             this.flavorTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.flavorTextBox.Multiline = false;
             this.flavorTextBox.Name = "flavorTextBox";
@@ -236,6 +240,28 @@
             this.nameBox.Name = "nameBox";
             this.nameBox.Size = new System.Drawing.Size(132, 22);
             this.nameBox.TabIndex = 35;
+            // 
+            // stopsRanged
+            // 
+            this.stopsRanged.AutoSize = true;
+            this.stopsRanged.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.stopsRanged.Location = new System.Drawing.Point(0, 71);
+            this.stopsRanged.Name = "stopsRanged";
+            this.stopsRanged.Size = new System.Drawing.Size(170, 21);
+            this.stopsRanged.TabIndex = 47;
+            this.stopsRanged.Text = "Stops Ranged Attacks";
+            this.stopsRanged.UseVisualStyleBackColor = true;
+            // 
+            // stopsMelee
+            // 
+            this.stopsMelee.AutoSize = true;
+            this.stopsMelee.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.stopsMelee.Location = new System.Drawing.Point(0, 44);
+            this.stopsMelee.Name = "stopsMelee";
+            this.stopsMelee.Size = new System.Drawing.Size(158, 21);
+            this.stopsMelee.TabIndex = 47;
+            this.stopsMelee.Text = "Stops Melee Attacks";
+            this.stopsMelee.UseVisualStyleBackColor = true;
             // 
             // TileTypesTool
             // 
@@ -275,5 +301,7 @@
         private System.Windows.Forms.CheckBox stopOnTile;
         private System.Windows.Forms.Button passOverButton;
         private System.Windows.Forms.CheckBox passOver;
+        private System.Windows.Forms.CheckBox stopsRanged;
+        private System.Windows.Forms.CheckBox stopsMelee;
     }
 }

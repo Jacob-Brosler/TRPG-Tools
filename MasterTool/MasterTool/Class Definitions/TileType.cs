@@ -10,6 +10,8 @@ namespace MasterTool.Tools
     {
         public string name { get; set; }
         public string flavorText;
+        public bool blocksMeleeAttacks;
+        public bool blocksRangedAttacks;
         public SkillPartBase startOfTurn;
         public SkillPartBase passOver;
         public SkillPartBase stopOnTile;
