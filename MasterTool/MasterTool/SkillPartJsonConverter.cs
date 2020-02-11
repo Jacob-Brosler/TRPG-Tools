@@ -20,6 +20,10 @@ namespace MasterTool
             var jObject = JObject.Load(reader);
             object target = null;
 
+            //If the object doesn't have a value it is null
+            if (!jObject.HasValues)
+                return target;
+
             if (jObject.ContainsKey("effect"))
             {
                 target = new AddTriggerPart();
@@ -36,7 +40,7 @@ namespace MasterTool
             {
                 target = new MovePart();
             }
-            else if (jObject.ContainsKey("affectedStat"))
+            else if (jObject.ContainsKey("statMod"))
             {
                 target = new StatChangePart();
             }

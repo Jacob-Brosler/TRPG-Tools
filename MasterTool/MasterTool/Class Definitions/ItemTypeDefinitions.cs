@@ -18,7 +18,11 @@ public enum Stats
     SpellDamageEffectiveness,
     SpellDamageReceptiveness,
     HealingEffectiveness,
-    HealingReceptiveness
+    HealingReceptiveness,
+    FlatArmorPierce,
+    PercentArmorPierce,
+    FlatMArmorPierce,
+    PercentMArmorPierce,
 }
 
 /// <summary>
@@ -74,10 +78,10 @@ public class EquippableBase : ItemBase
         {
             foreach (StatChangePart singleStat in statChanges)
             {
-                if (stats.ContainsKey(singleStat.affectedStat))
-                    stats[singleStat.affectedStat] += singleStat.flatChange;
+                if (stats.ContainsKey(singleStat.statMod.affectedStat))
+                    stats[singleStat.statMod.affectedStat] += singleStat.statMod.flatChange;
                 else
-                    stats.Add(singleStat.affectedStat, singleStat.flatChange);
+                    stats.Add(singleStat.statMod.affectedStat, singleStat.statMod.flatChange);
             }
         }
     }

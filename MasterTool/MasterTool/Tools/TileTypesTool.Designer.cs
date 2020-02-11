@@ -32,6 +32,8 @@
             this.addTileType = new System.Windows.Forms.Button();
             this.tileList = new System.Windows.Forms.ListBox();
             this.backPanel = new System.Windows.Forms.Panel();
+            this.stopsMelee = new System.Windows.Forms.CheckBox();
+            this.stopsRanged = new System.Windows.Forms.CheckBox();
             this.endOfTurnButton = new System.Windows.Forms.Button();
             this.endOfTurn = new System.Windows.Forms.CheckBox();
             this.stopOnTileButton = new System.Windows.Forms.Button();
@@ -45,8 +47,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.flavorTextBox = new System.Windows.Forms.RichTextBox();
             this.nameBox = new System.Windows.Forms.TextBox();
-            this.stopsRanged = new System.Windows.Forms.CheckBox();
-            this.stopsMelee = new System.Windows.Forms.CheckBox();
             this.backPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -104,6 +104,28 @@
             this.backPanel.Name = "backPanel";
             this.backPanel.Size = new System.Drawing.Size(487, 306);
             this.backPanel.TabIndex = 35;
+            // 
+            // stopsMelee
+            // 
+            this.stopsMelee.AutoSize = true;
+            this.stopsMelee.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.stopsMelee.Location = new System.Drawing.Point(0, 44);
+            this.stopsMelee.Name = "stopsMelee";
+            this.stopsMelee.Size = new System.Drawing.Size(158, 21);
+            this.stopsMelee.TabIndex = 47;
+            this.stopsMelee.Text = "Stops Melee Attacks";
+            this.stopsMelee.UseVisualStyleBackColor = true;
+            // 
+            // stopsRanged
+            // 
+            this.stopsRanged.AutoSize = true;
+            this.stopsRanged.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.stopsRanged.Location = new System.Drawing.Point(0, 71);
+            this.stopsRanged.Name = "stopsRanged";
+            this.stopsRanged.Size = new System.Drawing.Size(170, 21);
+            this.stopsRanged.TabIndex = 47;
+            this.stopsRanged.Text = "Stops Ranged Attacks";
+            this.stopsRanged.UseVisualStyleBackColor = true;
             // 
             // endOfTurnButton
             // 
@@ -227,7 +249,6 @@
             this.flavorTextBox.DetectUrls = false;
             this.flavorTextBox.Location = new System.Drawing.Point(5, 120);
             this.flavorTextBox.Margin = new System.Windows.Forms.Padding(4);
-            this.flavorTextBox.Multiline = false;
             this.flavorTextBox.Name = "flavorTextBox";
             this.flavorTextBox.Size = new System.Drawing.Size(232, 155);
             this.flavorTextBox.TabIndex = 37;
@@ -240,28 +261,6 @@
             this.nameBox.Name = "nameBox";
             this.nameBox.Size = new System.Drawing.Size(132, 22);
             this.nameBox.TabIndex = 35;
-            // 
-            // stopsRanged
-            // 
-            this.stopsRanged.AutoSize = true;
-            this.stopsRanged.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.stopsRanged.Location = new System.Drawing.Point(0, 71);
-            this.stopsRanged.Name = "stopsRanged";
-            this.stopsRanged.Size = new System.Drawing.Size(170, 21);
-            this.stopsRanged.TabIndex = 47;
-            this.stopsRanged.Text = "Stops Ranged Attacks";
-            this.stopsRanged.UseVisualStyleBackColor = true;
-            // 
-            // stopsMelee
-            // 
-            this.stopsMelee.AutoSize = true;
-            this.stopsMelee.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.stopsMelee.Location = new System.Drawing.Point(0, 44);
-            this.stopsMelee.Name = "stopsMelee";
-            this.stopsMelee.Size = new System.Drawing.Size(158, 21);
-            this.stopsMelee.TabIndex = 47;
-            this.stopsMelee.Text = "Stops Melee Attacks";
-            this.stopsMelee.UseVisualStyleBackColor = true;
             // 
             // TileTypesTool
             // 

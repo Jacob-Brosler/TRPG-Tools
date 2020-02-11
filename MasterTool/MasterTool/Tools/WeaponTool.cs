@@ -131,7 +131,7 @@ namespace MasterTool.Tools
         {
             if (statList.SelectedIndex != -1)
             {
-                using (SkillPartTool newEffect = new SkillPartTool((StatChangePart)statList.SelectedItem))
+                using (SkillPartTool newEffect = new SkillPartTool((StatChangePart)statList.SelectedItem, false))
                 {
                     newEffect.LockoutStatChange();
                     newEffect.ShowDialog(this);

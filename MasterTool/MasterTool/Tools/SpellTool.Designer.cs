@@ -141,7 +141,6 @@
             this.flavorTextBox.DetectUrls = false;
             this.flavorTextBox.Location = new System.Drawing.Point(4, 161);
             this.flavorTextBox.Margin = new System.Windows.Forms.Padding(4);
-            this.flavorTextBox.Multiline = false;
             this.flavorTextBox.Name = "flavorTextBox";
             this.flavorTextBox.Size = new System.Drawing.Size(232, 117);
             this.flavorTextBox.TabIndex = 35;

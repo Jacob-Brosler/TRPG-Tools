@@ -130,18 +130,18 @@ namespace MasterTool.Tools
             else if (effect is StatChangePart)
             {
                 StatChangePart actualEffect = effect as StatChangePart;
-                statToChange.SelectedIndex = (int)actualEffect.affectedStat;
-                flatStatChange.Value = actualEffect.flatChange;
-                statMultiplier.Value = (decimal)actualEffect.multiplier;
+                statToChange.SelectedIndex = (int)actualEffect.statMod.affectedStat;
+                flatStatChange.Value = actualEffect.statMod.flatChange;
+                statMultiplier.Value = (decimal)actualEffect.statMod.multiplier;
 
-                if (actualEffect.duration == 0)
+                if (actualEffect.statMod.duration <= 0)
                 {
                     statDurationTracked.Checked = false;
                 }
                 else
                 {
                     statDurationTracked.Checked = true;
-                    statDuration.Value = (decimal)actualEffect.duration;
+                    statDuration.Value = (decimal)actualEffect.statMod.duration;
                 }
                 return 4;
             }
@@ -184,11 +184,11 @@ namespace MasterTool.Tools
                 case "Damage":
                     returnEffect = new DamagePart((TargettingType)targetType.SelectedIndex, (DamageType)damageType.SelectedIndex,
                         (int)damageValue.Value, (int)flatDamageValue.Value, (int)maxHpPercent.Value, (int)missingHpPercent.Value, 
-                        (int)chance.Value, (damageModByValue.Checked ? (int)damageModifiedValue.Value : 0));
+                        (int)chance.Value, (damageModByValue.Checked ? (float)damageModifiedValue.Value : 0));
                     break;
                 case "Healing":
                     returnEffect = new HealingPart((TargettingType)targetType.SelectedIndex, (int)healValue.Value, (int)flatHealValue.Value,
-                        (int)maxHPHeal.Value, (int)chance.Value, (healingModByValue.Checked ? (int)healingModifiedValue.Value : 0));
+                        (int)maxHPHeal.Value, (int)chance.Value, (healingModByValue.Checked ? (float)healingModifiedValue.Value : 0));
                     break;
                 case "Movement":
                     returnEffect = new MovePart((TargettingType)targetType.SelectedIndex, (MoveDirection)moveType.SelectedIndex, (int)moveDistance.Value,

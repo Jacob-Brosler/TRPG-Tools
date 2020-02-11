@@ -55,7 +55,7 @@
             // removeItem
             // 
             this.removeItem.Location = new System.Drawing.Point(61, 281);
-            this.removeItem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.removeItem.Margin = new System.Windows.Forms.Padding(4);
             this.removeItem.Name = "removeItem";
             this.removeItem.Size = new System.Drawing.Size(59, 28);
             this.removeItem.TabIndex = 13;
@@ -66,7 +66,7 @@
             // addItem
             // 
             this.addItem.Location = new System.Drawing.Point(3, 281);
-            this.addItem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addItem.Margin = new System.Windows.Forms.Padding(4);
             this.addItem.Name = "addItem";
             this.addItem.Size = new System.Drawing.Size(59, 28);
             this.addItem.TabIndex = 12;
@@ -79,7 +79,7 @@
             this.itemList.FormattingEnabled = true;
             this.itemList.ItemHeight = 16;
             this.itemList.Location = new System.Drawing.Point(3, 2);
-            this.itemList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.itemList.Margin = new System.Windows.Forms.Padding(4);
             this.itemList.Name = "itemList";
             this.itemList.Size = new System.Drawing.Size(116, 276);
             this.itemList.TabIndex = 11;
@@ -89,8 +89,7 @@
             // 
             this.flavorTextBox.DetectUrls = false;
             this.flavorTextBox.Location = new System.Drawing.Point(7, 158);
-            this.flavorTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.flavorTextBox.Multiline = false;
+            this.flavorTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.flavorTextBox.Name = "flavorTextBox";
             this.flavorTextBox.Size = new System.Drawing.Size(232, 117);
             this.flavorTextBox.TabIndex = 21;
@@ -119,7 +118,7 @@
             // sellPriceCount
             // 
             this.sellPriceCount.Location = new System.Drawing.Point(79, 98);
-            this.sellPriceCount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.sellPriceCount.Margin = new System.Windows.Forms.Padding(4);
             this.sellPriceCount.Maximum = new decimal(new int[] {
             50000,
             0,
@@ -152,7 +151,7 @@
             // nameBox
             // 
             this.nameBox.Location = new System.Drawing.Point(57, 11);
-            this.nameBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nameBox.Margin = new System.Windows.Forms.Padding(4);
             this.nameBox.Name = "nameBox";
             this.nameBox.Size = new System.Drawing.Size(132, 22);
             this.nameBox.TabIndex = 16;
@@ -160,7 +159,7 @@
             // maxStackCount
             // 
             this.maxStackCount.Location = new System.Drawing.Point(80, 55);
-            this.maxStackCount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.maxStackCount.Margin = new System.Windows.Forms.Padding(4);
             this.maxStackCount.Maximum = new decimal(new int[] {
             9999,
             0,
@@ -212,7 +211,7 @@
             "All Allies Except Self",
             "All Enemies"});
             this.targetType.Location = new System.Drawing.Point(381, 10);
-            this.targetType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.targetType.Margin = new System.Windows.Forms.Padding(4);
             this.targetType.Name = "targetType";
             this.targetType.Size = new System.Drawing.Size(160, 24);
             this.targetType.TabIndex = 23;
@@ -222,7 +221,7 @@
             // 
             this.useableOutOfBattle.AutoSize = true;
             this.useableOutOfBattle.Location = new System.Drawing.Point(267, 57);
-            this.useableOutOfBattle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.useableOutOfBattle.Margin = new System.Windows.Forms.Padding(4);
             this.useableOutOfBattle.Name = "useableOutOfBattle";
             this.useableOutOfBattle.Size = new System.Drawing.Size(186, 21);
             this.useableOutOfBattle.TabIndex = 24;
@@ -266,7 +265,7 @@
             this.effectList.FormattingEnabled = true;
             this.effectList.ItemHeight = 16;
             this.effectList.Location = new System.Drawing.Point(264, 117);
-            this.effectList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.effectList.Margin = new System.Windows.Forms.Padding(4);
             this.effectList.Name = "effectList";
             this.effectList.Size = new System.Drawing.Size(159, 148);
             this.effectList.TabIndex = 25;
@@ -290,7 +289,7 @@
             this.backPanel.Controls.Add(this.label4);
             this.backPanel.Controls.Add(this.flavorTextBox);
             this.backPanel.Location = new System.Drawing.Point(128, 4);
-            this.backPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.backPanel.Margin = new System.Windows.Forms.Padding(4);
             this.backPanel.Name = "backPanel";
             this.backPanel.Size = new System.Drawing.Size(556, 305);
             this.backPanel.TabIndex = 29;
@@ -304,7 +303,7 @@
             this.Controls.Add(this.addItem);
             this.Controls.Add(this.itemList);
             this.Controls.Add(this.backPanel);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "BattleItemTool";
             this.Text = "BattleItemTool";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BattleItemTool_FormClosing);

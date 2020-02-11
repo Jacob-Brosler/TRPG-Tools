@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.backPanel = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.equipSlot = new System.Windows.Forms.ComboBox();
             this.statList = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.addStat = new System.Windows.Forms.Button();
@@ -48,8 +50,6 @@
             this.removeEquipment = new System.Windows.Forms.Button();
             this.addEquipment = new System.Windows.Forms.Button();
             this.equipmentList = new System.Windows.Forms.ListBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.equipSlot = new System.Windows.Forms.ComboBox();
             this.backPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sellPriceCount)).BeginInit();
             this.SuspendLayout();
@@ -79,6 +79,33 @@
             this.backPanel.Name = "backPanel";
             this.backPanel.Size = new System.Drawing.Size(621, 305);
             this.backPanel.TabIndex = 18;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(1, 47);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(72, 17);
+            this.label7.TabIndex = 50;
+            this.label7.Text = "Equip Slot";
+            // 
+            // equipSlot
+            // 
+            this.equipSlot.FormattingEnabled = true;
+            this.equipSlot.Items.AddRange(new object[] {
+            "Helmet",
+            "Chestplate",
+            "Legs",
+            "Boots",
+            "Gloves",
+            "Accessories"});
+            this.equipSlot.Location = new System.Drawing.Point(81, 44);
+            this.equipSlot.Margin = new System.Windows.Forms.Padding(4);
+            this.equipSlot.Name = "equipSlot";
+            this.equipSlot.Size = new System.Drawing.Size(160, 24);
+            this.equipSlot.TabIndex = 51;
+            this.equipSlot.Text = "Helmet";
             // 
             // statList
             // 
@@ -213,7 +240,6 @@
             this.flavorTextBox.DetectUrls = false;
             this.flavorTextBox.Location = new System.Drawing.Point(5, 166);
             this.flavorTextBox.Margin = new System.Windows.Forms.Padding(4);
-            this.flavorTextBox.Multiline = false;
             this.flavorTextBox.Name = "flavorTextBox";
             this.flavorTextBox.Size = new System.Drawing.Size(232, 117);
             this.flavorTextBox.TabIndex = 8;
@@ -294,33 +320,6 @@
             this.equipmentList.Size = new System.Drawing.Size(116, 276);
             this.equipmentList.TabIndex = 15;
             this.equipmentList.SelectedIndexChanged += new System.EventHandler(this.EquipmentList_SelectedIndexChanged);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(1, 47);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(72, 17);
-            this.label7.TabIndex = 50;
-            this.label7.Text = "Equip Slot";
-            // 
-            // equipSlot
-            // 
-            this.equipSlot.FormattingEnabled = true;
-            this.equipSlot.Items.AddRange(new object[] {
-            "Helmet",
-            "Chestplate",
-            "Legs",
-            "Boots",
-            "Gloves",
-            "Accessories"});
-            this.equipSlot.Location = new System.Drawing.Point(81, 44);
-            this.equipSlot.Margin = new System.Windows.Forms.Padding(4);
-            this.equipSlot.Name = "equipSlot";
-            this.equipSlot.Size = new System.Drawing.Size(160, 24);
-            this.equipSlot.TabIndex = 51;
-            this.equipSlot.Text = "Helmet";
             // 
             // EquipmentTool
             // 
