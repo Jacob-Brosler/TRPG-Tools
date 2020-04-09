@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 public enum Stats
 {
@@ -37,12 +35,12 @@ public class ItemBase
     public int sellAmount;
     public string flavorText;
 
-    public ItemBase(string name, int maxstack, int sell, string flavor = "")
+    public ItemBase(string name, int maxstack, int sell, string flavorText = "")
     {
         this.name = name;
         maxStack = maxstack;
         sellAmount = sell;
-        flavorText = flavor;
+        this.flavorText = flavorText;
     }
 }
 
@@ -67,8 +65,8 @@ public class EquippableBase : ItemBase
     /// The TemporaryEffectData here should never be modified
     /// </summary>
     public List<AddTriggerPart> effects = new List<AddTriggerPart>();
-    
-    public EquippableBase(string name, int slot, int subtype, int sellPrice, string flavor, List<StatChangePart> statChanges, List<AddTriggerPart> effects) : base(name, 1, sellPrice, flavor)
+
+    public EquippableBase(string name, int slot, int subtype, int sellPrice, string flavorText, List<StatChangePart> statChanges, List<AddTriggerPart> effects) : base(name, 1, sellPrice, flavorText)
     {
         equipSlot = slot;
         subType = subtype;
@@ -99,10 +97,11 @@ public class BattleItemBase : ItemBase
 
     public List<SkillPartBase> partList = new List<SkillPartBase>();
 
-    public BattleItemBase(string name, TargettingType targetType, bool outOfBattleUse, List<SkillPartBase> effects, int maxStack, int sellPrice, string flavor = "") : base(name, maxStack, sellPrice, flavor)
+    public BattleItemBase(string name, TargettingType targetType, bool outOfBattleUse, List<SkillPartBase> partList, int maxStack, int sellPrice, string flavorText = "") :
+        base(name, maxStack, sellPrice, flavorText)
     {
         this.targetType = targetType;
         usableOutOfBattle = outOfBattleUse;
-        partList.AddRange(effects);
+        this.partList.AddRange(partList);
     }
 }

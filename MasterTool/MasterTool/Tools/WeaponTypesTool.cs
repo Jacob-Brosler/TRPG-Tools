@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MasterTool.Tools
@@ -95,9 +90,9 @@ namespace MasterTool.Tools
 
         private void RemoveType_Click(object sender, EventArgs e)
         {
-            foreach(EquippableBase weapon in DataStorage.WeaponRegistry)
+            foreach (EquippableBase weapon in DataStorage.WeaponRegistry)
             {
-                if(weapon.subType == weaponTypeList.SelectedIndex)
+                if (weapon.subType == weaponTypeList.SelectedIndex)
                 {
                     MessageBox.Show("This weapon type is used by an existing weapon. Please make sure no weapon uses this type then try again.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;

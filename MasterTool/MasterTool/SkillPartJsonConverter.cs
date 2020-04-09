@@ -1,10 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MasterTool
 {
@@ -17,12 +13,11 @@ namespace MasterTool
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
-            var jObject = JObject.Load(reader);
             object target = null;
 
-            //If the object doesn't have a value it is null
-            if (!jObject.HasValues)
-                return target;
+            if (reader.TokenType == JsonToken.Null) return null;
+
+            var jObject = JObject.Load(reader);
 
             if (jObject.ContainsKey("effect"))
             {
