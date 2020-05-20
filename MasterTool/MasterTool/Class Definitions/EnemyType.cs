@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-/// <summary>
+﻿/// <summary>
 /// Template for an enemy
 /// </summary>
 public class EnemyType
@@ -15,7 +10,7 @@ public class EnemyType
     public int level1Def;
     public int level1MDef;
     public int level1Health;
-    
+
     //Average stat growth per level, slightly randomized per level for variation
     public int atkGrowth;
     public int mAtkGrowth;

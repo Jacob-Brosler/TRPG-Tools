@@ -76,6 +76,11 @@
             this.moveType = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.statChangeBox = new System.Windows.Forms.GroupBox();
+            this.statusEffectBox = new System.Windows.Forms.GroupBox();
+            this.removeEffectChoice = new System.Windows.Forms.RadioButton();
+            this.addEffectChoice = new System.Windows.Forms.RadioButton();
+            this.statusEffectType = new System.Windows.Forms.ComboBox();
+            this.label19 = new System.Windows.Forms.Label();
             this.statDuration = new System.Windows.Forms.NumericUpDown();
             this.statDurationTracked = new System.Windows.Forms.CheckBox();
             this.statMultiplier = new System.Windows.Forms.NumericUpDown();
@@ -84,14 +89,17 @@
             this.label17 = new System.Windows.Forms.Label();
             this.statToChange = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.statusEffectBox = new System.Windows.Forms.GroupBox();
-            this.removeEffectChoice = new System.Windows.Forms.RadioButton();
-            this.addEffectChoice = new System.Windows.Forms.RadioButton();
-            this.statusEffectType = new System.Windows.Forms.ComboBox();
-            this.label19 = new System.Windows.Forms.Label();
             this.uniqueEffectBox = new System.Windows.Forms.GroupBox();
             this.uniqueEffectType = new System.Windows.Forms.ComboBox();
             this.label20 = new System.Windows.Forms.Label();
+            this.connectedChanceBox = new System.Windows.Forms.GroupBox();
+            this.chanceOfNoEffect = new System.Windows.Forms.Label();
+            this.chancesOutOf = new System.Windows.Forms.NumericUpDown();
+            this.label22 = new System.Windows.Forms.Label();
+            this.removeConnectedChanceEffect = new System.Windows.Forms.Button();
+            this.addConnectedChanceEffect = new System.Windows.Forms.Button();
+            this.label21 = new System.Windows.Forms.Label();
+            this.connectedChanceEffects = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.chance)).BeginInit();
             this.addTriggerBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.activeTurnCount)).BeginInit();
@@ -111,11 +119,13 @@
             this.movementBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.moveDistance)).BeginInit();
             this.statChangeBox.SuspendLayout();
+            this.statusEffectBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.statDuration)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.statMultiplier)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.flatStatChange)).BeginInit();
-            this.statusEffectBox.SuspendLayout();
             this.uniqueEffectBox.SuspendLayout();
+            this.connectedChanceBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chancesOutOf)).BeginInit();
             this.SuspendLayout();
             // 
             // typeSelector
@@ -128,11 +138,11 @@
             "Movement",
             "Stat Change",
             "Status Effect",
+            "Connected Chance Effect",
             "Unique Effect"});
-            this.typeSelector.Location = new System.Drawing.Point(16, 34);
-            this.typeSelector.Margin = new System.Windows.Forms.Padding(4);
+            this.typeSelector.Location = new System.Drawing.Point(12, 28);
             this.typeSelector.Name = "typeSelector";
-            this.typeSelector.Size = new System.Drawing.Size(160, 24);
+            this.typeSelector.Size = new System.Drawing.Size(121, 21);
             this.typeSelector.TabIndex = 0;
             this.typeSelector.Text = "Add Trigger";
             this.typeSelector.SelectedIndexChanged += new System.EventHandler(this.typeSelector_SelectedIndexChanged);
@@ -148,44 +158,40 @@
             "All Allies",
             "All Allies Except Self",
             "All Enemies"});
-            this.targetType.Location = new System.Drawing.Point(16, 95);
-            this.targetType.Margin = new System.Windows.Forms.Padding(4);
+            this.targetType.Location = new System.Drawing.Point(12, 77);
             this.targetType.Name = "targetType";
-            this.targetType.Size = new System.Drawing.Size(160, 24);
+            this.targetType.Size = new System.Drawing.Size(121, 21);
             this.targetType.TabIndex = 0;
             this.targetType.Text = "Self";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 15);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(9, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 17);
+            this.label1.Size = new System.Drawing.Size(62, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Effect Type";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 75);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(9, 61);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(109, 17);
+            this.label2.Size = new System.Drawing.Size(82, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "Targetting Type";
             // 
             // chance
             // 
-            this.chance.Location = new System.Drawing.Point(16, 160);
-            this.chance.Margin = new System.Windows.Forms.Padding(4);
+            this.chance.Location = new System.Drawing.Point(12, 130);
             this.chance.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.chance.Name = "chance";
-            this.chance.Size = new System.Drawing.Size(160, 22);
+            this.chance.Size = new System.Drawing.Size(120, 20);
             this.chance.TabIndex = 4;
             this.chance.Value = new decimal(new int[] {
             100,
@@ -196,10 +202,9 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 140);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(12, 114);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(89, 17);
+            this.label3.Size = new System.Drawing.Size(69, 13);
             this.label3.TabIndex = 5;
             this.label3.Text = "Proc Chance";
             // 
@@ -217,21 +222,19 @@
             this.addTriggerBox.Controls.Add(this.timesPerBattleCount);
             this.addTriggerBox.Controls.Add(this.addTriggerTrigger);
             this.addTriggerBox.Controls.Add(this.label4);
-            this.addTriggerBox.Location = new System.Drawing.Point(185, 15);
-            this.addTriggerBox.Margin = new System.Windows.Forms.Padding(4);
+            this.addTriggerBox.Location = new System.Drawing.Point(139, 12);
             this.addTriggerBox.Name = "addTriggerBox";
-            this.addTriggerBox.Padding = new System.Windows.Forms.Padding(4);
-            this.addTriggerBox.Size = new System.Drawing.Size(357, 292);
+            this.addTriggerBox.Size = new System.Drawing.Size(268, 237);
             this.addTriggerBox.TabIndex = 6;
             this.addTriggerBox.TabStop = false;
             this.addTriggerBox.Text = "Add Trigger Effect";
             // 
             // removeEffect
             // 
-            this.removeEffect.Location = new System.Drawing.Point(92, 256);
+            this.removeEffect.Location = new System.Drawing.Point(69, 208);
             this.removeEffect.Margin = new System.Windows.Forms.Padding(1);
             this.removeEffect.Name = "removeEffect";
-            this.removeEffect.Size = new System.Drawing.Size(77, 28);
+            this.removeEffect.Size = new System.Drawing.Size(58, 23);
             this.removeEffect.TabIndex = 16;
             this.removeEffect.Text = "-";
             this.removeEffect.UseVisualStyleBackColor = true;
@@ -239,10 +242,10 @@
             // 
             // addEffect
             // 
-            this.addEffect.Location = new System.Drawing.Point(8, 256);
+            this.addEffect.Location = new System.Drawing.Point(6, 208);
             this.addEffect.Margin = new System.Windows.Forms.Padding(1);
             this.addEffect.Name = "addEffect";
-            this.addEffect.Size = new System.Drawing.Size(76, 28);
+            this.addEffect.Size = new System.Drawing.Size(57, 23);
             this.addEffect.TabIndex = 15;
             this.addEffect.Text = "+";
             this.addEffect.UseVisualStyleBackColor = true;
@@ -251,35 +254,31 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(8, 90);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(6, 73);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(51, 17);
+            this.label5.Size = new System.Drawing.Size(40, 13);
             this.label5.TabIndex = 14;
             this.label5.Text = "Effects";
             // 
             // effectList
             // 
             this.effectList.FormattingEnabled = true;
-            this.effectList.ItemHeight = 16;
-            this.effectList.Location = new System.Drawing.Point(8, 108);
-            this.effectList.Margin = new System.Windows.Forms.Padding(4);
+            this.effectList.Location = new System.Drawing.Point(6, 88);
             this.effectList.Name = "effectList";
-            this.effectList.Size = new System.Drawing.Size(159, 148);
+            this.effectList.Size = new System.Drawing.Size(120, 121);
             this.effectList.TabIndex = 7;
             this.effectList.DoubleClick += new System.EventHandler(this.effectList_DoubleClick);
             // 
             // activeTurnCount
             // 
-            this.activeTurnCount.Location = new System.Drawing.Point(189, 188);
-            this.activeTurnCount.Margin = new System.Windows.Forms.Padding(4);
+            this.activeTurnCount.Location = new System.Drawing.Point(142, 153);
             this.activeTurnCount.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.activeTurnCount.Name = "activeTurnCount";
-            this.activeTurnCount.Size = new System.Drawing.Size(160, 22);
+            this.activeTurnCount.Size = new System.Drawing.Size(120, 20);
             this.activeTurnCount.TabIndex = 13;
             this.activeTurnCount.Value = new decimal(new int[] {
             1,
@@ -290,29 +289,26 @@
             // activeTurns
             // 
             this.activeTurns.AutoSize = true;
-            this.activeTurns.Location = new System.Drawing.Point(189, 160);
-            this.activeTurns.Margin = new System.Windows.Forms.Padding(4);
+            this.activeTurns.Location = new System.Drawing.Point(142, 130);
             this.activeTurns.Name = "activeTurns";
-            this.activeTurns.Size = new System.Drawing.Size(109, 21);
+            this.activeTurns.Size = new System.Drawing.Size(86, 17);
             this.activeTurns.TabIndex = 12;
             this.activeTurns.Text = "Active Turns";
             this.activeTurns.UseVisualStyleBackColor = true;
             // 
             // cooldownCount
             // 
-            this.cooldownCount.Location = new System.Drawing.Point(189, 108);
-            this.cooldownCount.Margin = new System.Windows.Forms.Padding(4);
+            this.cooldownCount.Location = new System.Drawing.Point(142, 88);
             this.cooldownCount.Name = "cooldownCount";
-            this.cooldownCount.Size = new System.Drawing.Size(160, 22);
+            this.cooldownCount.Size = new System.Drawing.Size(120, 20);
             this.cooldownCount.TabIndex = 11;
             // 
             // turnCD
             // 
             this.turnCD.AutoSize = true;
-            this.turnCD.Location = new System.Drawing.Point(189, 85);
-            this.turnCD.Margin = new System.Windows.Forms.Padding(4);
+            this.turnCD.Location = new System.Drawing.Point(142, 69);
             this.turnCD.Name = "turnCD";
-            this.turnCD.Size = new System.Drawing.Size(125, 21);
+            this.turnCD.Size = new System.Drawing.Size(98, 17);
             this.turnCD.TabIndex = 10;
             this.turnCD.Text = "Turn Cooldown";
             this.turnCD.UseVisualStyleBackColor = true;
@@ -320,25 +316,23 @@
             // timesPerBattle
             // 
             this.timesPerBattle.AutoSize = true;
-            this.timesPerBattle.Location = new System.Drawing.Point(189, 18);
-            this.timesPerBattle.Margin = new System.Windows.Forms.Padding(4);
+            this.timesPerBattle.Location = new System.Drawing.Point(142, 15);
             this.timesPerBattle.Name = "timesPerBattle";
-            this.timesPerBattle.Size = new System.Drawing.Size(156, 21);
+            this.timesPerBattle.Size = new System.Drawing.Size(120, 17);
             this.timesPerBattle.TabIndex = 9;
             this.timesPerBattle.Text = "Max times per battle";
             this.timesPerBattle.UseVisualStyleBackColor = true;
             // 
             // timesPerBattleCount
             // 
-            this.timesPerBattleCount.Location = new System.Drawing.Point(189, 39);
-            this.timesPerBattleCount.Margin = new System.Windows.Forms.Padding(4);
+            this.timesPerBattleCount.Location = new System.Drawing.Point(142, 32);
             this.timesPerBattleCount.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.timesPerBattleCount.Name = "timesPerBattleCount";
-            this.timesPerBattleCount.Size = new System.Drawing.Size(160, 22);
+            this.timesPerBattleCount.Size = new System.Drawing.Size(120, 20);
             this.timesPerBattleCount.TabIndex = 7;
             this.timesPerBattleCount.Value = new decimal(new int[] {
             1,
@@ -373,19 +367,17 @@
             "Start of Turn",
             "End of Turn",
             "End of Match"});
-            this.addTriggerTrigger.Location = new System.Drawing.Point(8, 39);
-            this.addTriggerTrigger.Margin = new System.Windows.Forms.Padding(4);
+            this.addTriggerTrigger.Location = new System.Drawing.Point(6, 32);
             this.addTriggerTrigger.Name = "addTriggerTrigger";
-            this.addTriggerTrigger.Size = new System.Drawing.Size(160, 24);
+            this.addTriggerTrigger.Size = new System.Drawing.Size(121, 21);
             this.addTriggerTrigger.TabIndex = 1;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(8, 20);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(6, 16);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(54, 17);
+            this.label4.Size = new System.Drawing.Size(40, 13);
             this.label4.TabIndex = 0;
             this.label4.Text = "Trigger";
             // 
@@ -403,11 +395,9 @@
             this.damageEffectBox.Controls.Add(this.label7);
             this.damageEffectBox.Controls.Add(this.damageValue);
             this.damageEffectBox.Controls.Add(this.label6);
-            this.damageEffectBox.Location = new System.Drawing.Point(185, 15);
-            this.damageEffectBox.Margin = new System.Windows.Forms.Padding(4);
+            this.damageEffectBox.Location = new System.Drawing.Point(139, 12);
             this.damageEffectBox.Name = "damageEffectBox";
-            this.damageEffectBox.Padding = new System.Windows.Forms.Padding(4);
-            this.damageEffectBox.Size = new System.Drawing.Size(357, 292);
+            this.damageEffectBox.Size = new System.Drawing.Size(268, 237);
             this.damageEffectBox.TabIndex = 7;
             this.damageEffectBox.TabStop = false;
             this.damageEffectBox.Text = "Damage Effect";
@@ -415,10 +405,9 @@
             // damageModByValue
             // 
             this.damageModByValue.AutoSize = true;
-            this.damageModByValue.Location = new System.Drawing.Point(189, 79);
-            this.damageModByValue.Margin = new System.Windows.Forms.Padding(4);
+            this.damageModByValue.Location = new System.Drawing.Point(142, 64);
             this.damageModByValue.Name = "damageModByValue";
-            this.damageModByValue.Size = new System.Drawing.Size(142, 21);
+            this.damageModByValue.Size = new System.Drawing.Size(110, 17);
             this.damageModByValue.TabIndex = 7;
             this.damageModByValue.Text = "Modified by Value";
             this.damageModByValue.UseVisualStyleBackColor = true;
@@ -426,10 +415,9 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(185, 140);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Location = new System.Drawing.Point(139, 114);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(97, 17);
+            this.label11.Size = new System.Drawing.Size(74, 13);
             this.label11.TabIndex = 18;
             this.label11.Text = "Damage Type";
             // 
@@ -439,108 +427,98 @@
             this.damageType.Items.AddRange(new object[] {
             "Physical",
             "Magical"});
-            this.damageType.Location = new System.Drawing.Point(189, 164);
-            this.damageType.Margin = new System.Windows.Forms.Padding(4);
+            this.damageType.Location = new System.Drawing.Point(142, 133);
             this.damageType.Name = "damageType";
-            this.damageType.Size = new System.Drawing.Size(160, 24);
+            this.damageType.Size = new System.Drawing.Size(121, 21);
             this.damageType.TabIndex = 17;
             this.damageType.Text = "Physical";
             // 
             // damageModifiedValue
             // 
             this.damageModifiedValue.DecimalPlaces = 2;
-            this.damageModifiedValue.Location = new System.Drawing.Point(189, 100);
-            this.damageModifiedValue.Margin = new System.Windows.Forms.Padding(4);
+            this.damageModifiedValue.Location = new System.Drawing.Point(142, 81);
             this.damageModifiedValue.Maximum = new decimal(new int[] {
             200,
             0,
             0,
             0});
             this.damageModifiedValue.Name = "damageModifiedValue";
-            this.damageModifiedValue.Size = new System.Drawing.Size(160, 22);
+            this.damageModifiedValue.Size = new System.Drawing.Size(120, 20);
             this.damageModifiedValue.TabIndex = 15;
             // 
             // missingHpPercent
             // 
             this.missingHpPercent.DecimalPlaces = 2;
-            this.missingHpPercent.Location = new System.Drawing.Point(189, 43);
-            this.missingHpPercent.Margin = new System.Windows.Forms.Padding(4);
+            this.missingHpPercent.Location = new System.Drawing.Point(142, 35);
             this.missingHpPercent.Name = "missingHpPercent";
-            this.missingHpPercent.Size = new System.Drawing.Size(160, 22);
+            this.missingHpPercent.Size = new System.Drawing.Size(120, 20);
             this.missingHpPercent.TabIndex = 14;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(185, 23);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Location = new System.Drawing.Point(139, 19);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(131, 17);
+            this.label9.Size = new System.Drawing.Size(100, 13);
             this.label9.TabIndex = 13;
             this.label9.Text = "Missing HP Percent";
             // 
             // maxHpPercent
             // 
             this.maxHpPercent.DecimalPlaces = 2;
-            this.maxHpPercent.Location = new System.Drawing.Point(8, 165);
-            this.maxHpPercent.Margin = new System.Windows.Forms.Padding(4);
+            this.maxHpPercent.Location = new System.Drawing.Point(6, 134);
             this.maxHpPercent.Name = "maxHpPercent";
-            this.maxHpPercent.Size = new System.Drawing.Size(160, 22);
+            this.maxHpPercent.Size = new System.Drawing.Size(120, 20);
             this.maxHpPercent.TabIndex = 12;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(8, 145);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Location = new System.Drawing.Point(6, 118);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(109, 17);
+            this.label8.Size = new System.Drawing.Size(85, 13);
             this.label8.TabIndex = 11;
             this.label8.Text = "Max HP Percent";
             // 
             // flatDamageValue
             // 
-            this.flatDamageValue.Location = new System.Drawing.Point(8, 100);
-            this.flatDamageValue.Margin = new System.Windows.Forms.Padding(4);
+            this.flatDamageValue.Location = new System.Drawing.Point(6, 81);
             this.flatDamageValue.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
             this.flatDamageValue.Name = "flatDamageValue";
-            this.flatDamageValue.Size = new System.Drawing.Size(160, 22);
+            this.flatDamageValue.Size = new System.Drawing.Size(120, 20);
             this.flatDamageValue.TabIndex = 10;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(8, 80);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Location = new System.Drawing.Point(6, 65);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(88, 17);
+            this.label7.Size = new System.Drawing.Size(67, 13);
             this.label7.TabIndex = 9;
             this.label7.Text = "Flat Damage";
             // 
             // damageValue
             // 
-            this.damageValue.Location = new System.Drawing.Point(8, 43);
-            this.damageValue.Margin = new System.Windows.Forms.Padding(4);
+            this.damageValue.Location = new System.Drawing.Point(6, 35);
             this.damageValue.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
             this.damageValue.Name = "damageValue";
-            this.damageValue.Size = new System.Drawing.Size(160, 22);
+            this.damageValue.Size = new System.Drawing.Size(120, 20);
             this.damageValue.TabIndex = 8;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(8, 23);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(6, 19);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(61, 17);
+            this.label6.Size = new System.Drawing.Size(47, 13);
             this.label6.TabIndex = 7;
             this.label6.Text = "Damage";
             // 
@@ -554,11 +532,9 @@
             this.healBox.Controls.Add(this.label13);
             this.healBox.Controls.Add(this.healValue);
             this.healBox.Controls.Add(this.label12);
-            this.healBox.Location = new System.Drawing.Point(185, 15);
-            this.healBox.Margin = new System.Windows.Forms.Padding(4);
+            this.healBox.Location = new System.Drawing.Point(139, 12);
             this.healBox.Name = "healBox";
-            this.healBox.Padding = new System.Windows.Forms.Padding(4);
-            this.healBox.Size = new System.Drawing.Size(357, 292);
+            this.healBox.Size = new System.Drawing.Size(268, 237);
             this.healBox.TabIndex = 7;
             this.healBox.TabStop = false;
             this.healBox.Text = "Heal Effect";
@@ -566,10 +542,9 @@
             // healingModByValue
             // 
             this.healingModByValue.AutoSize = true;
-            this.healingModByValue.Location = new System.Drawing.Point(189, 81);
-            this.healingModByValue.Margin = new System.Windows.Forms.Padding(4);
+            this.healingModByValue.Location = new System.Drawing.Point(142, 66);
             this.healingModByValue.Name = "healingModByValue";
-            this.healingModByValue.Size = new System.Drawing.Size(142, 21);
+            this.healingModByValue.Size = new System.Drawing.Size(110, 17);
             this.healingModByValue.TabIndex = 7;
             this.healingModByValue.Text = "Modified by Value";
             this.healingModByValue.UseVisualStyleBackColor = true;
@@ -577,64 +552,57 @@
             // healingModifiedValue
             // 
             this.healingModifiedValue.DecimalPlaces = 2;
-            this.healingModifiedValue.Location = new System.Drawing.Point(189, 102);
-            this.healingModifiedValue.Margin = new System.Windows.Forms.Padding(4);
+            this.healingModifiedValue.Location = new System.Drawing.Point(142, 83);
             this.healingModifiedValue.Name = "healingModifiedValue";
-            this.healingModifiedValue.Size = new System.Drawing.Size(160, 22);
+            this.healingModifiedValue.Size = new System.Drawing.Size(120, 20);
             this.healingModifiedValue.TabIndex = 6;
             // 
             // maxHPHeal
             // 
             this.maxHPHeal.DecimalPlaces = 2;
-            this.maxHPHeal.Location = new System.Drawing.Point(189, 42);
-            this.maxHPHeal.Margin = new System.Windows.Forms.Padding(4);
+            this.maxHPHeal.Location = new System.Drawing.Point(142, 34);
             this.maxHPHeal.Name = "maxHPHeal";
-            this.maxHPHeal.Size = new System.Drawing.Size(160, 22);
+            this.maxHPHeal.Size = new System.Drawing.Size(120, 20);
             this.maxHPHeal.TabIndex = 5;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(185, 22);
-            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label14.Location = new System.Drawing.Point(139, 18);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(109, 17);
+            this.label14.Size = new System.Drawing.Size(85, 13);
             this.label14.TabIndex = 4;
             this.label14.Text = "Max HP Percent";
             // 
             // flatHealValue
             // 
-            this.flatHealValue.Location = new System.Drawing.Point(8, 102);
-            this.flatHealValue.Margin = new System.Windows.Forms.Padding(4);
+            this.flatHealValue.Location = new System.Drawing.Point(6, 83);
             this.flatHealValue.Name = "flatHealValue";
-            this.flatHealValue.Size = new System.Drawing.Size(160, 22);
+            this.flatHealValue.Size = new System.Drawing.Size(120, 20);
             this.flatHealValue.TabIndex = 3;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(8, 82);
-            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label13.Location = new System.Drawing.Point(6, 67);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(64, 17);
+            this.label13.Size = new System.Drawing.Size(49, 13);
             this.label13.TabIndex = 2;
             this.label13.Text = "Flat Heal";
             // 
             // healValue
             // 
-            this.healValue.Location = new System.Drawing.Point(8, 42);
-            this.healValue.Margin = new System.Windows.Forms.Padding(4);
+            this.healValue.Location = new System.Drawing.Point(6, 34);
             this.healValue.Name = "healValue";
-            this.healValue.Size = new System.Drawing.Size(160, 22);
+            this.healValue.Size = new System.Drawing.Size(120, 20);
             this.healValue.TabIndex = 1;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(8, 22);
-            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label12.Location = new System.Drawing.Point(6, 18);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(37, 17);
+            this.label12.Size = new System.Drawing.Size(29, 13);
             this.label12.TabIndex = 0;
             this.label12.Text = "Heal";
             // 
@@ -645,11 +613,9 @@
             this.movementBox.Controls.Add(this.label15);
             this.movementBox.Controls.Add(this.moveType);
             this.movementBox.Controls.Add(this.label10);
-            this.movementBox.Location = new System.Drawing.Point(185, 15);
-            this.movementBox.Margin = new System.Windows.Forms.Padding(4);
+            this.movementBox.Location = new System.Drawing.Point(139, 12);
             this.movementBox.Name = "movementBox";
-            this.movementBox.Padding = new System.Windows.Forms.Padding(4);
-            this.movementBox.Size = new System.Drawing.Size(357, 292);
+            this.movementBox.Size = new System.Drawing.Size(268, 237);
             this.movementBox.TabIndex = 7;
             this.movementBox.TabStop = false;
             this.movementBox.Text = "Movement Effect";
@@ -657,18 +623,16 @@
             // movementForced
             // 
             this.movementForced.AutoSize = true;
-            this.movementForced.Location = new System.Drawing.Point(8, 149);
-            this.movementForced.Margin = new System.Windows.Forms.Padding(4);
+            this.movementForced.Location = new System.Drawing.Point(6, 121);
             this.movementForced.Name = "movementForced";
-            this.movementForced.Size = new System.Drawing.Size(74, 21);
+            this.movementForced.Size = new System.Drawing.Size(59, 17);
             this.movementForced.TabIndex = 4;
             this.movementForced.Text = "Forced";
             this.movementForced.UseVisualStyleBackColor = true;
             // 
             // moveDistance
             // 
-            this.moveDistance.Location = new System.Drawing.Point(8, 106);
-            this.moveDistance.Margin = new System.Windows.Forms.Padding(4);
+            this.moveDistance.Location = new System.Drawing.Point(6, 86);
             this.moveDistance.Maximum = new decimal(new int[] {
             20,
             0,
@@ -680,7 +644,7 @@
             0,
             0});
             this.moveDistance.Name = "moveDistance";
-            this.moveDistance.Size = new System.Drawing.Size(160, 22);
+            this.moveDistance.Size = new System.Drawing.Size(120, 20);
             this.moveDistance.TabIndex = 3;
             this.moveDistance.Value = new decimal(new int[] {
             1,
@@ -691,10 +655,9 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(8, 86);
-            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label15.Location = new System.Drawing.Point(6, 70);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(63, 17);
+            this.label15.Size = new System.Drawing.Size(49, 13);
             this.label15.TabIndex = 2;
             this.label15.Text = "Distance";
             // 
@@ -708,20 +671,18 @@
             "Left",
             "Random",
             "From Center"});
-            this.moveType.Location = new System.Drawing.Point(8, 43);
-            this.moveType.Margin = new System.Windows.Forms.Padding(4);
+            this.moveType.Location = new System.Drawing.Point(6, 35);
             this.moveType.Name = "moveType";
-            this.moveType.Size = new System.Drawing.Size(160, 24);
+            this.moveType.Size = new System.Drawing.Size(121, 21);
             this.moveType.TabIndex = 1;
             this.moveType.Text = "Up";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(8, 23);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Location = new System.Drawing.Point(6, 19);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(78, 17);
+            this.label10.Size = new System.Drawing.Size(61, 13);
             this.label10.TabIndex = 0;
             this.label10.Text = "Move Type";
             // 
@@ -736,19 +697,68 @@
             this.statChangeBox.Controls.Add(this.label17);
             this.statChangeBox.Controls.Add(this.statToChange);
             this.statChangeBox.Controls.Add(this.label16);
-            this.statChangeBox.Location = new System.Drawing.Point(185, 15);
-            this.statChangeBox.Margin = new System.Windows.Forms.Padding(4);
+            this.statChangeBox.Location = new System.Drawing.Point(139, 12);
             this.statChangeBox.Name = "statChangeBox";
-            this.statChangeBox.Padding = new System.Windows.Forms.Padding(4);
-            this.statChangeBox.Size = new System.Drawing.Size(357, 292);
+            this.statChangeBox.Size = new System.Drawing.Size(268, 237);
             this.statChangeBox.TabIndex = 8;
             this.statChangeBox.TabStop = false;
             this.statChangeBox.Text = "Stat Change Part";
             // 
+            // statusEffectBox
+            // 
+            this.statusEffectBox.Controls.Add(this.removeEffectChoice);
+            this.statusEffectBox.Controls.Add(this.addEffectChoice);
+            this.statusEffectBox.Controls.Add(this.statusEffectType);
+            this.statusEffectBox.Controls.Add(this.label19);
+            this.statusEffectBox.Location = new System.Drawing.Point(0, 0);
+            this.statusEffectBox.Name = "statusEffectBox";
+            this.statusEffectBox.Size = new System.Drawing.Size(268, 237);
+            this.statusEffectBox.TabIndex = 9;
+            this.statusEffectBox.TabStop = false;
+            this.statusEffectBox.Text = "Status Effect";
+            // 
+            // removeEffectChoice
+            // 
+            this.removeEffectChoice.AutoSize = true;
+            this.removeEffectChoice.Location = new System.Drawing.Point(9, 96);
+            this.removeEffectChoice.Name = "removeEffectChoice";
+            this.removeEffectChoice.Size = new System.Drawing.Size(96, 17);
+            this.removeEffectChoice.TabIndex = 3;
+            this.removeEffectChoice.Text = "Remove Effect";
+            this.removeEffectChoice.UseVisualStyleBackColor = true;
+            // 
+            // addEffectChoice
+            // 
+            this.addEffectChoice.AutoSize = true;
+            this.addEffectChoice.Checked = true;
+            this.addEffectChoice.Location = new System.Drawing.Point(9, 73);
+            this.addEffectChoice.Name = "addEffectChoice";
+            this.addEffectChoice.Size = new System.Drawing.Size(75, 17);
+            this.addEffectChoice.TabIndex = 2;
+            this.addEffectChoice.TabStop = true;
+            this.addEffectChoice.Text = "Add Effect";
+            this.addEffectChoice.UseVisualStyleBackColor = true;
+            // 
+            // statusEffectType
+            // 
+            this.statusEffectType.FormattingEnabled = true;
+            this.statusEffectType.Location = new System.Drawing.Point(6, 35);
+            this.statusEffectType.Name = "statusEffectType";
+            this.statusEffectType.Size = new System.Drawing.Size(121, 21);
+            this.statusEffectType.TabIndex = 1;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(6, 18);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(68, 13);
+            this.label19.TabIndex = 0;
+            this.label19.Text = "Status Effect";
+            // 
             // statDuration
             // 
-            this.statDuration.Location = new System.Drawing.Point(8, 233);
-            this.statDuration.Margin = new System.Windows.Forms.Padding(4);
+            this.statDuration.Location = new System.Drawing.Point(6, 189);
             this.statDuration.Maximum = new decimal(new int[] {
             200,
             0,
@@ -760,7 +770,7 @@
             0,
             0});
             this.statDuration.Name = "statDuration";
-            this.statDuration.Size = new System.Drawing.Size(160, 22);
+            this.statDuration.Size = new System.Drawing.Size(120, 20);
             this.statDuration.TabIndex = 7;
             this.statDuration.Value = new decimal(new int[] {
             1,
@@ -771,10 +781,9 @@
             // statDurationTracked
             // 
             this.statDurationTracked.AutoSize = true;
-            this.statDurationTracked.Location = new System.Drawing.Point(12, 212);
-            this.statDurationTracked.Margin = new System.Windows.Forms.Padding(4);
+            this.statDurationTracked.Location = new System.Drawing.Point(9, 172);
             this.statDurationTracked.Name = "statDurationTracked";
-            this.statDurationTracked.Size = new System.Drawing.Size(84, 21);
+            this.statDurationTracked.Size = new System.Drawing.Size(66, 17);
             this.statDurationTracked.TabIndex = 6;
             this.statDurationTracked.Text = "Duration";
             this.statDurationTracked.UseVisualStyleBackColor = true;
@@ -787,8 +796,7 @@
             0,
             0,
             196608});
-            this.statMultiplier.Location = new System.Drawing.Point(8, 169);
-            this.statMultiplier.Margin = new System.Windows.Forms.Padding(4);
+            this.statMultiplier.Location = new System.Drawing.Point(6, 137);
             this.statMultiplier.Maximum = new decimal(new int[] {
             10,
             0,
@@ -800,7 +808,7 @@
             0,
             196608});
             this.statMultiplier.Name = "statMultiplier";
-            this.statMultiplier.Size = new System.Drawing.Size(160, 22);
+            this.statMultiplier.Size = new System.Drawing.Size(120, 20);
             this.statMultiplier.TabIndex = 5;
             this.statMultiplier.Value = new decimal(new int[] {
             125,
@@ -811,17 +819,15 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(8, 149);
-            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label18.Location = new System.Drawing.Point(6, 121);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(64, 17);
+            this.label18.Size = new System.Drawing.Size(48, 13);
             this.label18.TabIndex = 4;
             this.label18.Text = "Multiplier";
             // 
             // flatStatChange
             // 
-            this.flatStatChange.Location = new System.Drawing.Point(8, 103);
-            this.flatStatChange.Margin = new System.Windows.Forms.Padding(4);
+            this.flatStatChange.Location = new System.Drawing.Point(6, 84);
             this.flatStatChange.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -833,16 +839,15 @@
             0,
             -2147483648});
             this.flatStatChange.Name = "flatStatChange";
-            this.flatStatChange.Size = new System.Drawing.Size(160, 22);
+            this.flatStatChange.Size = new System.Drawing.Size(120, 20);
             this.flatStatChange.TabIndex = 3;
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(8, 84);
-            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label17.Location = new System.Drawing.Point(6, 68);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(84, 17);
+            this.label17.Size = new System.Drawing.Size(64, 13);
             this.label17.TabIndex = 2;
             this.label17.Text = "Flat Change";
             // 
@@ -869,90 +874,28 @@
             "Percent Armor Pen",
             "Flat Magic Armor Pen",
             "Percent Magin Armor Pen"});
-            this.statToChange.Location = new System.Drawing.Point(8, 43);
-            this.statToChange.Margin = new System.Windows.Forms.Padding(4);
+            this.statToChange.Location = new System.Drawing.Point(6, 35);
             this.statToChange.Name = "statToChange";
-            this.statToChange.Size = new System.Drawing.Size(160, 24);
+            this.statToChange.Size = new System.Drawing.Size(121, 21);
             this.statToChange.TabIndex = 1;
             this.statToChange.Text = "Max Health";
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(8, 23);
-            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label16.Location = new System.Drawing.Point(6, 19);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(33, 17);
+            this.label16.Size = new System.Drawing.Size(26, 13);
             this.label16.TabIndex = 0;
             this.label16.Text = "Stat";
-            // 
-            // statusEffectBox
-            // 
-            this.statusEffectBox.Controls.Add(this.removeEffectChoice);
-            this.statusEffectBox.Controls.Add(this.addEffectChoice);
-            this.statusEffectBox.Controls.Add(this.statusEffectType);
-            this.statusEffectBox.Controls.Add(this.label19);
-            this.statusEffectBox.Location = new System.Drawing.Point(0, 0);
-            this.statusEffectBox.Margin = new System.Windows.Forms.Padding(4);
-            this.statusEffectBox.Name = "statusEffectBox";
-            this.statusEffectBox.Padding = new System.Windows.Forms.Padding(4);
-            this.statusEffectBox.Size = new System.Drawing.Size(357, 292);
-            this.statusEffectBox.TabIndex = 9;
-            this.statusEffectBox.TabStop = false;
-            this.statusEffectBox.Text = "Status Effect";
-            // 
-            // removeEffectChoice
-            // 
-            this.removeEffectChoice.AutoSize = true;
-            this.removeEffectChoice.Location = new System.Drawing.Point(12, 118);
-            this.removeEffectChoice.Margin = new System.Windows.Forms.Padding(4);
-            this.removeEffectChoice.Name = "removeEffectChoice";
-            this.removeEffectChoice.Size = new System.Drawing.Size(121, 21);
-            this.removeEffectChoice.TabIndex = 3;
-            this.removeEffectChoice.Text = "Remove Effect";
-            this.removeEffectChoice.UseVisualStyleBackColor = true;
-            // 
-            // addEffectChoice
-            // 
-            this.addEffectChoice.AutoSize = true;
-            this.addEffectChoice.Checked = true;
-            this.addEffectChoice.Location = new System.Drawing.Point(12, 90);
-            this.addEffectChoice.Margin = new System.Windows.Forms.Padding(4);
-            this.addEffectChoice.Name = "addEffectChoice";
-            this.addEffectChoice.Size = new System.Drawing.Size(94, 21);
-            this.addEffectChoice.TabIndex = 2;
-            this.addEffectChoice.TabStop = true;
-            this.addEffectChoice.Text = "Add Effect";
-            this.addEffectChoice.UseVisualStyleBackColor = true;
-            // 
-            // statusEffectType
-            // 
-            this.statusEffectType.FormattingEnabled = true;
-            this.statusEffectType.Location = new System.Drawing.Point(8, 43);
-            this.statusEffectType.Margin = new System.Windows.Forms.Padding(4);
-            this.statusEffectType.Name = "statusEffectType";
-            this.statusEffectType.Size = new System.Drawing.Size(160, 24);
-            this.statusEffectType.TabIndex = 1;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(8, 22);
-            this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(88, 17);
-            this.label19.TabIndex = 0;
-            this.label19.Text = "Status Effect";
             // 
             // uniqueEffectBox
             // 
             this.uniqueEffectBox.Controls.Add(this.uniqueEffectType);
             this.uniqueEffectBox.Controls.Add(this.label20);
-            this.uniqueEffectBox.Location = new System.Drawing.Point(185, 15);
-            this.uniqueEffectBox.Margin = new System.Windows.Forms.Padding(4);
+            this.uniqueEffectBox.Location = new System.Drawing.Point(139, 12);
             this.uniqueEffectBox.Name = "uniqueEffectBox";
-            this.uniqueEffectBox.Padding = new System.Windows.Forms.Padding(4);
-            this.uniqueEffectBox.Size = new System.Drawing.Size(357, 292);
+            this.uniqueEffectBox.Size = new System.Drawing.Size(268, 237);
             this.uniqueEffectBox.TabIndex = 4;
             this.uniqueEffectBox.TabStop = false;
             this.uniqueEffectBox.Text = "Unique Effect";
@@ -962,28 +905,124 @@
             this.uniqueEffectType.FormattingEnabled = true;
             this.uniqueEffectType.Items.AddRange(new object[] {
             "Move Again"});
-            this.uniqueEffectType.Location = new System.Drawing.Point(8, 43);
-            this.uniqueEffectType.Margin = new System.Windows.Forms.Padding(4);
+            this.uniqueEffectType.Location = new System.Drawing.Point(6, 35);
             this.uniqueEffectType.Name = "uniqueEffectType";
-            this.uniqueEffectType.Size = new System.Drawing.Size(160, 24);
+            this.uniqueEffectType.Size = new System.Drawing.Size(121, 21);
             this.uniqueEffectType.TabIndex = 1;
             this.uniqueEffectType.Text = "Move Again";
             // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(8, 20);
-            this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label20.Location = new System.Drawing.Point(6, 16);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(44, 17);
+            this.label20.Size = new System.Drawing.Size(35, 13);
             this.label20.TabIndex = 0;
             this.label20.Text = "Effect";
             // 
+            // connectedChanceBox
+            // 
+            this.connectedChanceBox.Controls.Add(this.chanceOfNoEffect);
+            this.connectedChanceBox.Controls.Add(this.chancesOutOf);
+            this.connectedChanceBox.Controls.Add(this.label22);
+            this.connectedChanceBox.Controls.Add(this.removeConnectedChanceEffect);
+            this.connectedChanceBox.Controls.Add(this.addConnectedChanceEffect);
+            this.connectedChanceBox.Controls.Add(this.label21);
+            this.connectedChanceBox.Controls.Add(this.connectedChanceEffects);
+            this.connectedChanceBox.Location = new System.Drawing.Point(139, 12);
+            this.connectedChanceBox.Name = "connectedChanceBox";
+            this.connectedChanceBox.Size = new System.Drawing.Size(268, 237);
+            this.connectedChanceBox.TabIndex = 5;
+            this.connectedChanceBox.TabStop = false;
+            this.connectedChanceBox.Text = "Connected Chance";
+            // 
+            // chanceOfNoEffect
+            // 
+            this.chanceOfNoEffect.AutoSize = true;
+            this.chanceOfNoEffect.Location = new System.Drawing.Point(139, 70);
+            this.chanceOfNoEffect.Name = "chanceOfNoEffect";
+            this.chanceOfNoEffect.Size = new System.Drawing.Size(104, 13);
+            this.chanceOfNoEffect.TabIndex = 34;
+            this.chanceOfNoEffect.Text = "Chance of no effect:";
+            // 
+            // chancesOutOf
+            // 
+            this.chancesOutOf.Location = new System.Drawing.Point(142, 32);
+            this.chancesOutOf.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.chancesOutOf.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.chancesOutOf.Name = "chancesOutOf";
+            this.chancesOutOf.Size = new System.Drawing.Size(120, 20);
+            this.chancesOutOf.TabIndex = 33;
+            this.chancesOutOf.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.chancesOutOf.ValueChanged += new System.EventHandler(this.chancesOutOf_ValueChanged);
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(139, 16);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(83, 13);
+            this.label22.TabIndex = 9;
+            this.label22.Text = "Chances Out Of";
+            // 
+            // removeConnectedChanceEffect
+            // 
+            this.removeConnectedChanceEffect.Location = new System.Drawing.Point(69, 204);
+            this.removeConnectedChanceEffect.Margin = new System.Windows.Forms.Padding(1);
+            this.removeConnectedChanceEffect.Name = "removeConnectedChanceEffect";
+            this.removeConnectedChanceEffect.Size = new System.Drawing.Size(58, 23);
+            this.removeConnectedChanceEffect.TabIndex = 32;
+            this.removeConnectedChanceEffect.Text = "-";
+            this.removeConnectedChanceEffect.UseVisualStyleBackColor = true;
+            this.removeConnectedChanceEffect.Click += new System.EventHandler(this.removeConnectedChanceEffect_Click);
+            // 
+            // addConnectedChanceEffect
+            // 
+            this.addConnectedChanceEffect.Location = new System.Drawing.Point(6, 204);
+            this.addConnectedChanceEffect.Margin = new System.Windows.Forms.Padding(1);
+            this.addConnectedChanceEffect.Name = "addConnectedChanceEffect";
+            this.addConnectedChanceEffect.Size = new System.Drawing.Size(57, 23);
+            this.addConnectedChanceEffect.TabIndex = 31;
+            this.addConnectedChanceEffect.Text = "+";
+            this.addConnectedChanceEffect.UseVisualStyleBackColor = true;
+            this.addConnectedChanceEffect.Click += new System.EventHandler(this.addConnectedChanceEffect_Click);
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(6, 17);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(40, 13);
+            this.label21.TabIndex = 30;
+            this.label21.Text = "Effects";
+            // 
+            // connectedChanceEffects
+            // 
+            this.connectedChanceEffects.FormattingEnabled = true;
+            this.connectedChanceEffects.Location = new System.Drawing.Point(6, 32);
+            this.connectedChanceEffects.Name = "connectedChanceEffects";
+            this.connectedChanceEffects.Size = new System.Drawing.Size(120, 173);
+            this.connectedChanceEffects.TabIndex = 29;
+            this.connectedChanceEffects.DoubleClick += new System.EventHandler(this.connectedChanceEffects_DoubleClick);
+            // 
             // SkillPartTool
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(559, 321);
+            this.ClientSize = new System.Drawing.Size(419, 261);
+            this.Controls.Add(this.connectedChanceBox);
             this.Controls.Add(this.uniqueEffectBox);
             this.Controls.Add(this.statChangeBox);
             this.Controls.Add(this.movementBox);
@@ -996,7 +1035,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.targetType);
             this.Controls.Add(this.typeSelector);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "SkillPartTool";
             this.Text = "Skill Part";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SkillPartTool_FormClosing);
@@ -1024,13 +1062,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.moveDistance)).EndInit();
             this.statChangeBox.ResumeLayout(false);
             this.statChangeBox.PerformLayout();
+            this.statusEffectBox.ResumeLayout(false);
+            this.statusEffectBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.statDuration)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.statMultiplier)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.flatStatChange)).EndInit();
-            this.statusEffectBox.ResumeLayout(false);
-            this.statusEffectBox.PerformLayout();
             this.uniqueEffectBox.ResumeLayout(false);
             this.uniqueEffectBox.PerformLayout();
+            this.connectedChanceBox.ResumeLayout(false);
+            this.connectedChanceBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chancesOutOf)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1101,5 +1142,13 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.ComboBox targetType;
         private System.Windows.Forms.NumericUpDown chance;
+        private System.Windows.Forms.GroupBox connectedChanceBox;
+        private System.Windows.Forms.Button removeConnectedChanceEffect;
+        private System.Windows.Forms.Button addConnectedChanceEffect;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.ListBox connectedChanceEffects;
+        private System.Windows.Forms.Label chanceOfNoEffect;
+        private System.Windows.Forms.NumericUpDown chancesOutOf;
+        private System.Windows.Forms.Label label22;
     }
 }

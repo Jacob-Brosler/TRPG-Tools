@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-/// <summary>
+﻿/// <summary>
 /// Stores all of the unique, mutable data necessary to correctly active an effect during a battle
 /// </summary>
 public class TemporaryEffectData

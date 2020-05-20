@@ -50,6 +50,8 @@
   <ItemGroup>
     <Compile Include="Class Definitions\Skill.cs" />
     <Compile Include="Class Definitions\SkillParts\AddTriggerPart.cs" />
+    <Compile Include="Class Definitions\SkillParts\SkillPartParts\ConnectedChanceEffect.cs" />
+    <Compile Include="Class Definitions\SkillParts\ConnectedChancePart.cs" />
     <Compile Include="Class Definitions\SkillParts\DamagePart.cs" />
     <Compile Include="Class Definitions\EnemyType.cs" />
     <Compile Include="Class Definitions\SkillParts\HealingPart.cs" />
@@ -74,6 +76,12 @@
     </Compile>
     <Compile Include="Tools\BattleItemTool.Designer.cs">
       <DependentUpon>BattleItemTool.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\ConnectedChanceEffectTool.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tools\ConnectedChanceEffectTool.Designer.cs">
+      <DependentUpon>ConnectedChanceEffectTool.cs</DependentUpon>
     </Compile>
     <Compile Include="Tools\EnemyDefinitionsTool.cs">
       <SubType>Form</SubType>
@@ -157,6 +165,9 @@
     </Compile>
     <EmbeddedResource Include="Tools\BattleItemTool.resx">
       <DependentUpon>BattleItemTool.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\ConnectedChanceEffectTool.resx">
+      <DependentUpon>ConnectedChanceEffectTool.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tools\EnemyDefinitionsTool.resx">
       <DependentUpon>EnemyDefinitionsTool.cs</DependentUpon>

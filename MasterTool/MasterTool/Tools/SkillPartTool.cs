@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MasterTool.Tools
@@ -18,13 +12,13 @@ namespace MasterTool.Tools
         public SkillPartTool(SkillPartBase effect = null, bool switchEnabled = true)
         {
             InitializeComponent();
-            panels = new GroupBox[] { addTriggerBox, damageEffectBox, healBox, movementBox, statChangeBox, statusEffectBox, uniqueEffectBox };
+            panels = new GroupBox[] { addTriggerBox, damageEffectBox, healBox, movementBox, statChangeBox, statusEffectBox, connectedChanceBox, uniqueEffectBox };
             typeSelector.SelectedIndex = LoadEffect(effect);
             typeSelector_SelectedIndexChanged(null, null);
             typeSelector.Enabled = switchEnabled;
             statusEffectType.Items.Clear();
             statusEffectType.Items.Add("All");
-            foreach(StatusEffectDefinition status in DataStorage.StatusEffectRegistry)
+            foreach (StatusEffectDefinition status in DataStorage.StatusEffectRegistry)
             {
                 statusEffectType.Items.Add(status.name);
             }
@@ -44,7 +38,7 @@ namespace MasterTool.Tools
                 AddTriggerPart actualEffect = effect as AddTriggerPart;
                 addTriggerTrigger.SelectedIndex = (int)actualEffect.effect.trigger;
 
-                if(actualEffect.maxTimesThisBattle == -1)
+                if (actualEffect.maxTimesThisBattle == -1)
                 {
                     timesPerBattle.Checked = false;
                 }
@@ -81,7 +75,7 @@ namespace MasterTool.Tools
                 }
                 return 0;
             }
-            else if(effect is DamagePart)
+            else if (effect is DamagePart)
             {
                 DamagePart actualEffect = effect as DamagePart;
                 damageType.SelectedIndex = (int)actualEffect.damageType;
@@ -141,7 +135,7 @@ namespace MasterTool.Tools
                 else
                 {
                     statDurationTracked.Checked = true;
-                    statDuration.Value = (decimal)actualEffect.statMod.duration;
+                    statDuration.Value = actualEffect.statMod.duration;
                 }
                 return 4;
             }
@@ -153,10 +147,22 @@ namespace MasterTool.Tools
                 removeEffectChoice.Checked = actualEffect.remove;
                 return 5;
             }
-            else if(effect is UniqueEffectPart)
+            else if (effect is ConnectedChancePart)
+            {
+                ConnectedChancePart actualEffect = effect as ConnectedChancePart;
+                connectedChanceEffects.Items.Clear();
+                foreach (ConnectedChanceEffect part in actualEffect.effects)
+                {
+                    connectedChanceEffects.Items.Add(part);
+                }
+                chancesOutOf.Value = actualEffect.chanceOutOf;
+                UpdateConnectedChanceInfo();
+                return 6;
+            }
+            else if (effect is UniqueEffectPart)
             {
                 uniqueEffectType.SelectedIndex = (int)(effect as UniqueEffectPart).effectType;
-                return 6;
+                return 7;
             }
             //Screaming
             return -1;
@@ -170,20 +176,20 @@ namespace MasterTool.Tools
             switch ((string)typeSelector.SelectedItem)
             {
                 case "Add Trigger":
-                    returnEffect = new AddTriggerPart((TargettingType)targetType.SelectedIndex, 
+                    returnEffect = new AddTriggerPart((TargettingType)targetType.SelectedIndex,
                         new TriggeredEffect((EffectTriggers)addTriggerTrigger.SelectedIndex),
                         (timesPerBattle.Checked ? (int)timesPerBattleCount.Value : -1),
                         (turnCD.Checked ? (int)cooldownCount.Value : -1),
                         (activeTurns.Checked ? (int)activeTurnCount.Value : -1),
                         (int)chance.Value);
-                    foreach(SkillPartBase effect in effectList.Items)
+                    foreach (SkillPartBase effect in effectList.Items)
                     {
                         ((AddTriggerPart)returnEffect).effect.AddEffect(effect);
                     }
                     break;
                 case "Damage":
                     returnEffect = new DamagePart((TargettingType)targetType.SelectedIndex, (DamageType)damageType.SelectedIndex,
-                        (int)damageValue.Value, (int)flatDamageValue.Value, (int)maxHpPercent.Value, (int)missingHpPercent.Value, 
+                        (int)damageValue.Value, (int)flatDamageValue.Value, (int)maxHpPercent.Value, (int)missingHpPercent.Value,
                         (int)chance.Value, (damageModByValue.Checked ? (float)damageModifiedValue.Value : 0));
                     break;
                 case "Healing":
@@ -199,8 +205,24 @@ namespace MasterTool.Tools
                         (float)statMultiplier.Value, (statDurationTracked.Checked ? (int)statDuration.Value : 0), (int)chance.Value);
                     break;
                 case "Status Effect":
-                    returnEffect = new StatusEffectPart((TargettingType)targetType.SelectedIndex, (string)statusEffectType.SelectedItem, 
+                    returnEffect = new StatusEffectPart((TargettingType)targetType.SelectedIndex, (string)statusEffectType.SelectedItem,
                         removeEffectChoice.Checked, (int)chance.Value);
+                    break;
+                case "Connected Chance Effect":
+                    if (GetChanceOfNothing() < 0)
+                    {
+                        MessageBox.Show("The total chance of all effects exceeds the value it should be out of. Please modify your values until the total is less than or equal to your selected \"chance out of\" value.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        e.Cancel = true;
+                    }
+                    else
+                    {
+                        List<ConnectedChanceEffect> connectedEffectList = new List<ConnectedChanceEffect>();
+                        foreach (ConnectedChanceEffect effect in connectedChanceEffects.Items)
+                        {
+                            connectedEffectList.Add(effect);
+                        }
+                        returnEffect = new ConnectedChancePart((TargettingType)targetType.SelectedIndex, connectedEffectList, (int)chancesOutOf.Value, (int)chance.Value);
+                    }
                     break;
                 case "Unique Effect":
                     returnEffect = new UniqueEffectPart((TargettingType)targetType.SelectedIndex, (UniqueEffects)uniqueEffectType.SelectedIndex, (int)chance.Value);
@@ -213,16 +235,19 @@ namespace MasterTool.Tools
         /// </summary>
         private void typeSelector_SelectedIndexChanged(object sender, EventArgs e)
         {
-            for(int i = 0; i < panels.Length; i++)
+            for (int i = 0; i < panels.Length; i++)
             {
                 panels[i].Enabled = (i == typeSelector.SelectedIndex);
                 panels[i].Visible = (i == typeSelector.SelectedIndex);
+                //Connected Chance Effect
+                if(i == 6)
+                {
+                    UpdateConnectedChanceInfo();
+                }
             }
         }
 
-        ///
-        /// Add Trigger Effect
-        ///
+        #region AddTriggerEffect
 
         private void effectList_DoubleClick(object sender, EventArgs e)
         {
@@ -232,6 +257,7 @@ namespace MasterTool.Tools
                 {
                     newEffect.ShowDialog(this);
                     effectList.Items[effectList.SelectedIndex] = newEffect.returnEffect;
+                    UpdateConnectedChanceInfo();
                 }
             }
         }
@@ -248,6 +274,69 @@ namespace MasterTool.Tools
                 effectList.Items.RemoveAt(effectList.SelectedIndex);
             }
         }
+
+        #endregion
+
+        #region ConnectedChanceEffect
+
+        private void connectedChanceEffects_DoubleClick(object sender, EventArgs e)
+        {
+            if (connectedChanceEffects.SelectedIndex != -1)
+            {
+                using (ConnectedChanceEffectTool newEffect = new ConnectedChanceEffectTool((ConnectedChanceEffect)connectedChanceEffects.SelectedItem, (int)chancesOutOf.Value))
+                {
+                    newEffect.ShowDialog(this);
+                    connectedChanceEffects.Items[connectedChanceEffects.SelectedIndex] = newEffect.returnEffect;
+                    UpdateConnectedChanceInfo();
+                }
+            }
+        }
+
+        private void addConnectedChanceEffect_Click(object sender, EventArgs e)
+        {
+            connectedChanceEffects.Items.Add(new ConnectedChanceEffect(new List<SkillPartBase>(), 1));
+        }
+
+        private void removeConnectedChanceEffect_Click(object sender, EventArgs e)
+        {
+            if (connectedChanceEffects.SelectedIndex != -1 && MessageBox.Show(this, "Are you sure you want to delete this effect? This cannot be undone.", "Warning", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                connectedChanceEffects.Items.RemoveAt(connectedChanceEffects.SelectedIndex);
+            }
+        }
+
+        private void chancesOutOf_ValueChanged(object sender, EventArgs e)
+        {
+            UpdateConnectedChanceInfo();
+        }
+
+        /// <summary>
+        /// Updates the text for a connected chance part with the chance of no effect occuring
+        /// </summary>
+        private void UpdateConnectedChanceInfo()
+        {
+            chanceOfNoEffect.Text = "Chance of no effect:\n" + GetChanceOfNothing() + " / " + chancesOutOf.Value;
+        }
+
+        /// <summary>
+        /// Gets the chance of nothing happening when casting the current ConnectedChancePart
+        /// </summary>
+        /// <returns>
+        /// An int less than or equal to chanceOutOf
+        /// If the int is negative the part is invalid
+        /// If the int equals chanceOutOf there will never be an effect when casting the part
+        /// </returns>
+        private int GetChanceOfNothing()
+        {
+            int totalChances = 0;
+            foreach (ConnectedChanceEffect part in connectedChanceEffects.Items)
+            {
+                totalChances += part.triggerChance;
+            }
+            return (int)chancesOutOf.Value - totalChances;
+        }
+
+        #endregion
 
         /// <summary>
         /// Locks out most selections for a stat change part for making stat changes for equippables

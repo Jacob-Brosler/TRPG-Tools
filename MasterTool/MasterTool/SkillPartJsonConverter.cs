@@ -43,6 +43,10 @@ namespace MasterTool
             {
                 target = new StatusEffectPart();
             }
+            else if (jObject.ContainsKey("chanceOutOf"))
+            {
+                target = new ConnectedChancePart();
+            }
             else if (jObject.ContainsKey("effectType"))
             {
                 target = new UniqueEffectPart();

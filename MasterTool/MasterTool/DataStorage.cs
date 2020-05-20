@@ -1,12 +1,8 @@
 ﻿using MasterTool.Tools;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MasterTool
@@ -57,7 +53,7 @@ namespace MasterTool
 
                 if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fileSelect.FileName))
                 {
-                    using(StreamReader reader = new StreamReader(fileSelect.FileName))
+                    using (StreamReader reader = new StreamReader(fileSelect.FileName))
                     {
                         var dataDumpType = new
                         {

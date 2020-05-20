@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-public enum CountdownType
+﻿public enum CountdownType
 {
     Turns,
     Uses,

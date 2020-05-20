@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 public class Skill
 {
@@ -47,7 +45,7 @@ public class Skill
     {
         if (dependencies.Contains(id))
             dependencies.Remove(id);
-        for(int i = 0; i < dependencies.Count; i++)
+        for (int i = 0; i < dependencies.Count; i++)
         {
             if (dependencies[i] > id)
                 dependencies[i]--;
