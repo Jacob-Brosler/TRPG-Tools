@@ -144,7 +144,7 @@
             this.Controls.Add(this.label21);
             this.Controls.Add(this.effectList);
             this.Name = "ConnectedChanceEffectTool";
-            this.Text = "ConnectedChanceEffectTool";
+            this.Text = "Connected Chance Effect";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ConnectedChanceEffectTool_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.chanceToTrigger)).EndInit();
             this.ResumeLayout(false);

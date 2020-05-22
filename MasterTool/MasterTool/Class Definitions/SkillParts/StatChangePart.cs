@@ -13,8 +13,8 @@
     }
 }
 
-public class StatChangePart : SkillPartBase{
-
+public class StatChangePart : SkillPartBase
+{
     //Stat modifier
     public StatMod statMod;
 

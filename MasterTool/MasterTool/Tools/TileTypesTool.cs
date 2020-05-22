@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MasterTool.Tools
@@ -14,7 +8,6 @@ namespace MasterTool.Tools
     {
         int previousSelectedIndex = -1;
         BindingList<TileType> itemBoundList = new BindingList<TileType>();
-        SkillPartBase defaultPart = new AddTriggerPart(TargettingType.Self, new TriggeredEffect(EffectTriggers.FallBelow25Percent));
 
         public TileTypesTool()
         {
@@ -58,6 +51,11 @@ namespace MasterTool.Tools
                 tileList.SelectedIndex = 0;
                 TileList_SelectedIndexChanged(null, null);
             }
+
+            foreach(MovementType move in DataStorage.MovementRegistry)
+            {
+                move.tileTypeInfo.Add(itemBoundList.Count - 1, new MovementTypeTileInfo());
+            }
         }
 
         private void RemoveTileType_Click(object sender, EventArgs e)
@@ -66,6 +64,10 @@ namespace MasterTool.Tools
             {
                 previousSelectedIndex = -1;
                 itemBoundList.RemoveAt(tileList.SelectedIndex);
+                foreach (MovementType move in DataStorage.MovementRegistry)
+                {
+                    move.tileTypeInfo.Remove(tileList.SelectedIndex);
+                }
                 tileList.SelectedIndex = (itemBoundList.Count == 0 ? -1 : 0);
                 if (tileList.SelectedIndex == -1)
                 {
@@ -110,33 +112,33 @@ namespace MasterTool.Tools
         {
             startOfTurnButton.Enabled = startOfTurn.Checked;
             if (startOfTurn.Checked && itemBoundList[tileList.SelectedIndex].startOfTurn == null)
-                itemBoundList[tileList.SelectedIndex].startOfTurn = defaultPart;
+                itemBoundList[tileList.SelectedIndex].startOfTurn = new AddTriggerPart();
         }
 
         private void PassOver_CheckedChanged(object sender, EventArgs e)
         {
             passOverButton.Enabled = passOver.Checked;
             if (passOver.Checked && itemBoundList[tileList.SelectedIndex].passOver == null)
-                itemBoundList[tileList.SelectedIndex].passOver = defaultPart;
+                itemBoundList[tileList.SelectedIndex].passOver = new AddTriggerPart();
         }
 
         private void StopOnTile_CheckedChanged(object sender, EventArgs e)
         {
             stopOnTileButton.Enabled = stopOnTile.Checked;
             if (stopOnTile.Checked && itemBoundList[tileList.SelectedIndex].stopOnTile == null)
-                itemBoundList[tileList.SelectedIndex].stopOnTile = defaultPart;
+                itemBoundList[tileList.SelectedIndex].stopOnTile = new AddTriggerPart();
         }
 
         private void EndOfTurn_CheckedChanged(object sender, EventArgs e)
         {
             endOfTurnButton.Enabled = endOfTurn.Checked;
             if (endOfTurn.Checked && itemBoundList[tileList.SelectedIndex].endOfTurn == null)
-                itemBoundList[tileList.SelectedIndex].endOfTurn = defaultPart;
+                itemBoundList[tileList.SelectedIndex].endOfTurn = new AddTriggerPart();
         }
 
         private void StartOfTurnButton_Click(object sender, EventArgs e)
         {
-            using (SkillPartTool skillScreen = new SkillPartTool(itemBoundList[tileList.SelectedIndex].startOfTurn ?? defaultPart))
+            using (SkillPartTool skillScreen = new SkillPartTool(itemBoundList[tileList.SelectedIndex].startOfTurn ?? new AddTriggerPart()))
             {
                 skillScreen.ShowDialog(this);
 
@@ -146,7 +148,7 @@ namespace MasterTool.Tools
 
         private void PassOverButton_Click(object sender, EventArgs e)
         {
-            using (SkillPartTool skillScreen = new SkillPartTool(itemBoundList[tileList.SelectedIndex].passOver ?? defaultPart))
+            using (SkillPartTool skillScreen = new SkillPartTool(itemBoundList[tileList.SelectedIndex].passOver ?? new AddTriggerPart()))
             {
                 skillScreen.ShowDialog(this);
 
@@ -156,7 +158,7 @@ namespace MasterTool.Tools
 
         private void StopOnTileButton_Click(object sender, EventArgs e)
         {
-            using (SkillPartTool skillScreen = new SkillPartTool(itemBoundList[tileList.SelectedIndex].stopOnTile ?? defaultPart))
+            using (SkillPartTool skillScreen = new SkillPartTool(itemBoundList[tileList.SelectedIndex].stopOnTile ?? new AddTriggerPart()))
             {
                 skillScreen.ShowDialog(this);
 
@@ -166,7 +168,7 @@ namespace MasterTool.Tools
 
         private void EndOfTurnButton_Click(object sender, EventArgs e)
         {
-            using (SkillPartTool skillScreen = new SkillPartTool(itemBoundList[tileList.SelectedIndex].endOfTurn ?? defaultPart))
+            using (SkillPartTool skillScreen = new SkillPartTool(itemBoundList[tileList.SelectedIndex].endOfTurn ?? new AddTriggerPart()))
             {
                 skillScreen.ShowDialog(this);
 

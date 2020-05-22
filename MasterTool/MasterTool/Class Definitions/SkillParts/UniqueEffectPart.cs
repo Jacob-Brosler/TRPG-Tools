@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-
-/// <summary>
+﻿/// <summary>
 /// The different unique effects that exist
 /// </summary>
 public enum UniqueEffects

@@ -240,7 +240,7 @@ namespace MasterTool.Tools
                 panels[i].Enabled = (i == typeSelector.SelectedIndex);
                 panels[i].Visible = (i == typeSelector.SelectedIndex);
                 //Connected Chance Effect
-                if(i == 6)
+                if (i == 6)
                 {
                     UpdateConnectedChanceInfo();
                 }

@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-
-public class AddTriggerPart : SkillPartBase
+﻿public class AddTriggerPart : SkillPartBase
 {
     public TriggeredEffect effect;
     //The amount of times this effect can be triggered per battle
@@ -11,7 +8,13 @@ public class AddTriggerPart : SkillPartBase
     //The amount of turns this trigger exists for. -1 if there is no limit
     public int maxActiveTurns;
 
-    public AddTriggerPart() { }
+    public AddTriggerPart() : base(TargettingType.Self, 100)
+    {
+        effect = new TriggeredEffect(EffectTriggers.FallBelow25Percent);
+        maxTimesThisBattle = 1;
+        turnCooldown = 0;
+        maxActiveTurns = 1;
+    }
 
     public AddTriggerPart(TargettingType target, TriggeredEffect effect, int maxTimesThisBattle = -1, int turnCooldown = -1, int maxActiveTurns = -1, int chance = 100) : base(target, chance)
     {

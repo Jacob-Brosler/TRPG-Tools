@@ -150,7 +150,7 @@ namespace MasterTool.Tools
                     if (i == index)
                         continue;
                     //If the name they want is already in use
-                    if ((itemBoundList[i]).name == nameBox.Text)
+                    if (itemBoundList[i].name == nameBox.Text)
                     {
                         MessageBox.Show("The name of the item needs to be unique. This name is already in use, please choose another name and try again.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         itemList.SelectedIndex = index;

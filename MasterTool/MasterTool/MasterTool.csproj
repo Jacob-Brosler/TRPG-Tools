@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class Definitions\MovementTypeTileInfo.cs" />
     <Compile Include="Class Definitions\Skill.cs" />
     <Compile Include="Class Definitions\SkillParts\AddTriggerPart.cs" />
     <Compile Include="Class Definitions\SkillParts\SkillPartParts\ConnectedChanceEffect.cs" />
@@ -139,6 +140,12 @@
     <Compile Include="Tools\SpellTreeTool.Designer.cs">
       <DependentUpon>SpellTreeTool.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tools\TileTypeMoveInfoTool.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tools\TileTypeMoveInfoTool.Designer.cs">
+      <DependentUpon>TileTypeMoveInfoTool.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tools\TileTypesTool.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -204,6 +211,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Tools\SpellTreeTool.resx">
       <DependentUpon>SpellTreeTool.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\TileTypeMoveInfoTool.resx">
+      <DependentUpon>TileTypeMoveInfoTool.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tools\TileTypesTool.resx">
       <DependentUpon>TileTypesTool.cs</DependentUpon>

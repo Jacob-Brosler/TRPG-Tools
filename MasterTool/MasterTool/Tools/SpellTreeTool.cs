@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MasterTool.Tools
@@ -102,7 +96,7 @@ namespace MasterTool.Tools
         {
             SpellTool spellScreen = new SpellTool(itemBoundList[spellTreeList.SelectedIndex]);
 
-            if(!spellScreen.IsDisposed)
+            if (!spellScreen.IsDisposed)
                 spellScreen.ShowDialog(this);
         }
 

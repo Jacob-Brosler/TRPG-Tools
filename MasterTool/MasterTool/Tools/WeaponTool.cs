@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MasterTool.Tools
@@ -18,7 +13,7 @@ namespace MasterTool.Tools
         public WeaponTool()
         {
             InitializeComponent();
-            if(DataStorage.WeaponTypeRegistry.Count == 0)
+            if (DataStorage.WeaponTypeRegistry.Count == 0)
             {
                 MessageBox.Show("You must have a valid weapon type before you can make a weapon. Please make one and try again.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 Close();
@@ -26,7 +21,7 @@ namespace MasterTool.Tools
             else
             {
                 weaponType.Items.Clear();
-                foreach(WeaponType type in DataStorage.WeaponTypeRegistry)
+                foreach (WeaponType type in DataStorage.WeaponTypeRegistry)
                 {
                     weaponType.Items.Add(type.name);
                 }

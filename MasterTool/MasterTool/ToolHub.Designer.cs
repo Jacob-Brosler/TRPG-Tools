@@ -39,14 +39,14 @@
             this.Weapons = new System.Windows.Forms.Button();
             this.Equipment = new System.Windows.Forms.Button();
             this.LoadData = new System.Windows.Forms.Button();
+            this.MoveTypes = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ItemDefinitions
             // 
-            this.ItemDefinitions.Location = new System.Drawing.Point(16, 15);
-            this.ItemDefinitions.Margin = new System.Windows.Forms.Padding(4);
+            this.ItemDefinitions.Location = new System.Drawing.Point(12, 12);
             this.ItemDefinitions.Name = "ItemDefinitions";
-            this.ItemDefinitions.Size = new System.Drawing.Size(133, 31);
+            this.ItemDefinitions.Size = new System.Drawing.Size(100, 25);
             this.ItemDefinitions.TabIndex = 0;
             this.ItemDefinitions.Text = "Item Definitions";
             this.ItemDefinitions.UseVisualStyleBackColor = true;
@@ -54,10 +54,9 @@
             // 
             // BattleItems
             // 
-            this.BattleItems.Location = new System.Drawing.Point(157, 15);
-            this.BattleItems.Margin = new System.Windows.Forms.Padding(4);
+            this.BattleItems.Location = new System.Drawing.Point(118, 12);
             this.BattleItems.Name = "BattleItems";
-            this.BattleItems.Size = new System.Drawing.Size(133, 31);
+            this.BattleItems.Size = new System.Drawing.Size(100, 25);
             this.BattleItems.TabIndex = 1;
             this.BattleItems.Text = "Battle Items";
             this.BattleItems.UseVisualStyleBackColor = true;
@@ -65,10 +64,9 @@
             // 
             // PlayerTemplates
             // 
-            this.PlayerTemplates.Location = new System.Drawing.Point(299, 15);
-            this.PlayerTemplates.Margin = new System.Windows.Forms.Padding(4);
+            this.PlayerTemplates.Location = new System.Drawing.Point(224, 12);
             this.PlayerTemplates.Name = "PlayerTemplates";
-            this.PlayerTemplates.Size = new System.Drawing.Size(133, 31);
+            this.PlayerTemplates.Size = new System.Drawing.Size(100, 25);
             this.PlayerTemplates.TabIndex = 2;
             this.PlayerTemplates.Text = "Player Templates";
             this.PlayerTemplates.UseVisualStyleBackColor = true;
@@ -76,10 +74,9 @@
             // 
             // EnemyDefinitions
             // 
-            this.EnemyDefinitions.Location = new System.Drawing.Point(16, 53);
-            this.EnemyDefinitions.Margin = new System.Windows.Forms.Padding(4);
+            this.EnemyDefinitions.Location = new System.Drawing.Point(12, 43);
             this.EnemyDefinitions.Name = "EnemyDefinitions";
-            this.EnemyDefinitions.Size = new System.Drawing.Size(133, 31);
+            this.EnemyDefinitions.Size = new System.Drawing.Size(100, 25);
             this.EnemyDefinitions.TabIndex = 3;
             this.EnemyDefinitions.Text = "Enemy Definitions";
             this.EnemyDefinitions.UseVisualStyleBackColor = true;
@@ -87,10 +84,9 @@
             // 
             // WeaponTypes
             // 
-            this.WeaponTypes.Location = new System.Drawing.Point(157, 53);
-            this.WeaponTypes.Margin = new System.Windows.Forms.Padding(4);
+            this.WeaponTypes.Location = new System.Drawing.Point(118, 43);
             this.WeaponTypes.Name = "WeaponTypes";
-            this.WeaponTypes.Size = new System.Drawing.Size(133, 31);
+            this.WeaponTypes.Size = new System.Drawing.Size(100, 25);
             this.WeaponTypes.TabIndex = 4;
             this.WeaponTypes.Text = "Weapon Types";
             this.WeaponTypes.UseVisualStyleBackColor = true;
@@ -98,10 +94,9 @@
             // 
             // TileTypes
             // 
-            this.TileTypes.Location = new System.Drawing.Point(299, 53);
-            this.TileTypes.Margin = new System.Windows.Forms.Padding(4);
+            this.TileTypes.Location = new System.Drawing.Point(224, 43);
             this.TileTypes.Name = "TileTypes";
-            this.TileTypes.Size = new System.Drawing.Size(133, 31);
+            this.TileTypes.Size = new System.Drawing.Size(100, 25);
             this.TileTypes.TabIndex = 5;
             this.TileTypes.Text = "Tile Types";
             this.TileTypes.UseVisualStyleBackColor = true;
@@ -109,10 +104,9 @@
             // 
             // Save
             // 
-            this.Save.Location = new System.Drawing.Point(244, 129);
-            this.Save.Margin = new System.Windows.Forms.Padding(4);
+            this.Save.Location = new System.Drawing.Point(183, 138);
             this.Save.Name = "Save";
-            this.Save.Size = new System.Drawing.Size(100, 28);
+            this.Save.Size = new System.Drawing.Size(75, 23);
             this.Save.TabIndex = 6;
             this.Save.Text = "Save";
             this.Save.UseVisualStyleBackColor = true;
@@ -120,10 +114,9 @@
             // 
             // spellTrees
             // 
-            this.spellTrees.Location = new System.Drawing.Point(16, 90);
-            this.spellTrees.Margin = new System.Windows.Forms.Padding(4);
+            this.spellTrees.Location = new System.Drawing.Point(12, 73);
             this.spellTrees.Name = "spellTrees";
-            this.spellTrees.Size = new System.Drawing.Size(133, 31);
+            this.spellTrees.Size = new System.Drawing.Size(100, 25);
             this.spellTrees.TabIndex = 7;
             this.spellTrees.Text = "Spell Trees";
             this.spellTrees.UseVisualStyleBackColor = true;
@@ -131,10 +124,9 @@
             // 
             // Weapons
             // 
-            this.Weapons.Location = new System.Drawing.Point(157, 90);
-            this.Weapons.Margin = new System.Windows.Forms.Padding(4);
+            this.Weapons.Location = new System.Drawing.Point(118, 73);
             this.Weapons.Name = "Weapons";
-            this.Weapons.Size = new System.Drawing.Size(133, 31);
+            this.Weapons.Size = new System.Drawing.Size(100, 25);
             this.Weapons.TabIndex = 8;
             this.Weapons.Text = "Weapons";
             this.Weapons.UseVisualStyleBackColor = true;
@@ -142,10 +134,9 @@
             // 
             // Equipment
             // 
-            this.Equipment.Location = new System.Drawing.Point(299, 90);
-            this.Equipment.Margin = new System.Windows.Forms.Padding(4);
+            this.Equipment.Location = new System.Drawing.Point(224, 73);
             this.Equipment.Name = "Equipment";
-            this.Equipment.Size = new System.Drawing.Size(133, 31);
+            this.Equipment.Size = new System.Drawing.Size(100, 25);
             this.Equipment.TabIndex = 9;
             this.Equipment.Text = "Equipment";
             this.Equipment.UseVisualStyleBackColor = true;
@@ -153,20 +144,30 @@
             // 
             // LoadData
             // 
-            this.LoadData.Location = new System.Drawing.Point(103, 129);
-            this.LoadData.Margin = new System.Windows.Forms.Padding(4);
+            this.LoadData.Location = new System.Drawing.Point(77, 138);
             this.LoadData.Name = "LoadData";
-            this.LoadData.Size = new System.Drawing.Size(100, 28);
+            this.LoadData.Size = new System.Drawing.Size(75, 23);
             this.LoadData.TabIndex = 10;
             this.LoadData.Text = "Load";
             this.LoadData.UseVisualStyleBackColor = true;
             this.LoadData.Click += new System.EventHandler(this.LoadData_Click);
             // 
+            // MoveTypes
+            // 
+            this.MoveTypes.Location = new System.Drawing.Point(118, 104);
+            this.MoveTypes.Name = "MoveTypes";
+            this.MoveTypes.Size = new System.Drawing.Size(100, 25);
+            this.MoveTypes.TabIndex = 11;
+            this.MoveTypes.Text = "Movement Types";
+            this.MoveTypes.UseVisualStyleBackColor = true;
+            this.MoveTypes.Click += new System.EventHandler(this.MoveTypes_Click);
+            // 
             // ToolHub
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(448, 167);
+            this.ClientSize = new System.Drawing.Size(336, 170);
+            this.Controls.Add(this.MoveTypes);
             this.Controls.Add(this.LoadData);
             this.Controls.Add(this.Equipment);
             this.Controls.Add(this.Weapons);
@@ -178,7 +179,6 @@
             this.Controls.Add(this.PlayerTemplates);
             this.Controls.Add(this.BattleItems);
             this.Controls.Add(this.ItemDefinitions);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ToolHub";
@@ -201,6 +201,7 @@
         private System.Windows.Forms.Button Weapons;
         private System.Windows.Forms.Button Equipment;
         private System.Windows.Forms.Button LoadData;
+        private System.Windows.Forms.Button MoveTypes;
     }
 }
 

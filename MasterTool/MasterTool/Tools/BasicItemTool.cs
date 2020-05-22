@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MasterTool.Tools
@@ -42,9 +36,9 @@ namespace MasterTool.Tools
             {
                 append++;
                 validName = true;
-                foreach(ItemBase item in itemBoundList)
+                foreach (ItemBase item in itemBoundList)
                 {
-                    if(item.name == name + append)
+                    if (item.name == name + append)
                         validName = false;
                 }
             } while (!validName);
@@ -78,7 +72,7 @@ namespace MasterTool.Tools
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(itemList.SelectedIndex != previousSelectedIndex)
+            if (itemList.SelectedIndex != previousSelectedIndex)
             {
                 if (SaveItem(previousSelectedIndex))
                 {

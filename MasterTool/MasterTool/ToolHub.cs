@@ -1,12 +1,5 @@
 ﻿using MasterTool.Tools;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MasterTool
@@ -92,7 +85,7 @@ namespace MasterTool
         {
             WeaponTool weaponScreen = new WeaponTool();
 
-            if(!weaponScreen.IsDisposed)
+            if (!weaponScreen.IsDisposed)
                 weaponScreen.ShowDialog(this);
         }
 
@@ -102,6 +95,14 @@ namespace MasterTool
 
             if (!equipmentScreen.IsDisposed)
                 equipmentScreen.ShowDialog(this);
+        }
+
+        private void MoveTypes_Click(object sender, EventArgs e)
+        {
+            MovementTypesTool moveTypeScreen = new MovementTypesTool();
+
+            if (!moveTypeScreen.IsDisposed)
+                moveTypeScreen.ShowDialog(this);
         }
 
         private void LoadData_Click(object sender, EventArgs e)

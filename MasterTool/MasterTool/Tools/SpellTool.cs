@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MasterTool.Tools
@@ -97,7 +91,7 @@ namespace MasterTool.Tools
             } while (!validName);
             itemBoundList.Add(new Skill(name + append, TargettingType.Self, 1, 1, 1, 1, 1, 1, ""));
             //Keeps the first item in a tree from being able to add itself as a dependency
-            if(itemBoundList.Count != 1)
+            if (itemBoundList.Count != 1)
                 dependencyList.Items.Add(itemBoundList[itemBoundList.Count - 1].name);
 
             if (itemBoundList.Count == 1)
@@ -115,7 +109,7 @@ namespace MasterTool.Tools
             {
                 previousSelectedIndex = -1;
                 itemBoundList.RemoveAt(spellList.SelectedIndex);
-                foreach(Skill spell in itemBoundList)
+                foreach (Skill spell in itemBoundList)
                 {
                     spell.RemoveSpell(spellList.SelectedIndex);
                 }
